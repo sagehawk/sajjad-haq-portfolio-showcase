@@ -1,19 +1,20 @@
 
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 // Define the tech stacks with appropriate categories
 const techStacks = [
   {
     category: "Core",
-    techs: ["HTML", "CSS", "JavaScript", "TypeScript"],
+    techs: ["HTML5", "CSS3", "JavaScript", "TypeScript"],
   },
   {
     category: "Frameworks & Libraries",
     techs: ["React", "Vite", "Tailwind", "Shadcn UI", "Bootstrap", "jQuery"],
   },
   {
-    category: "Tools & Platforms",
-    techs: ["Supabase", "Squarespace", "Git", "Vercel"],
+    category: "Platforms",
+    techs: ["Supabase", "Squarespace", "Vercel", "Git"],
   },
   {
     category: "API & Integration",
@@ -25,20 +26,32 @@ const About = () => {
   return (
     <section id="about" className="bg-white py-16 md:py-24">
       <div className="section-container">
-        <h2 className="section-title">About Me</h2>
+        <h2 className="section-title font-extrabold font-inter">About Me</h2>
         
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6">
-            <p className="text-gray-700">
-              Sajjad Haq is a front-end web developer with experience across CMS platforms and modern JavaScript frameworks. He specializes in creating responsive, accessible interfaces that prioritize usability, clarity, and performance.
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-gray-700 leading-relaxed">
+              Sajjad Haq is a front-end developer specializing in React, TypeScript, TailwindCSS, and CMS platforms like Squarespace. He builds responsive, accessible interfaces that prioritize performance and user experience.
             </p>
-            <p className="text-gray-700">
-              His work ranges from drag-and-drop upload tools and AI-integrated dashboards to commercial websites with dynamic forms and content systems. He builds with clean code, modern tools, and a strong understanding of layout, state, and visual hierarchy.
+            <p className="text-gray-700 leading-relaxed">
+              His work spans AI-integrated tools, dynamic forms, and polished marketing sites.
             </p>
-          </div>
+          </motion.div>
           
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-bold text-charcoal mb-4">Tech Stack</h3>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+          >
+            <h3 className="text-xl font-extrabold text-charcoal mb-4 font-inter">Tech Stack</h3>
             <div className="space-y-4">
               {techStacks.map((stack, index) => (
                 <div key={index} className="space-y-2">
@@ -62,7 +75,7 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

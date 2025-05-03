@@ -54,8 +54,10 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				// Custom colors
-				charcoal: '#403E43',
+				charcoal: '#1F2937',
 				navy: '#1a365d',
+				royal: '#2563EB',
+				emerald: '#10B981',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -88,6 +90,9 @@ export default {
 			},
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
+			},
+			boxShadow: {
+				'card': '0 8px 24px rgba(0, 0, 0, 0.12)',
 			}
 		}
 	},

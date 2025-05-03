@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -36,17 +37,30 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="bg-white py-16 md:py-24">
+    <section id="contact" className="bg-[#2563EB] text-white py-16 md:py-24">
       <div className="section-container">
-        <h2 className="section-title">Let's Connect</h2>
+        <motion.h2 
+          className="text-3xl md:text-4xl font-extrabold mb-8 font-inter"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Let's Connect
+        </motion.h2>
         
         <div className="grid md:grid-cols-2 gap-10">
-          <div>
-            <h3 className="text-xl font-semibold text-charcoal mb-4">Contact Information</h3>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
             <div className="space-y-4">
               <p className="flex items-center">
                 <span className="w-20 font-medium">Email:</span>
-                <a href="mailto:haq.sajjad220@gmail.com" className="text-navy hover:underline">
+                <a href="mailto:haq.sajjad220@gmail.com" className="text-white hover:text-blue-200 underline underline-offset-4">
                   haq.sajjad220@gmail.com
                 </a>
               </p>
@@ -56,19 +70,24 @@ const Contact = () => {
                   href="https://linkedin.com/in/sajjadhaq" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center text-navy hover:underline"
+                  className="flex items-center text-white hover:text-blue-200 underline underline-offset-4"
                 >
                   <Linkedin className="mr-1 h-5 w-5" />
                   sajjadhaq
                 </a>
               </p>
             </div>
-          </div>
+          </motion.div>
           
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium mb-1">
                   Name
                 </label>
                 <Input
@@ -78,11 +97,12 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Your name"
                   required
+                  className="bg-white/10 border-white/20 placeholder:text-white/50 text-white"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium mb-1">
                   Email
                 </label>
                 <Input
@@ -93,11 +113,12 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="your.email@example.com"
                   required
+                  className="bg-white/10 border-white/20 placeholder:text-white/50 text-white"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium mb-1">
                   Message
                 </label>
                 <Textarea
@@ -106,20 +127,20 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Your message..."
-                  className="min-h-[120px]"
+                  className="min-h-[120px] bg-white/10 border-white/20 placeholder:text-white/50 text-white"
                   required
                 />
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-navy hover:bg-navy/90"
+                className="w-full bg-white text-[#2563EB] hover:bg-blue-100 transition-colors duration-200"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
