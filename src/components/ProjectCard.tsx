@@ -46,6 +46,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const isGif = project.image?.endsWith('.gif');
+  const isDiscordGasBot = project.title === "Discord Gas Bot";
 
   return (
     <>
@@ -75,7 +76,8 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                     style={{ maxHeight: "180px", maxWidth: "300px" }}
                     loading="lazy"
                   />
-                  {project.caption && (
+                  {/* Only show caption in the modal, not in the thumbnail */}
+                  {!isDiscordGasBot && project.caption && (
                     <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs p-2 text-center">
                       {project.caption}
                     </div>

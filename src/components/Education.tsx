@@ -1,11 +1,22 @@
 
 import { motion } from "framer-motion";
+import { GraduationCap } from "lucide-react";
 
 const Education = () => {
   return (
     <section id="education" className="bg-white dark:bg-gray-900 py-16 md:py-24">
       <div className="section-container">
-        <h2 className="section-title font-extrabold font-inter">Education</h2>
+        <div className="flex items-center gap-3 mb-8">
+          <h2 className="section-title font-extrabold font-inter">Education</h2>
+          {/* NIU logo next to heading */}
+          <img 
+            src="https://www.niu.edu/images/niu-logo.png" 
+            alt="NIU Logo" 
+            width="40" 
+            height="40" 
+            className="inline-block"
+          />
+        </div>
         
         <motion.div 
           className="grid md:grid-cols-2 gap-12 items-start"
@@ -16,9 +27,11 @@ const Education = () => {
         >
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-bold text-charcoal dark:text-white">Bachelor of Science in Computer Science</h3>
+              <h3 className="flex items-center text-xl font-bold text-charcoal dark:text-white">
+                <GraduationCap className="mr-2 h-5 w-5" />
+                Bachelor of Science in Computer Science
+              </h3>
               <p className="text-lg font-medium text-gray-700 dark:text-gray-300">Northern Illinois University — June 2025</p>
-              <p className="text-gray-600 dark:text-gray-400 italic">Cumulative GPA: 3.15 | Major GPA: 2.96</p>
             </div>
           </div>
           
