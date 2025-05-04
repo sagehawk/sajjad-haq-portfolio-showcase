@@ -11,7 +11,7 @@ const Education = () => {
         <img 
           src="https://www.commonapp.org/static/8ba4e8f60b77281b4c703086258a54fc/northern-illinois-university_1112_gallery1.jpg"
           alt="NIU Campus"
-          className="w-full h-full object-cover opacity-10 dark:opacity-5"
+          className="w-full h-full object-cover opacity-15 dark:opacity-10"
         />
       </div>
       
@@ -22,8 +22,8 @@ const Education = () => {
           <img 
             src="https://cdn.worldvectorlogo.com/logos/northern-illinois-university.svg" 
             alt="NIU Logo" 
-            width="60" 
-            height="60" 
+            width="120" 
+            height="120" 
             className="inline-block filter dark:invert"
           />
         </div>
