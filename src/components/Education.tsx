@@ -10,7 +10,7 @@ const Education = () => {
           <h2 className="section-title font-extrabold font-inter">Education</h2>
           {/* NIU logo next to heading */}
           <img 
-            src="https://www.niu.edu/images/niu-logo.png" 
+            src="https://cdn.worldvectorlogo.com/logos/northern-illinois-university.svg" 
             alt="NIU Logo" 
             width="40" 
             height="40" 
