@@ -80,7 +80,7 @@
   }
   
   body {
-    @apply bg-[#F9FAFB] text-[#1F2937];
+    @apply bg-[#F9FAFB] text-[#1F2937] dark:bg-[#111827] dark:text-[#F9FAFB];
     line-height: 1.6;
   }
   
@@ -89,7 +89,7 @@
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-12 text-charcoal relative pb-4 inline-block;
+    @apply text-3xl md:text-4xl font-bold mb-12 text-charcoal dark:text-white relative pb-4 inline-block;
   }
   
   .section-title::after {
