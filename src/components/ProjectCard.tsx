@@ -11,6 +11,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from 'lucide-react';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel";
 
 export interface ProjectProps {
   title: string;
@@ -24,6 +31,7 @@ export interface ProjectProps {
   beforeImage?: string;
   afterImage?: string;
   loomEmbed?: string;
+  caption?: string;
   clientResults?: {
     name: string;
     result: string;
@@ -35,6 +43,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeImage, setActiveImage] = useState(project.image || '');
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
@@ -45,16 +54,38 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] group">
+        <div 
+          className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] group"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           {project.image && (
             <div className="relative h-48 overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                onLoad={() => setImageLoaded(true)}
-                style={{ opacity: imageLoaded ? 1 : 0 }}
-              />
+              {project.image.endsWith('.gif') ? (
+                <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-auto max-h-full max-w-full object-contain transition-opacity duration-300"
+                    style={{ maxHeight: "180px", maxWidth: "300px" }}
+                    loading="lazy"
+                  />
+                  {project.caption && (
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs p-2 text-center">
+                      {project.caption}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  onLoad={() => setImageLoaded(true)}
+                  style={{ opacity: imageLoaded ? 1 : 0 }}
+                  loading="lazy"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           )}
@@ -95,13 +126,14 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
           </DialogHeader>
           
           <div className="space-y-6 mt-4">
-            {project.image && (
+            {project.image && !project.image.endsWith('.gif') && (
               <div className="space-y-4">
                 <div className="bg-gray-50 p-1 rounded-lg">
                   <img
                     src={activeImage || project.image}
                     alt={project.title}
                     className="w-full rounded object-contain max-h-[50vh]"
+                    loading="lazy"
                   />
                 </div>
                 
@@ -112,7 +144,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                         onClick={() => setActiveImage(project.image!)}
                         className={`p-1 rounded ${activeImage === project.image ? 'ring-2 ring-[#2563EB]' : ''}`}
                       >
-                        <img src={project.image} alt="Main view" className="h-16 w-auto object-cover rounded" />
+                        <img src={project.image} alt="Main view" className="h-16 w-auto object-cover rounded" loading="lazy" />
                       </button>
                     )}
                     {project.beforeImage && (
@@ -120,7 +152,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                         onClick={() => setActiveImage(project.beforeImage!)}
                         className={`p-1 rounded ${activeImage === project.beforeImage ? 'ring-2 ring-[#2563EB]' : ''}`}
                       >
-                        <img src={project.beforeImage} alt="Before" className="h-16 w-auto object-cover rounded" />
+                        <img src={project.beforeImage} alt="Before" className="h-16 w-auto object-cover rounded" loading="lazy" />
                       </button>
                     )}
                     {project.afterImage && (
@@ -128,7 +160,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                         onClick={() => setActiveImage(project.afterImage!)}
                         className={`p-1 rounded ${activeImage === project.afterImage ? 'ring-2 ring-[#2563EB]' : ''}`}
                       >
-                        <img src={project.afterImage} alt="After" className="h-16 w-auto object-cover rounded" />
+                        <img src={project.afterImage} alt="After" className="h-16 w-auto object-cover rounded" loading="lazy" />
                       </button>
                     )}
                     {project.mobileImage && (
@@ -136,11 +168,22 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                         onClick={() => setActiveImage(project.mobileImage!)}
                         className={`p-1 rounded ${activeImage === project.mobileImage ? 'ring-2 ring-[#2563EB]' : ''}`}
                       >
-                        <img src={project.mobileImage} alt="Mobile view" className="h-16 w-auto object-cover rounded" />
+                        <img src={project.mobileImage} alt="Mobile view" className="h-16 w-auto object-cover rounded" loading="lazy" />
                       </button>
                     )}
                   </div>
                 )}
+              </div>
+            )}
+
+            {project.image && project.image.endsWith('.gif') && (
+              <div className="bg-gray-50 p-4 rounded-lg flex justify-center">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="rounded max-h-[300px] max-w-full object-contain"
+                  loading="lazy"
+                />
               </div>
             )}
             
@@ -166,21 +209,48 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
             <div className="pt-2">
               <h4 className="font-semibold mb-2">Project Details</h4>
               <p className="text-gray-700 whitespace-pre-line">{project.details}</p>
+              {project.caption && project.image && project.image.endsWith('.gif') && (
+                <p className="text-sm text-gray-600 mt-2 italic">{project.caption}</p>
+              )}
             </div>
             
             {project.clientResults && project.clientResults.length > 0 && (
               <div className="pt-2">
                 <h4 className="font-semibold mb-3">Client Results</h4>
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="hidden md:grid md:grid-cols-3 gap-4">
                   {project.clientResults.map((result, i) => (
                     <div key={i} className="bg-gray-50 p-4 rounded-lg">
                       {result.image && (
-                        <img src={result.image} alt={result.name} className="w-full h-auto rounded mb-3" />
+                        <img src={result.image} alt={result.name} className="w-full h-auto rounded mb-3" loading="lazy" />
                       )}
-                      <p className="font-medium">{result.name}</p>
+                      <p className="font-medium flex items-center gap-1">
+                        <span role="img" aria-label="trophy">🏆</span> {result.name}
+                      </p>
                       <p className="text-sm text-green-600">{result.result}</p>
                     </div>
                   ))}
+                </div>
+                
+                <div className="md:hidden">
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {project.clientResults.map((result, i) => (
+                        <CarouselItem key={i}>
+                          <div className="bg-gray-50 p-4 rounded-lg">
+                            {result.image && (
+                              <img src={result.image} alt={result.name} className="w-full h-auto rounded mb-3" loading="lazy" />
+                            )}
+                            <p className="font-medium flex items-center gap-1">
+                              <span role="img" aria-label="trophy">🏆</span> {result.name}
+                            </p>
+                            <p className="text-sm text-green-600">{result.result}</p>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="left-0 translate-x-0" />
+                    <CarouselNext className="right-0 translate-x-0" />
+                  </Carousel>
                 </div>
               </div>
             )}

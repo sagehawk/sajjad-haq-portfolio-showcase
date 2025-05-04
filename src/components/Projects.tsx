@@ -1,5 +1,6 @@
 
 import ProjectCard, { ProjectProps } from "./ProjectCard";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 // Define projects data
 const projects: ProjectProps[] = [
@@ -41,6 +42,8 @@ const projects: ProjectProps[] = [
     tech: ["Python", "discord.py", "UI components (Views, Selects)", "Ephemeral messaging"],
     details: "Designed slash commands like /filled, /balance, and /settle. Created dropdown-based UI for multi-step interactions. Used ephemeral messages for private feedback and formatted summaries for public logs. Streamlined how multiple drivers track and split fuel costs.",
     repo: "https://github.com/sagehawk/gas_bot",
+    image: "https://i.imgur.com/bsNL5c6.gif",
+    caption: "Live slash-command flow: dropdown → confirmation.",
   },
   {
     title: "Ceramic Catalysts",
@@ -57,11 +60,13 @@ const projects: ProjectProps[] = [
       },
       {
         name: "Alex Dorman",
-        result: "18 jobs/20 days"
+        result: "18 jobs in 20 days",
+        image: "https://lh3.googleusercontent.com/pw/AP1GczPdy589ULn_eafaM9J_86JFKbunR5748g-BvcFQ_BE7DusZrs54wO52fjR7UkV5J842Op-dEmzlIBMFi1gQ1ZTPAnwaT4zCjIrlOtfHimJvMMx0ShVbK3l9Vz2hZVnnweLB5pnngrw7ZZlkWHzQx6ZLqg=w954-h886-s-no-gm"
       },
       {
         name: "Zachary Mercer",
-        result: "13 jobs/10 days"
+        result: "13 jobs in 10 days",
+        image: "https://lh3.googleusercontent.com/pw/AP1GczNm4xOGE-kxbba7ay9QOUsaajJgIZKaBh8wKuf7IhsHqYgVHj8aimUsik45P0m6HdGcZVcEm1vMJMexFZs4gixChCcJmbSYwLrMfJOyGdRxcBJTz7Imo4USLA9Ptl44-ybMVLCPxshFNqfiis1SVO33g=w877-h884-s-no-gm"
       }
     ]
   },
