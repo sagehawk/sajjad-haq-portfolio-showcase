@@ -1,4 +1,3 @@
-
 import ProjectCard, { ProjectProps } from "./ProjectCard";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
@@ -19,7 +18,7 @@ const projects: ProjectProps[] = [
     details: "Implemented dynamic job forms (add/remove entries, validation), scroll animations, counters, and lightboxes. Designed for performance and clarity across devices. Wrote clean, componentized code using vanilla JS and Bootstrap grid.",
     link: "https://mafoodgroup.com",
     image: "https://lh3.googleusercontent.com/pw/AP1GczO9laSc9jf_SPq6IWwrlzL7mEXKqQi1chtxyX44eHdlsbzuqEMr-8L5W3wiNi0GZg3-1bCVKclNdSGOqyOukXfgkr4iyBu93g3ll-gZhVbk64z2GnaPI6zxUcRLL2aThUEIORG_puU8jMaHw9li3OsM3Q=w1560-h890-s-no-gm",
-    mobileImage: "https://lh3.googleusercontent.com/pw/AP1GczOEacQ-Rnz8qXKKGLmSa7VKnsPYocDRaLE91JnpFNqlqQVrOBw6s5PVy59cb7mE2V_T5X8xhNcpkLcz0aRnXXXIehxNfuFNWHA_fGefrtfLe8JT0E3leHgtTFn_UoX6WlUkm-KECsCef5jIvn9DaGa_-g=w318-h697-s-no-gm",
+    mobileImage: "https://lh3.googleusercontent.com/pw/AP1GczOEacQ-Rnz8qXKKGLmSa7VKnsPYocDRaLE91JnpFNqlqQVrOBw6s5PVy59cb7mE2V_T5X8xhNcpkLcz0aRnIEffIDIfX7oZGeENQSdN87jF5JIfOzZuVCCNCpeQn4JZahW_Ko_V-0DhX7dVTRyHQzonPkQ=w318-h697-s-no-gm",
   },
   {
     title: "NDM Capital LLC",
@@ -74,9 +73,9 @@ const projects: ProjectProps[] = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="bg-gray-50 py-16 md:py-24">
+    <section id="projects" className="bg-gray-50 dark:bg-gray-800 py-16 md:py-24">
       <div className="section-container">
-        <h2 className="section-title font-extrabold font-inter">Projects</h2>
+        <h2 className="section-title font-extrabold font-inter text-charcoal dark:text-white">Projects</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project, index) => (

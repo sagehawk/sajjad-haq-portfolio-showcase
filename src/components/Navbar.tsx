@@ -59,6 +59,7 @@ const Navbar = () => {
           <nav className="hidden md:flex space-x-8">
             <NavLink href="#home">Home</NavLink>
             <NavLink href="#about">About</NavLink>
+            <NavLink href="#education">Education</NavLink>
             <NavLink href="#projects">Projects</NavLink>
             <NavLink href="#contact">Contact</NavLink>
           </nav>
@@ -78,6 +79,7 @@ const Navbar = () => {
             <div className="px-2 pt-8 pb-3 space-y-4 flex flex-col items-center">
               <MobileNavLink href="#home" onClick={() => setMobileMenuOpen(false)}>Home</MobileNavLink>
               <MobileNavLink href="#about" onClick={() => setMobileMenuOpen(false)}>About</MobileNavLink>
+              <MobileNavLink href="#education" onClick={() => setMobileMenuOpen(false)}>Education</MobileNavLink>
               <MobileNavLink href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</MobileNavLink>
               <MobileNavLink href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</MobileNavLink>
               

@@ -45,6 +45,8 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  const isGif = project.image?.endsWith('.gif');
+
   return (
     <>
       <motion.div
@@ -55,14 +57,17 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
         transition={{ duration: 0.5 }}
       >
         <div 
-          className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] group"
+          className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-700 h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] group"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {project.image && (
-            <div className="relative h-48 overflow-hidden">
-              {project.image.endsWith('.gif') ? (
-                <div className="w-full h-full flex items-center justify-center bg-gray-100">
+            <div 
+              className="relative h-48 overflow-hidden cursor-pointer"
+              onClick={() => setIsOpen(true)}
+            >
+              {isGif ? (
+                <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-gray-700">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -86,28 +91,32 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                   loading="lazy"
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              {/* Only add the overlay gradient if it's not a GIF */}
+              {!isGif && (
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              )}
             </div>
           )}
           <div className="p-6">
-            <h3 className="text-xl font-extrabold text-charcoal mb-2 font-inter">{project.title}</h3>
-            <p className="text-gray-600 mb-4">{project.summary}</p>
+            <h3 className="text-xl font-extrabold text-charcoal dark:text-white mb-2 font-inter">{project.title}</h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">{project.summary}</p>
             
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tech.slice(0, 3).map((tech, index) => (
-                <Badge key={index} variant="outline" className="bg-gray-100 text-gray-800">
+                <Badge key={index} variant="outline" className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                   {tech}
                 </Badge>
               ))}
               {project.tech.length > 3 && (
-                <Badge variant="outline" className="bg-gray-100 text-gray-800">
+                <Badge variant="outline" className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                   +{project.tech.length - 3}
                 </Badge>
               )}
             </div>
             
             <Button 
-              className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white transition-colors duration-200"
+              className="bg-[#2563EB] hover:bg-white dark:hover:bg-gray-800 hover:text-[#2563EB] border border-[#2563EB] text-white transition-colors duration-200"
               onClick={() => setIsOpen(true)}
             >
               See More
@@ -117,18 +126,18 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
       </motion.div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-extrabold font-inter">{project.title}</DialogTitle>
-            <DialogDescription className="text-base text-gray-700">
+            <DialogTitle className="text-2xl font-extrabold font-inter text-gray-900 dark:text-white">{project.title}</DialogTitle>
+            <DialogDescription className="text-base text-gray-700 dark:text-gray-300">
               {project.summary}
             </DialogDescription>
           </DialogHeader>
           
           <div className="space-y-6 mt-4">
-            {project.image && !project.image.endsWith('.gif') && (
+            {project.image && !isGif && (
               <div className="space-y-4">
-                <div className="bg-gray-50 p-1 rounded-lg">
+                <div className="bg-gray-50 dark:bg-gray-700 p-1 rounded-lg">
                   <img
                     src={activeImage || project.image}
                     alt={project.title}
@@ -176,8 +185,8 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
               </div>
             )}
 
-            {project.image && project.image.endsWith('.gif') && (
-              <div className="bg-gray-50 p-4 rounded-lg flex justify-center">
+            {project.image && isGif && (
+              <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex justify-center">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -200,33 +209,33 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
             
             <div className="flex flex-wrap gap-2">
               {project.tech.map((tech, index) => (
-                <Badge key={index} className="bg-gray-100 text-gray-800">
+                <Badge key={index} className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                   {tech}
                 </Badge>
               ))}
             </div>
             
             <div className="pt-2">
-              <h4 className="font-semibold mb-2">Project Details</h4>
-              <p className="text-gray-700 whitespace-pre-line">{project.details}</p>
+              <h4 className="font-semibold mb-2 dark:text-white">Project Details</h4>
+              <p className="text-gray-700 dark:text-gray-300 whitespace-pre-line">{project.details}</p>
               {project.caption && project.image && project.image.endsWith('.gif') && (
-                <p className="text-sm text-gray-600 mt-2 italic">{project.caption}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 italic">{project.caption}</p>
               )}
             </div>
             
             {project.clientResults && project.clientResults.length > 0 && (
               <div className="pt-2">
-                <h4 className="font-semibold mb-3">Client Results</h4>
+                <h4 className="font-semibold mb-3 dark:text-white">Client Results</h4>
                 <div className="hidden md:grid md:grid-cols-3 gap-4">
                   {project.clientResults.map((result, i) => (
-                    <div key={i} className="bg-gray-50 p-4 rounded-lg">
+                    <div key={i} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                       {result.image && (
                         <img src={result.image} alt={result.name} className="w-full h-auto rounded mb-3" loading="lazy" />
                       )}
-                      <p className="font-medium flex items-center gap-1">
+                      <p className="font-medium flex items-center gap-1 dark:text-white">
                         <span role="img" aria-label="trophy">🏆</span> {result.name}
                       </p>
-                      <p className="text-sm text-green-600">{result.result}</p>
+                      <p className="text-sm text-green-600 dark:text-green-400">{result.result}</p>
                     </div>
                   ))}
                 </div>
@@ -236,20 +245,20 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                     <CarouselContent>
                       {project.clientResults.map((result, i) => (
                         <CarouselItem key={i}>
-                          <div className="bg-gray-50 p-4 rounded-lg">
+                          <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                             {result.image && (
                               <img src={result.image} alt={result.name} className="w-full h-auto rounded mb-3" loading="lazy" />
                             )}
-                            <p className="font-medium flex items-center gap-1">
+                            <p className="font-medium flex items-center gap-1 dark:text-white">
                               <span role="img" aria-label="trophy">🏆</span> {result.name}
                             </p>
-                            <p className="text-sm text-green-600">{result.result}</p>
+                            <p className="text-sm text-green-600 dark:text-green-400">{result.result}</p>
                           </div>
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="left-0 translate-x-0" />
-                    <CarouselNext className="right-0 translate-x-0" />
+                    <CarouselPrevious className="left-0 translate-x-0 bg-white dark:bg-gray-700 dark:text-gray-200" />
+                    <CarouselNext className="right-0 translate-x-0 bg-white dark:bg-gray-700 dark:text-gray-200" />
                   </Carousel>
                 </div>
               </div>
@@ -257,7 +266,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
             
             <div className="flex flex-wrap gap-3 pt-4">
               {project.link && (
-                <Button asChild className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB]">
+                <Button asChild className="bg-[#2563EB] hover:bg-white dark:hover:bg-gray-800 hover:text-[#2563EB] border border-[#2563EB]">
                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     Visit Project
                     <ExternalLink size={16} />
@@ -265,7 +274,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                 </Button>
               )}
               {project.repo && (
-                <Button variant="outline" asChild>
+                <Button variant="outline" asChild className="dark:text-gray-200 dark:border-gray-600">
                   <a href={project.repo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     View Repository
                     <ExternalLink size={16} />
