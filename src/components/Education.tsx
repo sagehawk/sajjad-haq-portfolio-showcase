@@ -23,9 +23,9 @@ const Education = () => {
         <img 
             src="https://assets.concept3d.com/assets/249/NIU_xhorz_3Clr-rev-web.png" 
             alt="NIU Logo" 
-            width="150" 
-            height="150" 
-            className="inline-block filter dark:invert"
+            width="200" 
+            height="200" 
+            className="inline-block filter"
           />
         <motion.div 
           className="grid md:grid-cols-2 gap-12 items-start"
