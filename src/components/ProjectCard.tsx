@@ -1,21 +1,19 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Github, Play } from "lucide-react";
+import { motion } from "framer-motion";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink } from 'lucide-react';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
 } from "@/components/ui/carousel";
 
 export interface ProjectProps {
@@ -23,280 +21,240 @@ export interface ProjectProps {
   summary: string;
   tech: string[];
   details: string;
+  image: string;
   link?: string;
   repo?: string;
-  image?: string;
+  category: string;
+  beforeImage?: string;
   mobileImage?: string;
   mobileImage2?: string;
-  beforeImage?: string;
-  afterImage?: string;
   loomEmbed?: string;
   caption?: string;
-  category?: string;
   clientResults?: {
     name: string;
     result: string;
-    image?: string;
+    image: string;
+  }[];
+  additionalImages?: {
+    src: string;
+    alt: string;
   }[];
 }
 
-const ProjectCard = ({ project }: { project: ProjectProps }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeImage, setActiveImage] = useState(project.image || '');
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+interface ProjectCardProps {
+  project: ProjectProps;
+}
 
-  const isGif = project.image?.endsWith('.gif');
-  const isDiscordGasBot = project.title === "Discord Gas Bot";
-
+const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <>
-      <motion.div
-        className="h-full"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <div 
-          className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-700 h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] group"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          {project.image && (
-            <div 
-              className="relative h-48 overflow-hidden cursor-pointer"
-              onClick={() => setIsOpen(true)}
-            >
-              {isGif ? (
-                <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-gray-700">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-auto max-h-full max-w-full object-contain transition-opacity duration-300"
-                    style={{ maxHeight: "180px", maxWidth: "300px" }}
-                    loading="lazy"
-                  />
-                  {/* Only show caption in the modal, not in the thumbnail */}
-                  {!isDiscordGasBot && project.caption && (
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs p-2 text-center">
-                      {project.caption}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  onLoad={() => setImageLoaded(true)}
-                  style={{ opacity: imageLoaded ? 1 : 0 }}
-                  loading="lazy"
-                />
-              )}
-              
-              {/* Only add the overlay gradient if it's not a GIF */}
-              {!isGif && (
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              )}
-            </div>
-          )}
-          <div className="p-6">
-            <h3 className="text-xl font-extrabold text-charcoal dark:text-white mb-2 font-inter">{project.title}</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">{project.summary}</p>
-            
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.tech.slice(0, 3).map((tech, index) => (
-                <Badge key={index} variant="outline" className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
-                  {tech}
-                </Badge>
-              ))}
-              {project.tech.length > 3 && (
-                <Badge variant="outline" className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
-                  +{project.tech.length - 3}
-                </Badge>
-              )}
-            </div>
-            
-            <Button 
-              className="bg-[#2563EB] hover:bg-white dark:hover:bg-gray-800 hover:text-[#2563EB] border border-[#2563EB] text-white transition-colors duration-200"
-              onClick={() => setIsOpen(true)}
-            >
-              See More
-            </Button>
+    <motion.div 
+      className="flex flex-col bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-800"
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.2 }}
+    >
+      {/* Project Image */}
+      <div className="relative overflow-hidden aspect-[16/9]">
+        <img 
+          src={project.image} 
+          alt={project.title} 
+          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+        />
+        {project.caption && (
+          <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs p-1 text-center">
+            {project.caption}
           </div>
-        </div>
-      </motion.div>
+        )}
+      </div>
 
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-extrabold font-inter text-gray-900 dark:text-white">{project.title}</DialogTitle>
-            <DialogDescription className="text-base text-gray-700 dark:text-gray-300">
-              {project.summary}
-            </DialogDescription>
-          </DialogHeader>
-          
-          <div className="space-y-6 mt-4">
-            {project.image && !isGif && (
-              <div className="space-y-4">
-                <div className="bg-gray-50 dark:bg-gray-700 p-1 rounded-lg">
-                  <img
-                    src={activeImage || project.image}
-                    alt={project.title}
-                    className="w-full rounded object-contain max-h-[50vh]"
-                    loading="lazy"
-                  />
+      {/* Project Content */}
+      <div className="flex flex-col p-5 flex-grow">
+        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-3 text-sm">{project.summary}</p>
+        
+        {/* Tech Stack */}
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {project.tech.slice(0, 3).map((tech, index) => (
+            <Badge key={index} variant="secondary" className="text-xs font-medium">
+              {tech}
+            </Badge>
+          ))}
+          {project.tech.length > 3 && (
+            <Badge variant="outline" className="text-xs">
+              +{project.tech.length - 3} more
+            </Badge>
+          )}
+        </div>
+        
+        {/* Dialog with full project details */}
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline" size="sm" className="mt-auto">
+              View Details
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+            <div className="p-2">
+              <h2 className="text-2xl font-bold mb-4">{project.title}</h2>
+              
+              {/* Main image & before/after images */}
+              {project.beforeImage ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                  <div className="overflow-hidden rounded-md">
+                    <p className="text-xs font-medium text-center mb-1">Before</p>
+                    <img 
+                      src={project.beforeImage} 
+                      alt={`${project.title} - Before`} 
+                      className="w-full h-auto rounded-md border border-gray-200 dark:border-gray-700"
+                    />
+                  </div>
+                  <div className="overflow-hidden rounded-md">
+                    <p className="text-xs font-medium text-center mb-1">After</p>
+                    <img 
+                      src={project.image} 
+                      alt={`${project.title} - After`}
+                      className="w-full h-auto rounded-md border border-gray-200 dark:border-gray-700"
+                    />
+                  </div>
                 </div>
-                
-                {(project.beforeImage || project.afterImage || project.mobileImage || project.mobileImage2) && (
-                  <div className="flex gap-2 flex-wrap">
-                    {project.image && (
-                      <button
-                        onClick={() => setActiveImage(project.image!)}
-                        className={`p-1 rounded ${activeImage === project.image ? 'ring-2 ring-[#2563EB]' : ''}`}
-                      >
-                        <img src={project.image} alt="Main view" className="h-16 w-auto object-cover rounded" loading="lazy" />
-                      </button>
-                    )}
-                    {project.beforeImage && (
-                      <button
-                        onClick={() => setActiveImage(project.beforeImage!)}
-                        className={`p-1 rounded ${activeImage === project.beforeImage ? 'ring-2 ring-[#2563EB]' : ''}`}
-                      >
-                        <img src={project.beforeImage} alt="Before" className="h-16 w-auto object-cover rounded" loading="lazy" />
-                      </button>
-                    )}
-                    {project.afterImage && (
-                      <button
-                        onClick={() => setActiveImage(project.afterImage!)}
-                        className={`p-1 rounded ${activeImage === project.afterImage ? 'ring-2 ring-[#2563EB]' : ''}`}
-                      >
-                        <img src={project.afterImage} alt="After" className="h-16 w-auto object-cover rounded" loading="lazy" />
-                      </button>
-                    )}
-                    {project.mobileImage && (
-                      <button
-                        onClick={() => setActiveImage(project.mobileImage!)}
-                        className={`p-1 rounded ${activeImage === project.mobileImage ? 'ring-2 ring-[#2563EB]' : ''}`}
-                      >
-                        <img src={project.mobileImage} alt="Mobile view" className="h-16 w-auto object-cover rounded" loading="lazy" />
-                      </button>
-                    )}
+              ) : project.additionalImages ? (
+                <Carousel className="w-full mb-4">
+                  <CarouselContent>
+                    <CarouselItem>
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-auto rounded-md border border-gray-200 dark:border-gray-700" 
+                      />
+                    </CarouselItem>
+                    {project.additionalImages.map((img, index) => (
+                      <CarouselItem key={index}>
+                        <img 
+                          src={img.src} 
+                          alt={img.alt} 
+                          className="w-full h-auto rounded-md border border-gray-200 dark:border-gray-700" 
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2 bg-white/70 dark:bg-gray-800/70 hover:bg-white dark:hover:bg-gray-700" />
+                  <CarouselNext className="right-2 bg-white/70 dark:bg-gray-800/70 hover:bg-white dark:hover:bg-gray-700" />
+                </Carousel>
+              ) : project.mobileImage ? (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                  <div className="md:col-span-2">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-auto rounded-md border border-gray-200 dark:border-gray-700"
+                    />
+                  </div>
+                  <div className="flex justify-center space-x-2">
+                    <div className="rounded-md overflow-hidden border border-gray-200 dark:border-gray-700">
+                      <img 
+                        src={project.mobileImage} 
+                        alt={`${project.title} - Mobile`} 
+                        className="h-auto max-h-64 w-auto"
+                      />
+                    </div>
                     {project.mobileImage2 && (
-                      <button
-                        onClick={() => setActiveImage(project.mobileImage2!)}
-                        className={`p-1 rounded ${activeImage === project.mobileImage2 ? 'ring-2 ring-[#2563EB]' : ''}`}
-                      >
-                        <img src={project.mobileImage2} alt="Mobile view 2" className="h-16 w-auto object-cover rounded" loading="lazy" />
-                      </button>
+                      <div className="rounded-md overflow-hidden border border-gray-200 dark:border-gray-700">
+                        <img 
+                          src={project.mobileImage2} 
+                          alt={`${project.title} - Mobile 2`} 
+                          className="h-auto max-h-64 w-auto"
+                        />
+                      </div>
                     )}
                   </div>
-                )}
-              </div>
-            )}
-
-            {project.image && isGif && (
-              <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex justify-center">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="rounded max-h-[300px] max-w-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-            )}
-            
-            {project.loomEmbed && (
-              <div className="aspect-video">
-                <iframe
-                  src={project.loomEmbed}
-                  frameBorder="0"
-                  allowFullScreen
-                  className="w-full h-full rounded-lg"
-                ></iframe>
-              </div>
-            )}
-            
-            <div className="flex flex-wrap gap-2">
-              {project.tech.map((tech, index) => (
-                <Badge key={index} className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
-                  {tech}
-                </Badge>
-              ))}
-            </div>
-            
-            <div className="pt-2">
-              <h4 className="font-semibold mb-2 dark:text-white">Project Details</h4>
-              <p className="text-gray-700 dark:text-gray-300 whitespace-pre-line">{project.details}</p>
-              {project.caption && project.image && project.image.endsWith('.gif') && (
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 italic">{project.caption}</p>
+                </div>
+              ) : (
+                <div className="mb-4 rounded-md overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-auto rounded-md border border-gray-200 dark:border-gray-700"
+                  />
+                </div>
               )}
-            </div>
-            
-            {project.clientResults && project.clientResults.length > 0 && (
-              <div className="pt-2">
-                <h4 className="font-semibold mb-3 dark:text-white">Client Results</h4>
-                <div className="hidden md:grid md:grid-cols-3 gap-4">
-                  {project.clientResults.map((result, i) => (
-                    <div key={i} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                      {result.image && (
-                        <img src={result.image} alt={result.name} className="w-full h-auto rounded mb-3" loading="lazy" />
-                      )}
-                      <p className="font-medium flex items-center gap-1 dark:text-white">
-                        <span role="img" aria-label="trophy">🏆</span> {result.name}
-                      </p>
-                      <p className="text-sm text-green-600 dark:text-green-400">{result.result}</p>
-                    </div>
+              
+              {/* Loom video embed if available */}
+              {project.loomEmbed && (
+                <div className="aspect-video w-full mb-4">
+                  <iframe 
+                    src={project.loomEmbed} 
+                    className="w-full h-full"
+                    frameBorder="0" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
+              
+              {/* Client results section */}
+              {project.clientResults && (
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold mb-2">Client Results</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {project.clientResults.map((client, index) => (
+                      <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3">
+                        <div className="flex items-start space-x-2">
+                          <img 
+                            src={client.image} 
+                            alt={client.name} 
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                          <div>
+                            <p className="font-medium">{client.name}</p>
+                            <p className="text-sm text-emerald-600 dark:text-emerald-400 font-medium">
+                              {client.result}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Project details text */}
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold mb-2">Details</h3>
+                <p className="text-gray-700 dark:text-gray-300">{project.details}</p>
+              </div>
+              
+              {/* Full tech stack list */}
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold mb-2">Tech Stack</h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech, index) => (
+                    <Badge key={index} variant="secondary" className="text-xs font-medium">
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
-                
-                <div className="md:hidden">
-                  <Carousel className="w-full">
-                    <CarouselContent>
-                      {project.clientResults.map((result, i) => (
-                        <CarouselItem key={i}>
-                          <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                            {result.image && (
-                              <img src={result.image} alt={result.name} className="w-full h-auto rounded mb-3" loading="lazy" />
-                            )}
-                            <p className="font-medium flex items-center gap-1 dark:text-white">
-                              <span role="img" aria-label="trophy">🏆</span> {result.name}
-                            </p>
-                            <p className="text-sm text-green-600 dark:text-green-400">{result.result}</p>
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="left-0 translate-x-0 bg-white dark:bg-gray-700 dark:text-gray-200" />
-                    <CarouselNext className="right-0 translate-x-0 bg-white dark:bg-gray-700 dark:text-gray-200" />
-                  </Carousel>
-                </div>
               </div>
-            )}
-            
-            <div className="flex flex-wrap gap-3 pt-4">
-              {project.link && (
-                <Button asChild className="bg-[#2563EB] hover:bg-white dark:hover:bg-gray-800 hover:text-[#2563EB] border border-[#2563EB]">
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                    Visit Project
-                    <ExternalLink size={16} />
-                  </a>
-                </Button>
-              )}
-              {project.repo && (
-                <Button variant="outline" asChild className="dark:text-gray-200 dark:border-gray-600">
-                  <a href={project.repo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                    View Repository
-                    <ExternalLink size={16} />
-                  </a>
-                </Button>
-              )}
+              
+              {/* Links section */}
+              <div className="flex flex-wrap gap-2">
+                {project.link && (
+                  <Button size="sm" asChild>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4 mr-2" /> Visit Site
+                    </a>
+                  </Button>
+                )}
+                {project.repo && (
+                  <Button size="sm" variant="outline" asChild>
+                    <a href={project.repo} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4 mr-2" /> View Code
+                    </a>
+                  </Button>
+                )}
+              </div>
             </div>
-          </div>
-        </DialogContent>
-      </Dialog>
-    </>
+          </DialogContent>
+        </Dialog>
+      </div>
+    </motion.div>
   );
 };
 

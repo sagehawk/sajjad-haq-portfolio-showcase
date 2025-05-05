@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import ProjectCard, { ProjectProps } from "./ProjectCard";
 import { Badge } from "@/components/ui/badge";
@@ -41,6 +42,16 @@ const projects: ProjectProps[] = [
     tech: ["React", "TypeScript", "TailwindCSS", "Shadcn UI", "Supabase (Storage + DB)", "React Router", "Toast notifications"],
     details: "Built a responsive dashboard with sidebar navigation, contract upload form, file validation, and preview. Connected to Supabase for file and metadata storage. UI supports manual overrides and real-time status toasts. Built with cousins using Lovable.dev + ChatGPT for architectural planning.",
     image: "https://i.imgur.com/wEo5YRv.png",
+    additionalImages: [
+      {
+        src: "https://i.imgur.com/1NJvKwY.png",
+        alt: "Contracts Section"
+      },
+      {
+        src: "https://i.imgur.com/JPu2Utp.png",
+        alt: "Alerts Section"
+      }
+    ],
     category: "React",
   },
   {
