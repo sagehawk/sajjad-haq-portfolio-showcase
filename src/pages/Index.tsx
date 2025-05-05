@@ -23,6 +23,24 @@ const Index = () => {
     
     // Set cursor to default
     document.body.style.cursor = 'default';
+    
+    // Add these meta tags for performance optimization
+    const metaViewport = document.querySelector('meta[name="viewport"]');
+    if (metaViewport) {
+      metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
+    
+    // Add preconnect links for faster resource loading
+    const preconnectDomains = ['https://fonts.googleapis.com', 'https://fonts.gstatic.com', 'https://lh3.googleusercontent.com'];
+    preconnectDomains.forEach(domain => {
+      if (!document.querySelector(`link[rel="preconnect"][href="${domain}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = domain;
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+      }
+    });
   }, []);
   
   return (

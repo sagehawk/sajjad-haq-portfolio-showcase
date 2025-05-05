@@ -35,10 +35,10 @@ const Hero = () => {
             Sajjad Haq — Front-End Developer
           </h1>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-            I build <span className="text-[#2563EB] dark:text-[#3B82F6]">responsive, AI-powered, content-focused</span> websites that balance business goals with thoughtful UI.
+            I build <span className="text-[#2563EB] dark:text-[#3B82F6]">lightning-fast, pixel-perfect</span> web experiences that drive conversions and slash load times by up to 70%.
           </p>
           <Button 
-            className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-4"
+            className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-4 cursor-pointer"
             onClick={scrollToProjects}
           >
             View My Work
