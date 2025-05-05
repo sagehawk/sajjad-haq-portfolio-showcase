@@ -65,7 +65,7 @@ const projects: ProjectProps[] = [
       {
         name: "Zachary Mercer",
         result: "13 jobs in 10 days",
-        image: "https://lh3.googleusercontent.com/pw/AP1GczNm4xOGE-kxbba7ay9QOUsaajJgIZKaBh8wKuf7IhsHqYgVHj8aimUsik45P0m6HdGcZVcEm1vMJMexFZs4gixChCcJmbSYwLrMfJOyGdRxcBJTz7Imo4USLA9Ptl44-ybMVLCPxshFNqfiis1SVO33g=w877-h884-s-no-gm"
+        image: "https://lh3.googleusercontent.com/pw/AP1GczMs73ibCitu__0-SfnJMgL37sa7IQrQBJsJ-pWclqqaHVJ4gP25kRx8hpJ2q7rhrKnd_GecDA27dO8BBiLe7j5KuCsLEWl43DyLkYDUE2L10kIwrybSUiqoQYPMJ7zA0Crbu9__mFoFzvOFmwGA7zeRnw=w877-h884-s-no-gm"
       }
     ]
   },

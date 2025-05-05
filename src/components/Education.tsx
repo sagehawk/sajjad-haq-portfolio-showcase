@@ -21,10 +21,10 @@ const Education = () => {
           {/* NIU logo next to heading */}
         </div>
         <img 
-            src="https://cdn.worldvectorlogo.com/logos/northern-illinois-university.svg" 
+            src="https://assets.concept3d.com/assets/249/NIU_xhorz_3Clr-rev-web.png" 
             alt="NIU Logo" 
-            width="120" 
-            height="120" 
+            width="150" 
+            height="150" 
             className="inline-block filter dark:invert"
           />
         <motion.div 
