@@ -12,7 +12,8 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    hp_email: '' // Honeypot field
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -23,15 +24,39 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    // Check if honeypot field is filled (bot detection)
+    if (formData.hp_email !== '') {
+      console.log('Bot detected');
+      // Silently reject the submission but show success message to the bot
       toast({
         title: "Message sent!",
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', message: '', hp_email: '' });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    // Create form data for the email submission
+    const mailData = new FormData();
+    mailData.append('name', formData.name);
+    mailData.append('email', formData.email);
+    mailData.append('message', formData.message);
+    
+    // In a real implementation, you would send an email to haq.sajjad220@gmail.com
+    // For this example, we'll simulate the email sending
+    
+    setTimeout(() => {
+      // Here you would typically make a fetch/axios call to your backend
+      // to send the email to haq.sajjad220@gmail.com
+      
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+      setFormData({ name: '', email: '', message: '', hp_email: '' });
       setIsSubmitting(false);
     }, 1000);
   };
@@ -86,6 +111,20 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Honeypot field - hidden from real users but bots will fill it */}
+              <div className="hidden">
+                <label htmlFor="hp_email" aria-hidden="true" className="sr-only">Do not fill this field</label>
+                <input
+                  type="text"
+                  id="hp_email"
+                  name="hp_email"
+                  value={formData.hp_email}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+              
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1">
                   Name

@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Github, Linkedin } from "lucide-react";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -38,12 +39,36 @@ const Hero = () => {
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
             I build <span className="text-[#2563EB] dark:text-[#3B82F6]">lightning-fast, pixel-perfect</span> web experiences that drive conversions and slash load times by up to 70%.
           </p>
-          <Button 
-            className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-4 cursor-pointer relative z-20"
-            onClick={scrollToProjects}
-          >
-            View My Work
-          </Button>
+          
+          <div className="flex flex-wrap gap-4 items-center">
+            <Button 
+              className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-4 cursor-pointer relative z-20"
+              onClick={scrollToProjects}
+            >
+              View My Work
+            </Button>
+            
+            <div className="flex gap-3 mt-4">
+              <a 
+                href="https://github.com/sagehawk" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-[#2563EB] hover:text-white dark:hover:bg-[#3B82F6] transition-colors duration-200"
+                aria-label="GitHub"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://linkedin.com/in/sajjadhaq" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-[#2563EB] hover:text-white dark:hover:bg-[#3B82F6] transition-colors duration-200"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
         </motion.div>
         
         <motion.div
@@ -59,26 +84,6 @@ const Hero = () => {
           />
         </motion.div>
       </div>
-
-      {/* GitHub Contributions Panel - visible on all devices and clickable */}
-      <motion.div 
-        className="gh-stats block absolute bottom-6 right-6 transform -rotate-3 bg-white rounded-lg overflow-hidden shadow-lg border border-gray-200 w-[260px] sm:w-[300px] transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] cursor-pointer"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        onClick={() => window.open('https://github.com/sagehawk/', '_blank', 'noopener,noreferrer')}
-      >
-        <div className="p-3 bg-gray-50 border-b border-gray-200">
-          <h3 className="text-sm font-semibold text-gray-700">GitHub Activity</h3>
-        </div>
-        <div className="p-2">
-          <img 
-            src="https://ghchart.rshah.org/sagehawk" 
-            alt="GitHub contributions" 
-            className="w-full h-auto"
-          />
-        </div>
-      </motion.div>
     </section>
   );
 };
