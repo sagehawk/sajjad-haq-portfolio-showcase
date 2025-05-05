@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -28,6 +27,7 @@ export interface ProjectProps {
   repo?: string;
   image?: string;
   mobileImage?: string;
+  mobileImage2?: string;
   beforeImage?: string;
   afterImage?: string;
   loomEmbed?: string;
@@ -149,7 +149,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                   />
                 </div>
                 
-                {(project.beforeImage || project.afterImage || project.mobileImage) && (
+                {(project.beforeImage || project.afterImage || project.mobileImage || project.mobileImage2) && (
                   <div className="flex gap-2 flex-wrap">
                     {project.image && (
                       <button
@@ -181,6 +181,14 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                         className={`p-1 rounded ${activeImage === project.mobileImage ? 'ring-2 ring-[#2563EB]' : ''}`}
                       >
                         <img src={project.mobileImage} alt="Mobile view" className="h-16 w-auto object-cover rounded" loading="lazy" />
+                      </button>
+                    )}
+                    {project.mobileImage2 && (
+                      <button
+                        onClick={() => setActiveImage(project.mobileImage2!)}
+                        className={`p-1 rounded ${activeImage === project.mobileImage2 ? 'ring-2 ring-[#2563EB]' : ''}`}
+                      >
+                        <img src={project.mobileImage2} alt="Mobile view 2" className="h-16 w-auto object-cover rounded" loading="lazy" />
                       </button>
                     )}
                   </div>
