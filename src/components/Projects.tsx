@@ -18,7 +18,8 @@ const projects: ProjectProps[] = [
     details: "Implemented dynamic job forms (add/remove entries, validation), scroll animations, counters, and lightboxes. Designed for performance and clarity across devices. Wrote clean, componentized code using vanilla JS and Bootstrap grid.",
     link: "https://mafoodgroup.com",
     image: "https://lh3.googleusercontent.com/pw/AP1GczO9laSc9jf_SPq6IWwrlzL7mEXKqQi1chtxyX44eHdlsbzuqEMr-8L5W3wiNi0GZg3-1bCVKclNdSGOqyOukXfgkr4iyBu93g3ll-gZhVbk64z2GnaPI6zxUcRLL2aThUEIORG_puU8jMaHw9li3OsM3Q=w1560-h890-s-no-gm",
-    mobileImage: "https://lh3.googleusercontent.com/pw/AP1GczOEacQ-Rnz8qXKKGLmSa7VKnsPYocDRaLE91JnpFNqlqQVrOBw6s5PVy59cb7mE2V_T5X8xhNcpkLcz0aRnIEffIDIfX7oZGeENQSdN87jF5JIfOzZuVCCNCpeQn4JZahW_Ko_V-0DhX7dVTRyHQzonPkQ=w318-h697-s-no-gm",
+    mobileImage: "https://lh3.googleusercontent.com/pw/AP1GczP-MdNLev23jYMcfj_FUwbNXShUQazQrbWV2HflwRqIcaV3NunvjpJrEuMHBfbS0n5wCHniR8dkXbE_iyFj0MCL8VcfxQu4Xv2s7v3QKOSqjy5Z5uHkgXS_V3TpxfCCuek1zyWzS3cf5d1M3sq2Vo1vXA=w318-h697-s-no-gm",
+    mobileImage2: "https://lh3.googleusercontent.com/pw/AP1GczPmby1vJGXUFsjO-rHMdRpFL-56jj01X_egrALCY3xc27gWEKKNgBF_-24-qkUO-E6vygGMBmL1HhA2ajpKHyYs7DMfjgBCAX7wQOEtFM2yXkbJC6_OCbShS7fmGyyoLtLxe6oVmeWQt7MCu9VOTGc2dw=w316-h695-s-no-gm", 
   },
   {
     title: "NDM Capital LLC",
