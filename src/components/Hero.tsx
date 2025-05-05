@@ -17,7 +17,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center pt-8 md:pt-16 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
+      className="min-h-screen flex flex-col justify-center pt-0 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
     >
       {/* Background pattern - using pointer-events-none to allow clicking through */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
@@ -29,20 +29,19 @@ const Hero = () => {
         </svg>
       </div>
       
-      <div className="section-container flex flex-col md:flex-row items-center md:justify-between relative z-10 pt-8 md:pt-0">
+      <div className="section-container flex flex-col md:flex-row items-center md:justify-between relative z-10 -mt-16 md:mt-0">
         <motion.div 
           className="max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 mb-6 md:mb-0">
+          <div className="flex flex-col items-center md:items-start gap-4 mb-4">
             {isMobile && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="mb-4"
               >
                 <img 
                   src="https://lh3.googleusercontent.com/pw/AP1GczMBcBd4sSTy91VtLs7oEe8jK24lYRmNT3Eh6ueBoZ_w5zCNx7rYiBPUIR9m1fs29rkiZCi0AAj8LjJmiudPoAR70Ao9Pp3_mArBkdMk1W3k32Tu9UEtk071zvUOBM-Knwto-MOoTUGXsgvJgm00u8s6lw=w890-h890-s-no-gm" 
@@ -53,7 +52,7 @@ const Hero = () => {
             )}
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-charcoal dark:text-white mb-6 font-inter leading-tight text-center md:text-left">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-charcoal dark:text-white mb-4 font-inter leading-tight text-center md:text-left">
             Sajjad Haq — Front-End Developer
           </h1>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-center md:text-left">
@@ -62,13 +61,13 @@ const Hero = () => {
           
           <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
             <Button 
-              className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-4 cursor-pointer relative z-20"
+              className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-2 cursor-pointer relative z-20"
               onClick={scrollToProjects}
             >
               View My Work
             </Button>
             
-            <div className="flex gap-3 mt-4">
+            <div className="flex gap-3 mt-2">
               <a 
                 href="https://github.com/sagehawk" 
                 target="_blank" 
