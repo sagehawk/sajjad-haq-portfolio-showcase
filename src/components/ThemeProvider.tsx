@@ -34,18 +34,19 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
     
+    // First remove both classes
     root.classList.remove("light", "dark");
     
+    // Then apply the correct one based on theme
     if (theme === "system") {
       const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
         .matches
         ? "dark"
         : "light";
       root.classList.add(systemTheme);
-      return;
+    } else {
+      root.classList.add(theme);
     }
-    
-    root.classList.add(theme);
   }, [theme]);
 
   const value = {

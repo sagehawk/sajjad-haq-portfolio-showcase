@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import ProjectCard, { ProjectProps } from "./ProjectCard";
 import { Badge } from "@/components/ui/badge";

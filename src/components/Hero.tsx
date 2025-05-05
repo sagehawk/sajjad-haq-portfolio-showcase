@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -36,22 +35,7 @@ const Hero = () => {
             Sajjad Haq — Front-End Developer
           </h1>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-            I build <span className="inline-block">
-              <TypeAnimation
-                sequence={[
-                  'responsive',
-                  2000,
-                  'AI-powered',
-                  2000,
-                  'content-focused',
-                  2000
-                ]}
-                wrapper="span"
-                speed={50}
-                className="text-[#2563EB] dark:text-[#3B82F6]"
-                repeat={Infinity}
-              />
-            </span> websites that balance business goals with thoughtful UI.
+            I build <span className="text-[#2563EB] dark:text-[#3B82F6]">responsive, AI-powered, content-focused</span> websites that balance business goals with thoughtful UI.
           </p>
           <Button 
             className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-4"
