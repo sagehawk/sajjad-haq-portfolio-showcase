@@ -1,10 +1,11 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Linkedin } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -39,25 +40,54 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Using Email.js or a similar service would be recommended here
-      // For now, we'll open the default mail client
-      const mailtoLink = `mailto:haq.sajjad220@gmail.com?subject=Portfolio Contact: ${formData.name}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      )}`;
-      window.location.href = mailtoLink;
+      // Send email using Mailgun API
+      const response = await fetch('https://api.mailgun.net/v3/YOUR_DOMAIN/messages', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Basic ${btoa(`api:${import.meta.env.VITE_MAILGUN_API_KEY}`)}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          from: `${formData.name} <${formData.email}>`,
+          to: 'haq.sajjad220@gmail.com',
+          subject: `Portfolio Contact: ${formData.name}`,
+          text: `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
       
       toast({
-        title: "Message prepared!",
-        description: "Your default email client has been opened with the message.",
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
       });
       
       setFormData({ name: '', email: '', message: '', hp_email: '' });
     } catch (error) {
+      console.error('Error sending email:', error);
+      
       toast({
         title: "Error",
-        description: "There was a problem sending your message. Please try again.",
+        description: "There was a problem sending your message. Please try again later.",
         variant: "destructive",
       });
+      
+      // Fallback to mailto as a last resort
+      try {
+        const mailtoLink = `mailto:haq.sajjad220@gmail.com?subject=Portfolio Contact: ${formData.name}&body=${encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        )}`;
+        window.location.href = mailtoLink;
+        
+        toast({
+          title: "Message prepared via email client",
+          description: "Your default email client has been opened with the message.",
+        });
+      } catch (mailtoError) {
+        console.error('Error opening mailto:', mailtoError);
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -179,6 +209,7 @@ const Contact = () => {
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
+                <Mail className="ml-2 h-4 w-4" />
               </Button>
             </form>
           </motion.div>
