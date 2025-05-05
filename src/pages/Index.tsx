@@ -31,7 +31,12 @@ const Index = () => {
     }
     
     // Add preconnect links for faster resource loading
-    const preconnectDomains = ['https://fonts.googleapis.com', 'https://fonts.gstatic.com', 'https://lh3.googleusercontent.com'];
+    const preconnectDomains = [
+      'https://fonts.googleapis.com', 
+      'https://fonts.gstatic.com', 
+      'https://lh3.googleusercontent.com',
+      'https://ghchart.rshah.org'
+    ];
     preconnectDomains.forEach(domain => {
       if (!document.querySelector(`link[rel="preconnect"][href="${domain}"]`)) {
         const link = document.createElement('link');
@@ -41,6 +46,13 @@ const Index = () => {
         document.head.appendChild(link);
       }
     });
+    
+    // Preload the GitHub contribution chart
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.href = 'https://ghchart.rshah.org/sagehawk';
+    preloadLink.as = 'image';
+    document.head.appendChild(preloadLink);
   }, []);
   
   return (

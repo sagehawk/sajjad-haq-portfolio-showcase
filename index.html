@@ -12,9 +12,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin />
+    <link rel="preconnect" href="https://ghchart.rshah.org" crossorigin />
     
     <!-- Preload critical fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" />
+    
+    <!-- Preload GitHub contributions chart -->
+    <link rel="preload" href="https://ghchart.rshah.org/sagehawk" as="image" />
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Sajjad Haq - Front-End Developer" />
@@ -30,6 +34,24 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     
     <!-- Google Fonts are imported in the CSS file -->
+    
+    <!-- Add WebP detection support -->
+    <script>
+      // WebP detection
+      const webpSupport = () => {
+        const elem = document.createElement('canvas');
+        if (elem.getContext && elem.getContext('2d')) {
+          return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+        }
+        return false;
+      };
+      
+      if (webpSupport()) {
+        document.documentElement.classList.add('webp');
+      } else {
+        document.documentElement.classList.add('no-webp');
+      }
+    </script>
   </head>
 
   <body>

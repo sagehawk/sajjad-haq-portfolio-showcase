@@ -58,6 +58,25 @@ const Hero = () => {
           />
         </motion.div>
       </div>
+
+      {/* GitHub Contributions Panel */}
+      <motion.div 
+        className="gh-stats hidden lg:block absolute bottom-6 right-6 transform -rotate-3 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 w-[220px] transition-transform duration-300 hover:rotate-0 hover:scale-[1.02]"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
+        <div className="p-3 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">GitHub Activity</h3>
+        </div>
+        <div className="p-2">
+          <img 
+            src="https://ghchart.rshah.org/sagehawk" 
+            alt="GitHub contributions" 
+            className="w-full h-auto"
+          />
+        </div>
+      </motion.div>
     </section>
   );
 };
