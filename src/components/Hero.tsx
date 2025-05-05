@@ -62,14 +62,14 @@ const Hero = () => {
 
       {/* GitHub Contributions Panel - visible on all devices and clickable */}
       <motion.div 
-        className="gh-stats block absolute bottom-6 right-6 transform -rotate-3 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 w-[260px] sm:w-[300px] transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] cursor-pointer"
+        className="gh-stats block absolute bottom-6 right-6 transform -rotate-3 bg-white rounded-lg overflow-hidden shadow-lg border border-gray-200 w-[260px] sm:w-[300px] transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] cursor-pointer"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
         onClick={() => window.open('https://github.com/sagehawk/', '_blank', 'noopener,noreferrer')}
       >
-        <div className="p-3 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
-          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">GitHub Activity</h3>
+        <div className="p-3 bg-gray-50 border-b border-gray-200">
+          <h3 className="text-sm font-semibold text-gray-700">GitHub Activity</h3>
         </div>
         <div className="p-2">
           <img 
