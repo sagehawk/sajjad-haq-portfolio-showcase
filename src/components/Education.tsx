@@ -26,6 +26,7 @@ const Education = () => {
             width="200" 
             height="200" 
             className="inline-block filter"
+            style={{ marginBottom: '20px' }}
           />
         <motion.div 
           className="grid md:grid-cols-2 gap-12 items-start"
