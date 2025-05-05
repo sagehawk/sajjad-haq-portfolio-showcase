@@ -8,15 +8,13 @@ import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { setupScrollAnimation } from '@/utils/scrollAnimation';
-import { customCursorInit, setupParallaxEffect } from '@/utils/animations';
+import { setupParallaxEffect } from '@/utils/animations';
+import { TypeAnimation } from 'react-type-animation';
 
 const Index = () => {
   useEffect(() => {
     // Set up scroll animations after component mount
     setupScrollAnimation();
-    
-    // Set up custom cursor
-    customCursorInit();
     
     // Set up parallax effects
     setupParallaxEffect();
@@ -24,8 +22,8 @@ const Index = () => {
     // Update document title
     document.title = "Sajjad Haq - Front-End Developer";
     
-    // Add CSS for custom cursor
-    document.body.style.cursor = 'none';
+    // Remove the custom cursor styling (now using default cursor)
+    document.body.style.cursor = 'default';
   }, []);
   
   return (

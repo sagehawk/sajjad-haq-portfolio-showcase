@@ -17,52 +17,10 @@ export const staggerContainer = {
   }
 };
 
+// Remove the custom cursor initialization - using default cursor now
 export const customCursorInit = () => {
-  if (typeof window !== 'undefined') {
-    const cursor = document.createElement('div');
-    cursor.classList.add('custom-cursor');
-    document.body.appendChild(cursor);
-
-    // Style the cursor
-    cursor.style.position = 'fixed';
-    cursor.style.width = '20px';
-    cursor.style.height = '20px';
-    cursor.style.borderRadius = '50%';
-    cursor.style.backgroundColor = 'rgba(37, 99, 235, 0.5)';
-    cursor.style.pointerEvents = 'none';
-    cursor.style.zIndex = '9999';
-    cursor.style.transform = 'translate(-50%, -50%)';
-    cursor.style.transition = 'width 0.2s, height 0.2s, background-color 0.2s';
-
-    // Add mouse tracking
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    });
-
-    // Add hover effect
-    document.addEventListener('mouseover', (e) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === 'BUTTON' || 
-          target.tagName === 'A' || 
-          target.closest('.project-card')) {
-        cursor.style.width = '30px';
-        cursor.style.height = '30px';
-        cursor.style.backgroundColor = 'rgba(37, 99, 235, 0.7)';
-      }
-    });
-
-    document.addEventListener('mouseout', (e) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === 'BUTTON' || 
-          target.tagName === 'A' || 
-          target.closest('.project-card')) {
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
-        cursor.style.backgroundColor = 'rgba(37, 99, 235, 0.5)';
-      }
-    });
-  }
+  // Function kept for compatibility but no longer adds custom cursor
+  return;
 };
 
 export const setupParallaxEffect = () => {

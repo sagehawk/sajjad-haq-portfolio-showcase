@@ -32,6 +32,7 @@ export interface ProjectProps {
   afterImage?: string;
   loomEmbed?: string;
   caption?: string;
+  category?: string;
   clientResults?: {
     name: string;
     result: string;

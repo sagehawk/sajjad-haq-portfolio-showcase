@@ -1,5 +1,8 @@
+
+import { useState } from "react";
 import ProjectCard, { ProjectProps } from "./ProjectCard";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Badge } from "@/components/ui/badge";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Define projects data
 const projects: ProjectProps[] = [
@@ -10,6 +13,7 @@ const projects: ProjectProps[] = [
     details: "Created a multi-step editor where users can generate rewrites with AI, reorder paragraphs via drag-and-drop, and save progress in localStorage. Integrated toast feedback, modular components, and light/dark mode. Deployed with Vercel serverless functions for API calls. Built for a university independent study.",
     image: "https://lh3.googleusercontent.com/pw/AP1GczMafTZme3W3UGNAMml7H8VARJUTZq_hUNbyghShBrvbihJkDT4LZLs4XipXStISgFBwERvLHeTtN34EkoL5JrN9ZHY289ZbxgH19m93LBsDb2yMarNLU9x-Pu8EAGVBi_TnMJ2Zm9maj9KeAIlVdNqbAA=w1560-h890-s-no-gm",
     loomEmbed: "https://www.loom.com/embed/a23a4e6eb5c84918bcc719bf974cee29",
+    category: "React",
   },
   {
     title: "MA Food Group",
@@ -20,6 +24,7 @@ const projects: ProjectProps[] = [
     image: "https://lh3.googleusercontent.com/pw/AP1GczO9laSc9jf_SPq6IWwrlzL7mEXKqQi1chtxyX44eHdlsbzuqEMr-8L5W3wiNi0GZg3-1bCVKclNdSGOqyOukXfgkr4iyBu93g3ll-gZhVbk64z2GnaPI6zxUcRLL2aThUEIORG_puU8jMaHw9li3OsM3Q=w1560-h890-s-no-gm",
     mobileImage: "https://lh3.googleusercontent.com/pw/AP1GczP-MdNLev23jYMcfj_FUwbNXShUQazQrbWV2HflwRqIcaV3NunvjpJrEuMHBfbS0n5wCHniR8dkXbE_iyFj0MCL8VcfxQu4Xv2s7v3QKOSqjy5Z5uHkgXS_V3TpxfCCuek1zyWzS3cf5d1M3sq2Vo1vXA=w318-h697-s-no-gm",
     mobileImage2: "https://lh3.googleusercontent.com/pw/AP1GczPmby1vJGXUFsjO-rHMdRpFL-56jj01X_egrALCY3xc27gWEKKNgBF_-24-qkUO-E6vygGMBmL1HhA2ajpKHyYs7DMfjgBCAX7wQOEtFM2yXkbJC6_OCbShS7fmGyyoLtLxe6oVmeWQt7MCu9VOTGc2dw=w316-h695-s-no-gm", 
+    category: "CMS",
   },
   {
     title: "NDM Capital LLC",
@@ -29,12 +34,15 @@ const projects: ProjectProps[] = [
     link: "https://ndmcapitalllc.com",
     image: "https://lh3.googleusercontent.com/pw/AP1GczNyFoJNl0dp4ccOFbdiKZfUweJsfBtcoS8fq0raX99qTeSwkhhV-j1HLhs3-MdalHTz0l2pxr8LVlTQ3AlIEffIDIfX7oZGeENQSdN87jF5JIfOzZuVCCNCpeQn4JZahW_Ko_V-0DhX7dVTRyHQzonPkQ=w1560-h890-s-no-gm",
     beforeImage: "https://lh3.googleusercontent.com/pw/AP1GczMUR2_RpiSK6oF6e8hwvP5mO5NbEH0xZUpCLsgjy_PybJLn7zrGcNADjH_uRsJY5TFXHZcgpc1xzjuwT1yfLKxEANQ3wBaS7qQSs-a7n6R4VIq8bPcvO1pUxF4qxkYFb4YF3Lb8cNFpfLS99j8htcaYkA=w1559-h890-s-no-gm",
+    category: "CMS",
   },
   {
     title: "Contract Clarity MVP",
     summary: "Collaborative tool for uploading and managing AI-extracted metadata from contracts (PDF/DOCX).",
     tech: ["React", "TypeScript", "TailwindCSS", "Shadcn UI", "Supabase (Storage + DB)", "React Router", "Toast notifications"],
     details: "Built a responsive dashboard with sidebar navigation, contract upload form, file validation, and preview. Connected to Supabase for file and metadata storage. UI supports manual overrides and real-time status toasts. Built with cousins using Lovable.dev + ChatGPT for architectural planning.",
+    image: "https://i.imgur.com/wEo5YRv.png",
+    category: "React",
   },
   {
     title: "Discord Gas Bot",
@@ -44,6 +52,7 @@ const projects: ProjectProps[] = [
     repo: "https://github.com/sagehawk/gas_bot",
     image: "https://i.imgur.com/bsNL5c6.gif",
     caption: "Live slash-command flow: dropdown → confirmation.",
+    category: "Python",
   },
   {
     title: "Ceramic Catalysts",
@@ -68,21 +77,65 @@ const projects: ProjectProps[] = [
         result: "13 jobs in 10 days",
         image: "https://lh3.googleusercontent.com/pw/AP1GczMs73ibCitu__0-SfnJMgL37sa7IQrQBJsJ-pWclqqaHVJ4gP25kRx8hpJ2q7rhrKnd_GecDA27dO8BBiLe7j5KuCsLEWl43DyLkYDUE2L10kIwrybSUiqoQYPMJ7zA0Crbu9__mFoFzvOFmwGA7zeRnw=w877-h884-s-no-gm"
       }
-    ]
+    ],
+    category: "CMS",
   },
 ];
 
+// Define filter categories
+const categories = ["All", "React", "CMS", "Python"];
+
 const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
+  
+  // Filter projects based on active category
+  const filteredProjects = activeFilter === "All" 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter);
+
   return (
     <section id="projects" className="bg-gray-50 dark:bg-gray-800 py-16 md:py-24">
       <div className="section-container">
         <h2 className="section-title font-extrabold font-inter text-charcoal dark:text-white">Projects</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+        {/* Filter pills */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {categories.map((category) => (
+            <Badge
+              key={category}
+              variant={activeFilter === category ? "default" : "outline"}
+              className={`px-4 py-2 text-sm cursor-pointer transition-all duration-300 ${
+                activeFilter === category 
+                  ? "bg-[#2563EB] hover:bg-[#2563EB]/90" 
+                  : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
+              }`}
+              onClick={() => setActiveFilter(category)}
+            >
+              {category}
+            </Badge>
           ))}
         </div>
+        
+        <motion.div 
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+        >
+          <AnimatePresence>
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );
