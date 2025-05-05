@@ -11,7 +11,7 @@ const Education = () => {
         <img 
           src="https://www.commonapp.org/static/8ba4e8f60b77281b4c703086258a54fc/northern-illinois-university_1112_gallery1.jpg"
           alt="NIU Campus"
-          className="w-full h-full object-cover opacity-30 dark:opacity-30"
+          className="w-full h-full object-cover opacity-20 dark:opacity-15"
         />
       </div>
       
