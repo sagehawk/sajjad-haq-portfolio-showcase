@@ -1,6 +1,13 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel";
 
 const ContractClarity = () => {
   return (
@@ -21,11 +28,26 @@ const ContractClarity = () => {
                 <CardTitle className="text-2xl font-bold text-emerald">Contracts Section</CardTitle>
               </CardHeader>
               <CardContent>
-                <img 
-                  src="https://i.imgur.com/1NJvKwY.png" 
-                  alt="Contracts Section" 
-                  className="w-full h-auto rounded-md mb-4 shadow-md" 
-                />
+                <Carousel className="w-full mb-4">
+                  <CarouselContent>
+                    <CarouselItem>
+                      <img 
+                        src="https://i.imgur.com/wEo5YRv.png" 
+                        alt="Contract Clarity Dashboard" 
+                        className="w-full h-auto rounded-md shadow-md" 
+                      />
+                    </CarouselItem>
+                    <CarouselItem>
+                      <img 
+                        src="https://i.imgur.com/1NJvKwY.png" 
+                        alt="Contracts Section" 
+                        className="w-full h-auto rounded-md shadow-md" 
+                      />
+                    </CarouselItem>
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2 bg-white/70 dark:bg-gray-800/70 hover:bg-white dark:hover:bg-gray-700" />
+                  <CarouselNext className="right-2 bg-white/70 dark:bg-gray-800/70 hover:bg-white dark:hover:bg-gray-700" />
+                </Carousel>
                 <p className="text-gray-700 dark:text-gray-300">
                   Clear visualization of contract statuses, prioritized by importance and deadline. Users can quickly access, sort, and take action on time-sensitive items.
                 </p>

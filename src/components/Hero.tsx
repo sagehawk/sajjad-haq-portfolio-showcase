@@ -60,7 +60,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* GitHub Contributions Panel - updated with larger size, mobile visibility and click function */}
+      {/* GitHub Contributions Panel - visible on all devices and clickable */}
       <motion.div 
         className="gh-stats block absolute bottom-6 right-6 transform -rotate-3 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 w-[260px] sm:w-[300px] transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] cursor-pointer"
         initial={{ opacity: 0, y: 20 }}
