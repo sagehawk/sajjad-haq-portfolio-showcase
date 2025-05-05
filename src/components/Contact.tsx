@@ -1,10 +1,9 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Linkedin } from "lucide-react";
 
 const Contact = () => {
@@ -22,7 +21,7 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Check if honeypot field is filled (bot detection)
@@ -39,26 +38,29 @@ const Contact = () => {
     
     setIsSubmitting(true);
     
-    // Create form data for the email submission
-    const mailData = new FormData();
-    mailData.append('name', formData.name);
-    mailData.append('email', formData.email);
-    mailData.append('message', formData.message);
-    
-    // In a real implementation, you would send an email to haq.sajjad220@gmail.com
-    // For this example, we'll simulate the email sending
-    
-    setTimeout(() => {
-      // Here you would typically make a fetch/axios call to your backend
-      // to send the email to haq.sajjad220@gmail.com
+    try {
+      // Using Email.js or a similar service would be recommended here
+      // For now, we'll open the default mail client
+      const mailtoLink = `mailto:haq.sajjad220@gmail.com?subject=Portfolio Contact: ${formData.name}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
+      window.location.href = mailtoLink;
       
       toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        title: "Message prepared!",
+        description: "Your default email client has been opened with the message.",
       });
+      
       setFormData({ name: '', email: '', message: '', hp_email: '' });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
