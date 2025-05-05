@@ -15,8 +15,9 @@ const Hero = () => {
       id="home" 
       className="min-h-screen flex items-center pt-16 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
     >
-      <div className="absolute inset-0 opacity-5 dark:opacity-10">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      {/* Background pattern - using pointer-events-none to allow clicking through */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="pointer-events-none">
           <pattern id="pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M0 20 L40 20 M20 0 L20 40" strokeWidth="1" stroke="currentColor" fill="none"/>
           </pattern>
@@ -24,7 +25,7 @@ const Hero = () => {
         </svg>
       </div>
       
-      <div className="section-container flex items-center justify-between">
+      <div className="section-container flex items-center justify-between relative z-10">
         <motion.div 
           className="max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +39,7 @@ const Hero = () => {
             I build <span className="text-[#2563EB] dark:text-[#3B82F6]">lightning-fast, pixel-perfect</span> web experiences that drive conversions and slash load times by up to 70%.
           </p>
           <Button 
-            className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-4 cursor-pointer"
+            className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-4 cursor-pointer relative z-20"
             onClick={scrollToProjects}
           >
             View My Work
@@ -59,12 +60,13 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* GitHub Contributions Panel */}
+      {/* GitHub Contributions Panel - updated with larger size, mobile visibility and click function */}
       <motion.div 
-        className="gh-stats hidden lg:block absolute bottom-6 right-6 transform -rotate-3 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 w-[220px] transition-transform duration-300 hover:rotate-0 hover:scale-[1.02]"
+        className="gh-stats block absolute bottom-6 right-6 transform -rotate-3 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 w-[260px] sm:w-[300px] transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] cursor-pointer"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
+        onClick={() => window.open('https://github.com/sagehawk/gas_bot/', '_blank', 'noopener,noreferrer')}
       >
         <div className="p-3 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
           <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">GitHub Activity</h3>
