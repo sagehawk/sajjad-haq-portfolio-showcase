@@ -40,11 +40,19 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
+      // Get the Mailgun API key from environment variables
+      const apiKey = import.meta.env.MAILGUN_API_KEY;
+      const domain = import.meta.env.MAILGUN_DOMAIN || 'mg.sajjadhaq.com';
+      
+      if (!apiKey) {
+        throw new Error("Mailgun API key is not configured");
+      }
+      
       // Send email using Mailgun API
-      const response = await fetch('https://api.mailgun.net/v3/YOUR_DOMAIN/messages', {
+      const response = await fetch(`https://api.mailgun.net/v3/${domain}/messages`, {
         method: 'POST',
         headers: {
-          'Authorization': `Basic ${btoa(`api:${import.meta.env.VITE_MAILGUN_API_KEY}`)}`,
+          'Authorization': `Basic ${btoa(`api:${apiKey}`)}`,
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
@@ -56,6 +64,7 @@ const Contact = () => {
       });
       
       if (!response.ok) {
+        console.error('Mailgun API error:', await response.text());
         throw new Error('Failed to send email');
       }
       
