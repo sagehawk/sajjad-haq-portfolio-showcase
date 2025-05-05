@@ -20,7 +20,13 @@ const Education = () => {
           <h2 className="section-title font-extrabold font-inter text-white">Education</h2>
           {/* NIU logo next to heading */}
         </div>
-        
+        <img 
+            src="https://cdn.worldvectorlogo.com/logos/northern-illinois-university.svg" 
+            alt="NIU Logo" 
+            width="120" 
+            height="120" 
+            className="inline-block filter dark:invert"
+          />
         <motion.div 
           className="grid md:grid-cols-2 gap-12 items-start"
           initial={{ opacity: 0, y: 20 }}
@@ -30,13 +36,6 @@ const Education = () => {
         >
           <div className="space-y-6">
             <div>
-            <img 
-            src="https://cdn.worldvectorlogo.com/logos/northern-illinois-university.svg" 
-            alt="NIU Logo" 
-            width="120" 
-            height="120" 
-            className="inline-block filter dark:invert"
-          />
               <h3 className="flex items-center text-xl font-bold text-white">
                 <GraduationCap className="mr-2 h-5 w-5" />
                 Bachelor of Science in Computer Science
