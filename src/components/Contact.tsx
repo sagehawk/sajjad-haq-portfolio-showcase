@@ -1,107 +1,9 @@
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
-import { Linkedin, Mail } from "lucide-react";
+import ContactInfo from './ContactInfo';
+import ContactForm from './ContactForm';
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-    hp_email: '' // Honeypot field
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Check if honeypot field is filled (bot detection)
-    if (formData.hp_email !== '') {
-      console.log('Bot detected');
-      // Silently reject the submission but show success message to the bot
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: '', email: '', message: '', hp_email: '' });
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    try {
-      // Get the Mailgun API key from environment variables
-      const apiKey = import.meta.env.MAILGUN_API_KEY;
-      const domain = import.meta.env.MAILGUN_DOMAIN || 'mg.sajjadhaq.com';
-      
-      if (!apiKey) {
-        throw new Error("Mailgun API key is not configured");
-      }
-      
-      // Send email using Mailgun API
-      const response = await fetch(`https://api.mailgun.net/v3/${domain}/messages`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Basic ${btoa(`api:${apiKey}`)}`,
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          from: `${formData.name} <${formData.email}>`,
-          to: 'haq.sajjad220@gmail.com',
-          subject: `Portfolio Contact: ${formData.name}`,
-          text: `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-        })
-      });
-      
-      if (!response.ok) {
-        console.error('Mailgun API error:', await response.text());
-        throw new Error('Failed to send email');
-      }
-      
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-      
-      setFormData({ name: '', email: '', message: '', hp_email: '' });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      
-      toast({
-        title: "Error",
-        description: "There was a problem sending your message. Please try again later.",
-        variant: "destructive",
-      });
-      
-      // Fallback to mailto as a last resort
-      try {
-        const mailtoLink = `mailto:haq.sajjad220@gmail.com?subject=Portfolio Contact: ${formData.name}&body=${encodeURIComponent(
-          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-        )}`;
-        window.location.href = mailtoLink;
-        
-        toast({
-          title: "Message prepared via email client",
-          description: "Your default email client has been opened with the message.",
-        });
-      } catch (mailtoError) {
-        console.error('Error opening mailto:', mailtoError);
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section id="contact" className="bg-[#2563EB] text-white py-16 md:py-24">
       <div className="section-container">
@@ -122,27 +24,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-            <div className="space-y-4">
-              <p className="flex items-center">
-                <span className="w-20 font-medium">Email:</span>
-                <a href="mailto:haq.sajjad220@gmail.com" className="text-white hover:text-blue-200 underline underline-offset-4">
-                  haq.sajjad220@gmail.com
-                </a>
-              </p>
-              <p className="flex items-center">
-                <span className="w-20 font-medium">LinkedIn:</span>
-                <a 
-                  href="https://linkedin.com/in/sajjadhaq" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center text-white hover:text-blue-200 underline underline-offset-4"
-                >
-                  <Linkedin className="mr-1 h-5 w-5" />
-                  sajjadhaq
-                </a>
-              </p>
-            </div>
+            <ContactInfo />
           </motion.div>
           
           <motion.div
@@ -151,76 +33,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Honeypot field - hidden from real users but bots will fill it */}
-              <div className="hidden">
-                <label htmlFor="hp_email" aria-hidden="true" className="sr-only">Do not fill this field</label>
-                <input
-                  type="text"
-                  id="hp_email"
-                  name="hp_email"
-                  value={formData.hp_email}
-                  onChange={handleChange}
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-1">
-                  Name
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your name"
-                  required
-                  className="bg-white/10 border-white/20 placeholder:text-white/50 text-white"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-1">
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="your.email@example.com"
-                  required
-                  className="bg-white/10 border-white/20 placeholder:text-white/50 text-white"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-1">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your message..."
-                  className="min-h-[120px] bg-white/10 border-white/20 placeholder:text-white/50 text-white"
-                  required
-                />
-              </div>
-              
-              <Button 
-                type="submit" 
-                className="w-full bg-white text-[#2563EB] hover:bg-blue-100 transition-colors duration-200"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-                <Mail className="ml-2 h-4 w-4" />
-              </Button>
-            </form>
+            <ContactForm />
           </motion.div>
         </div>
       </div>
