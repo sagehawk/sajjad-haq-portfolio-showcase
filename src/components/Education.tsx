@@ -11,13 +11,13 @@ const Education = () => {
         <img 
           src="https://www.commonapp.org/static/8ba4e8f60b77281b4c703086258a54fc/northern-illinois-university_1112_gallery1.jpg"
           alt="NIU Campus"
-          className="w-full h-full object-cover opacity-50 dark:opacity-15"
+          className="w-full h-full object-cover opacity-30 dark:opacity-30"
         />
       </div>
       
       <div className="section-container relative z-10">
         <div className="flex items-center gap-3 mb-8">
-          <h2 className="section-title font-extrabold font-inter text-black dark:text-white">Education</h2>
+          <h2 className="section-title font-extrabold font-inter text-white">Education</h2>
           {/* NIU logo next to heading */}
           <img 
             src="https://cdn.worldvectorlogo.com/logos/northern-illinois-university.svg" 
@@ -37,11 +37,11 @@ const Education = () => {
         >
           <div className="space-y-6">
             <div>
-              <h3 className="flex items-center text-xl font-bold text-charcoal dark:text-white">
+              <h3 className="flex items-center text-xl font-bold text-white">
                 <GraduationCap className="mr-2 h-5 w-5" />
                 Bachelor of Science in Computer Science
               </h3>
-              <p className="text-lg font-medium text-gray-700 dark:text-gray-300">Northern Illinois University — June 2025</p>
+              <p className="text-lg font-medium text-gray-300">Northern Illinois University — June 2025</p>
             </div>
           </div>
           
