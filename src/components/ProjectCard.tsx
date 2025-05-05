@@ -73,11 +73,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               alt={project.title} 
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             />
-            {project.beforeImage && project.caption && (
-              <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs p-1 text-center">
-                {project.caption}
-              </div>
-            )}
           </div>
         </DialogTrigger>
         
@@ -433,15 +428,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               </div>
             </DialogContent>
           </Dialog>
-          
-          {/* Visit Site button */}
-          {projectLink && (
-            <Button size="sm" variant="default" asChild>
-              <a href={projectLink} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="w-4 h-4 mr-2" /> Visit Site
-              </a>
-            </Button>
-          )}
         </div>
       </div>
     </motion.div>
