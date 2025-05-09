@@ -32,16 +32,16 @@ const Hero = () => {
       <div className="section-container flex flex-col md:flex-row items-center md:justify-between relative z-10 mt-0">
         <motion.div 
           className="max-w-2xl"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <div className="flex flex-col items-center md:items-start gap-4 mb-4">
             {isMobile && (
               <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
+                initial={{ opacity: 1, scale: 1 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
+                transition={{ duration: 0.5 }}
                 className="mb-2"
               >
                 <img 
@@ -93,9 +93,9 @@ const Hero = () => {
         
         <motion.div
           className="hidden md:block"
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 1, scale: 1 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
+          transition={{ duration: 0.5 }}
         >
           <img 
             src="https://lh3.googleusercontent.com/pw/AP1GczMBcBd4sSTy91VtLs7oEe8jK24lYRmNT3Eh6ueBoZ_w5zCNx7rYiBPUIR9m1fs29rkiZCi0AAj8LjJmiudPoAR70Ao9Pp3_mArBkdMk1W3k32Tu9UEtk071zvUOBM-Knwto-MOoTUGXsgvJgm00u8s6lw=w890-h890-s-no-gm" 

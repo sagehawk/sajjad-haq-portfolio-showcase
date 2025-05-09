@@ -12,24 +12,27 @@ import { setupParallaxEffect } from '@/utils/animations';
 
 const Index = () => {
   useEffect(() => {
-    // Set up scroll animations after component mount
-    setupScrollAnimation();
-    
-    // Set up parallax effects
-    setupParallaxEffect();
-    
-    // Update document title
+    // Set document title immediately
     document.title = "Sajjad Haq - Front-End Developer";
     
-    // Set cursor to default
+    // Set cursor to default immediately
     document.body.style.cursor = 'default';
     
-    // Add these meta tags for performance optimization
+    // Add critical meta tags immediately
     const metaViewport = document.querySelector('meta[name="viewport"]');
     if (metaViewport) {
       metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
     }
     
+    // Delay non-critical animations setup
+    const setupAnimations = () => {
+      setupScrollAnimation();
+      setupParallaxEffect();
+    };
+    
+    // Use requestAnimationFrame to run after paint
+    requestAnimationFrame(setupAnimations);
+
     // Add preconnect links for faster resource loading
     const preconnectDomains = [
       'https://fonts.googleapis.com', 
