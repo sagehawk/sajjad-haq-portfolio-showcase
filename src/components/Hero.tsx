@@ -2,41 +2,9 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useEffect, useRef } from "react";
 
 const Hero = () => {
   const isMobile = useIsMobile();
-  const sectionRef = useRef<HTMLElement>(null);
-  
-  useEffect(() => {
-    if (sectionRef.current) {
-      sectionRef.current.style.visibility = "visible";
-      
-      // Force browser to recalculate layout
-      const forceReflow = () => {
-        if (sectionRef.current) {
-          sectionRef.current.style.opacity = "0.99";
-          setTimeout(() => {
-            if (sectionRef.current) {
-              sectionRef.current.style.opacity = "1";
-            }
-          }, 10);
-        }
-      };
-      
-      // Force layout recalculation
-      forceReflow();
-      
-      // Also force on orientation change and resize
-      window.addEventListener('orientationchange', forceReflow);
-      window.addEventListener('resize', forceReflow);
-      
-      return () => {
-        window.removeEventListener('orientationchange', forceReflow);
-        window.removeEventListener('resize', forceReflow);
-      };
-    }
-  }, []);
   
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
@@ -48,11 +16,11 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      ref={sectionRef}
-      className="min-h-[100vh] flex flex-col justify-center pt-16 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
+      className="flex flex-col justify-center bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
       style={{ 
-        visibility: 'hidden', // Start hidden until JS runs
-        height: '100vh' // Fixed height rather than min-height
+        paddingTop: isMobile ? '80px' : '120px', 
+        minHeight: isMobile ? 'auto' : '100vh',
+        paddingBottom: '40px'
       }}
     >
       {/* Background pattern - using pointer-events-none to allow clicking through */}
