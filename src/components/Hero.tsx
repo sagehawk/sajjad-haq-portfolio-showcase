@@ -9,31 +9,33 @@ const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
   
   useEffect(() => {
-    // Set the --vh CSS variable based on the actual viewport height
-    const setVh = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    };
-    
-    // Set on initial load
-    setVh();
-    
-    // Add resize event listener to update on viewport changes
-    window.addEventListener('resize', setVh);
-    
     if (sectionRef.current) {
-      // Immediately set proper position
       sectionRef.current.style.visibility = "visible";
       
-      // Force the layout calculation to happen right away
-      window.requestAnimationFrame(() => {
+      // Force browser to recalculate layout
+      const forceReflow = () => {
         if (sectionRef.current) {
-          sectionRef.current.style.transform = "translateY(0)";
+          sectionRef.current.style.opacity = "0.99";
+          setTimeout(() => {
+            if (sectionRef.current) {
+              sectionRef.current.style.opacity = "1";
+            }
+          }, 10);
         }
-      });
+      };
+      
+      // Force layout recalculation
+      forceReflow();
+      
+      // Also force on orientation change and resize
+      window.addEventListener('orientationchange', forceReflow);
+      window.addEventListener('resize', forceReflow);
+      
+      return () => {
+        window.removeEventListener('orientationchange', forceReflow);
+        window.removeEventListener('resize', forceReflow);
+      };
     }
-    
-    return () => window.removeEventListener('resize', setVh);
   }, []);
   
   const scrollToProjects = () => {
@@ -47,10 +49,10 @@ const Hero = () => {
     <section 
       id="home" 
       ref={sectionRef}
-      className="flex flex-col justify-center pt-12 md:pt-16 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
+      className="min-h-[100vh] flex flex-col justify-center pt-16 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
       style={{ 
-        visibility: 'visible',
-        minHeight: 'calc(var(--vh, 1vh) * 100)'
+        visibility: 'hidden', // Start hidden until JS runs
+        height: '100vh' // Fixed height rather than min-height
       }}
     >
       {/* Background pattern - using pointer-events-none to allow clicking through */}
