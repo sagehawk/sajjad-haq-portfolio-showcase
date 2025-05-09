@@ -19,6 +19,10 @@ const Index = () => {
     // Set cursor to default immediately
     document.body.style.cursor = 'default';
     
+    // Prevent layout shift by setting overflow to auto
+    document.documentElement.style.overflow = "auto";
+    document.body.style.overflowY = "auto";
+    
     // Add critical meta tags immediately
     const metaViewport = document.querySelector('meta[name="viewport"]');
     if (metaViewport) {

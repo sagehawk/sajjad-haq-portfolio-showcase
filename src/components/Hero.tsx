@@ -1,6 +1,5 @@
 
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -18,6 +17,7 @@ const Hero = () => {
     <section 
       id="home" 
       className="min-h-screen flex flex-col justify-center pt-0 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
+      style={{ minHeight: '100vh' }}
     >
       {/* Background pattern - using pointer-events-none to allow clicking through */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
@@ -30,26 +30,16 @@ const Hero = () => {
       </div>
       
       <div className="section-container flex flex-col md:flex-row items-center md:justify-between relative z-10 mt-0">
-        <motion.div 
-          className="max-w-2xl"
-          initial={{ opacity: 1, y: 0 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="max-w-2xl">
           <div className="flex flex-col items-center md:items-start gap-4 mb-4">
             {isMobile && (
-              <motion.div
-                initial={{ opacity: 1, scale: 1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="mb-2"
-              >
+              <div className="mb-2">
                 <img 
                   src="https://lh3.googleusercontent.com/pw/AP1GczMBcBd4sSTy91VtLs7oEe8jK24lYRmNT3Eh6ueBoZ_w5zCNx7rYiBPUIR9m1fs29rkiZCi0AAj8LjJmiudPoAR70Ao9Pp3_mArBkdMk1W3k32Tu9UEtk071zvUOBM-Knwto-MOoTUGXsgvJgm00u8s6lw=w890-h890-s-no-gm" 
                   alt="Sajjad Haq" 
                   className="w-24 h-24 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
                 />
-              </motion.div>
+              </div>
             )}
           </div>
           
@@ -89,20 +79,15 @@ const Hero = () => {
               </a>
             </div>
           </div>
-        </motion.div>
+        </div>
         
-        <motion.div
-          className="hidden md:block"
-          initial={{ opacity: 1, scale: 1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="hidden md:block">
           <img 
             src="https://lh3.googleusercontent.com/pw/AP1GczMBcBd4sSTy91VtLs7oEe8jK24lYRmNT3Eh6ueBoZ_w5zCNx7rYiBPUIR9m1fs29rkiZCi0AAj8LjJmiudPoAR70Ao9Pp3_mArBkdMk1W3k32Tu9UEtk071zvUOBM-Knwto-MOoTUGXsgvJgm00u8s6lw=w890-h890-s-no-gm" 
             alt="Sajjad Haq" 
             className="w-28 h-28 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
           />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
