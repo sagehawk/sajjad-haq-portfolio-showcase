@@ -61,6 +61,13 @@ const Index = () => {
     ogImagePreloadLink.href = 'https://i.imgur.com/tPczn3X.png';
     ogImagePreloadLink.as = 'image';
     document.head.appendChild(ogImagePreloadLink);
+
+    // Preload Mystic Empowerment project image
+    const mysticProjectPreloadLink = document.createElement('link');
+    mysticProjectPreloadLink.rel = 'preload';
+    mysticProjectPreloadLink.href = 'https://i.imgur.com/zLMA1fY.png';
+    mysticProjectPreloadLink.as = 'image';
+    document.head.appendChild(mysticProjectPreloadLink);
   }, []);
   
   return (

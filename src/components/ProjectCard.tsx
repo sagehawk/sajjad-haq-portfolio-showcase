@@ -32,6 +32,7 @@ export interface ProjectProps {
   mobileImage2?: string;
   loomEmbed?: string;
   caption?: string;
+  featured?: boolean;
   clientResults?: {
     name: string;
     result: string;

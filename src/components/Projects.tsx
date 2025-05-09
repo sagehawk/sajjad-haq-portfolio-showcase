@@ -1,11 +1,23 @@
-
 import { useState } from "react";
 import ProjectCard, { ProjectProps } from "./ProjectCard";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "./ui/button";
+import { ChevronRight } from "lucide-react";
+import { Card, CardContent } from "./ui/card";
 
 // Define projects data
 const projects: ProjectProps[] = [
+  {
+    title: "Mystic Empowerment",
+    summary: "A meditative web application for daily reflection and mindfulness with an elegant, flowing user journey.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Shadcn UI", "Context API", "Custom Animations"],
+    details: "Created a calming digital sanctuary with Portal Entry (captivating landing page), Invocation Prompt (thoughtful prompts based on time/mood), Reflection Space (serene journaling area), and Parting Mantra (inspirational quotes). Implemented custom animation sequences, centralized context for journey state management, ethereal visual aesthetics with fluid gradients, and responsive design across all devices.",
+    image: "https://i.imgur.com/zLMA1fY.png",
+    link: "https://mystic.sajjadhaq.com",
+    featured: true,
+    category: "React",
+  },
   {
     title: "Essay Editor (Articulate & Refine)",
     summary: "AI-powered essay tool built from scratch for writing, rewriting, and restructuring content using Google Gemini.",
@@ -14,6 +26,7 @@ const projects: ProjectProps[] = [
     image: "https://lh3.googleusercontent.com/pw/AP1GczMafTZme3W3UGNAMml7H8VARJUTZq_hUNbyghShBrvbihJkDT4LZLs4XipXStISgFBwERvLHeTtN34EkoL5JrN9ZHY289ZbxgH19m93LBsDb2yMarNLU9x-Pu8EAGVBi_TnMJ2Zm9maj9KeAIlVdNqbAA=w1560-h890-s-no-gm",
     loomEmbed: "https://www.loom.com/embed/a23a4e6eb5c84918bcc719bf974cee29",
     category: "React",
+    featured: true,
   },
   {
     title: "MA Food Group",
@@ -100,39 +113,104 @@ const Projects = () => {
   
   // Filter projects based on active category
   const filteredProjects = activeFilter === "All" 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+    ? projects.filter(project => !project.featured) 
+    : projects.filter(project => project.category === activeFilter && !project.featured);
+  
+  // Get featured projects
+  const featuredProjects = projects.filter(project => project.featured);
 
   return (
     <section id="projects" className="bg-gray-50 dark:bg-gray-800 py-16 md:py-24">
       <div className="section-container">
         <h2 className="section-title font-extrabold font-inter text-charcoal dark:text-white">Projects</h2>
         
-        {/* Filter pills */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {categories.map((category) => (
-            <Badge
-              key={category}
-              variant={activeFilter === category ? "default" : "outline"}
-              className={`px-4 py-2 text-sm cursor-pointer transition-all duration-300 ${
-                activeFilter === category 
-                  ? "bg-[#2563EB] hover:bg-[#2563EB]/90" 
-                  : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
-              }`}
-              onClick={() => setActiveFilter(category)}
+        {/* Featured Projects Section */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">Featured Work</h3>
+          
+          {featuredProjects.map((project, index) => (
+            <motion.div 
+              key={project.title}
+              className="mb-16 last:mb-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              {category}
-            </Badge>
+              <Card className="overflow-hidden border-none bg-transparent shadow-none">
+                <CardContent className="p-0">
+                  <div className={`grid grid-cols-1 ${index % 2 === 0 ? 'lg:grid-cols-[2fr,1fr]' : 'lg:grid-cols-[1fr,2fr] lg:flex-row-reverse'} gap-8 items-center`}>
+                    <div className={`order-2 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
+                      <div className="mb-4">
+                        <h4 className="text-3xl font-bold mb-3">{project.title}</h4>
+                        <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+                          {project.summary}
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-5">
+                          {project.tech.slice(0, 5).map((tech, techIndex) => (
+                            <Badge key={techIndex} variant="secondary" className="text-sm">
+                              {tech}
+                            </Badge>
+                          ))}
+                          {project.tech.length > 5 && (
+                            <Badge variant="outline" className="text-sm">
+                              +{project.tech.length - 5} more
+                            </Badge>
+                          )}
+                        </div>
+                        <div className="flex flex-wrap gap-3">
+                          <Button asChild>
+                            <a href={project.link || "#"} target="_blank" rel="noopener noreferrer">
+                              View Project <ChevronRight className="ml-1 h-4 w-4" />
+                            </a>
+                          </Button>
+                          <Button variant="outline">View Details</Button>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={`order-1 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
+                      <div className="overflow-hidden rounded-lg shadow-lg">
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
+        </div>
+        
+        <div className="mb-8">
+          <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">More Projects</h3>
+          {/* Filter pills */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            {categories.map((category) => (
+              <Badge
+                key={category}
+                variant={activeFilter === category ? "default" : "outline"}
+                className={`px-4 py-2 text-sm cursor-pointer transition-all duration-300 ${
+                  activeFilter === category 
+                    ? "bg-[#2563EB] hover:bg-[#2563EB]/90" 
+                    : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
+                }`}
+                onClick={() => setActiveFilter(category)}
+              >
+                {category}
+              </Badge>
+            ))}
+          </div>
         </div>
         
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
           <AnimatePresence>
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <motion.div
                 key={project.title}
                 layout

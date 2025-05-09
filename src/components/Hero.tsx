@@ -29,7 +29,7 @@ const Hero = () => {
         </svg>
       </div>
       
-      <div className="section-container flex flex-col md:flex-row items-center md:justify-between relative z-10 -mt-16 md:mt-0">
+      <div className="section-container flex flex-col md:flex-row items-center md:justify-between relative z-10 mt-0">
         <motion.div 
           className="max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
@@ -42,6 +42,7 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
+                className="mb-2"
               >
                 <img 
                   src="https://lh3.googleusercontent.com/pw/AP1GczMBcBd4sSTy91VtLs7oEe8jK24lYRmNT3Eh6ueBoZ_w5zCNx7rYiBPUIR9m1fs29rkiZCi0AAj8LjJmiudPoAR70Ao9Pp3_mArBkdMk1W3k32Tu9UEtk071zvUOBM-Knwto-MOoTUGXsgvJgm00u8s6lw=w890-h890-s-no-gm" 
