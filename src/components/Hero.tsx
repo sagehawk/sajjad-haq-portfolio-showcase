@@ -8,9 +8,19 @@ const Hero = () => {
   const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
   
-  // Add useEffect hook to ensure proper positioning on initial load
   useEffect(() => {
-    // Force a reflow to ensure proper positioning on initial load
+    // Set the --vh CSS variable based on the actual viewport height
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    // Set on initial load
+    setVh();
+    
+    // Add resize event listener to update on viewport changes
+    window.addEventListener('resize', setVh);
+    
     if (sectionRef.current) {
       // Immediately set proper position
       sectionRef.current.style.visibility = "visible";
@@ -22,6 +32,8 @@ const Hero = () => {
         }
       });
     }
+    
+    return () => window.removeEventListener('resize', setVh);
   }, []);
   
   const scrollToProjects = () => {
@@ -35,8 +47,11 @@ const Hero = () => {
     <section 
       id="home" 
       ref={sectionRef}
-      className="min-h-screen flex flex-col justify-center pt-16 md:pt-20 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
-      style={{ visibility: 'visible' }}
+      className="flex flex-col justify-center pt-12 md:pt-16 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
+      style={{ 
+        visibility: 'visible',
+        minHeight: 'calc(var(--vh, 1vh) * 100)'
+      }}
     >
       {/* Background pattern - using pointer-events-none to allow clicking through */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">

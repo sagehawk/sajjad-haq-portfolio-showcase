@@ -31,6 +31,10 @@ const Index = () => {
       metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
     }
     
+    // Set the --vh CSS variable based on the actual viewport height (immediately)
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    
     // Force immediate layout calculation
     document.body.style.opacity = "0.99";
     window.requestAnimationFrame(() => {
@@ -62,6 +66,13 @@ const Index = () => {
       }
     });
     
+    // Update the --vh CSS variable on resize events
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    window.addEventListener('resize', setVh);
+    
     // Set up scroll animations and parallax effect with requestAnimationFrame
     const setupAfterFirstPaint = () => {
       requestAnimationFrame(() => {
@@ -82,6 +93,8 @@ const Index = () => {
       const img = new Image();
       img.src = src;
     });
+    
+    return () => window.removeEventListener('resize', setVh);
   }, []);
   
   return (

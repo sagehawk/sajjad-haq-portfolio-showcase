@@ -36,6 +36,9 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+    
+    /* Default value for --vh to avoid layout shift before JS sets it */
+    --vh: 1vh;
   }
 
   .dark {
