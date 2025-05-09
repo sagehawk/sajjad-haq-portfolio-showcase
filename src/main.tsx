@@ -3,35 +3,49 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// Preload critical assets
-const preloadAssets = () => {
-  // Add any critical assets to preload here
+// Preload critical assets immediately
+const preloadCriticalAssets = () => {
   const criticalImages = [
-    'https://ghchart.rshah.org/sagehawk'
+    'https://ghchart.rshah.org/sagehawk',
+    'https://i.imgur.com/zLMA1fY.png'
   ];
   
   criticalImages.forEach(url => {
+    const img = new Image();
+    img.fetchPriority = 'high';
+    img.src = url;
+  });
+};
+
+// Preload non-critical assets when browser is idle
+const preloadNonCriticalAssets = () => {
+  const nonCriticalImages = [
+    // Add any non-critical images here
+  ];
+  
+  nonCriticalImages.forEach(url => {
     const img = new Image();
     img.src = url;
   });
 };
 
-// Use requestIdleCallback for non-critical rendering when browser is idle
+// Render app and preload critical assets immediately
 const renderApp = () => {
-  // Preload assets in the background
-  preloadAssets();
+  preloadCriticalAssets();
   
   const container = document.getElementById("root");
   if (container) {
     const root = createRoot(container);
     root.render(<App />);
+    
+    // Preload non-critical assets when browser is idle
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(preloadNonCriticalAssets);
+    } else {
+      setTimeout(preloadNonCriticalAssets, 1000);
+    }
   }
 };
 
-// Use requestIdleCallback for non-critical rendering when browser is idle
-if ('requestIdleCallback' in window) {
-  window.requestIdleCallback(renderApp);
-} else {
-  // Fallback for browsers that don't support requestIdleCallback
-  setTimeout(renderApp, 1);
-}
+// Start rendering immediately
+renderApp();

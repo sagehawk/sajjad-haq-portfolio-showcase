@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -11,7 +11,8 @@ import { setupScrollAnimation } from '@/utils/scrollAnimation';
 import { setupParallaxEffect } from '@/utils/animations';
 
 const Index = () => {
-  useEffect(() => {
+  // Use layout effect for critical DOM manipulations before paint
+  useLayoutEffect(() => {
     // Set document title immediately
     document.title = "Sajjad Haq - Front-End Developer";
     
@@ -23,17 +24,11 @@ const Index = () => {
     if (metaViewport) {
       metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
     }
-    
-    // Delay non-critical animations setup
-    const setupAnimations = () => {
-      setupScrollAnimation();
-      setupParallaxEffect();
-    };
-    
-    // Use requestAnimationFrame to run after paint
-    requestAnimationFrame(setupAnimations);
-
-    // Add preconnect links for faster resource loading
+  }, []);
+  
+  // Use regular effect for non-critical operations
+  useEffect(() => {
+    // Set up preconnect links for resource loading
     const preconnectDomains = [
       'https://fonts.googleapis.com', 
       'https://fonts.gstatic.com', 
@@ -41,6 +36,7 @@ const Index = () => {
       'https://ghchart.rshah.org',
       'https://i.imgur.com'
     ];
+    
     preconnectDomains.forEach(domain => {
       if (!document.querySelector(`link[rel="preconnect"][href="${domain}"]`)) {
         const link = document.createElement('link');
@@ -51,26 +47,30 @@ const Index = () => {
       }
     });
     
-    // Preload the GitHub contribution chart
-    const preloadLink = document.createElement('link');
-    preloadLink.rel = 'preload';
-    preloadLink.href = 'https://ghchart.rshah.org/sagehawk';
-    preloadLink.as = 'image';
-    document.head.appendChild(preloadLink);
+    // Set up scroll animations and parallax effect with requestAnimationFrame
+    const setupAfterFirstPaint = () => {
+      requestAnimationFrame(() => {
+        setupScrollAnimation();
+        setupParallaxEffect();
+      });
+    };
     
-    // Preload OG Image
-    const ogImagePreloadLink = document.createElement('link');
-    ogImagePreloadLink.rel = 'preload';
-    ogImagePreloadLink.href = 'https://i.imgur.com/tPczn3X.png';
-    ogImagePreloadLink.as = 'image';
-    document.head.appendChild(ogImagePreloadLink);
-
-    // Preload Mystic Empowerment project image
-    const mysticProjectPreloadLink = document.createElement('link');
-    mysticProjectPreloadLink.rel = 'preload';
-    mysticProjectPreloadLink.href = 'https://i.imgur.com/zLMA1fY.png';
-    mysticProjectPreloadLink.as = 'image';
-    document.head.appendChild(mysticProjectPreloadLink);
+    // Delay animations until after content is visible
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(setupAfterFirstPaint);
+    } else {
+      setTimeout(setupAfterFirstPaint, 10);
+    }
+    
+    // Preload critical images
+    [
+      'https://ghchart.rshah.org/sagehawk',
+      'https://i.imgur.com/tPczn3X.png',
+      'https://i.imgur.com/zLMA1fY.png'
+    ].forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
   }, []);
   
   return (
