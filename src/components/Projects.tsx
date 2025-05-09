@@ -4,7 +4,7 @@ import ProjectCard, { ProjectProps } from "./ProjectCard";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Github } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import {
   Dialog,
