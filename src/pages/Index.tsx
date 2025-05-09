@@ -1,5 +1,5 @@
 
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -11,6 +11,8 @@ import { setupScrollAnimation } from '@/utils/scrollAnimation';
 import { setupParallaxEffect } from '@/utils/animations';
 
 const Index = () => {
+  const initialized = useRef(false);
+  
   // Use layout effect for critical DOM manipulations before paint
   useLayoutEffect(() => {
     // Set document title immediately
@@ -28,10 +30,19 @@ const Index = () => {
     if (metaViewport) {
       metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
     }
+    
+    // Force immediate layout calculation
+    document.body.style.opacity = "0.99";
+    window.requestAnimationFrame(() => {
+      document.body.style.opacity = "1";
+    });
   }, []);
   
   // Use regular effect for non-critical operations
   useEffect(() => {
+    if (initialized.current) return;
+    initialized.current = true;
+    
     // Set up preconnect links for resource loading
     const preconnectDomains = [
       'https://fonts.googleapis.com', 
@@ -59,12 +70,8 @@ const Index = () => {
       });
     };
     
-    // Delay animations until after content is visible
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(setupAfterFirstPaint);
-    } else {
-      setTimeout(setupAfterFirstPaint, 10);
-    }
+    // Run animations setup immediately
+    setupAfterFirstPaint();
     
     // Preload critical images
     [

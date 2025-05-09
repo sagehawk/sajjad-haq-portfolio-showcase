@@ -2,9 +2,27 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useEffect, useRef } from "react";
 
 const Hero = () => {
   const isMobile = useIsMobile();
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  // Add useEffect hook to ensure proper positioning on initial load
+  useEffect(() => {
+    // Force a reflow to ensure proper positioning on initial load
+    if (sectionRef.current) {
+      // Immediately set proper position
+      sectionRef.current.style.visibility = "visible";
+      
+      // Force the layout calculation to happen right away
+      window.requestAnimationFrame(() => {
+        if (sectionRef.current) {
+          sectionRef.current.style.transform = "translateY(0)";
+        }
+      });
+    }
+  }, []);
   
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
@@ -16,8 +34,12 @@ const Hero = () => {
   return (
     <section 
       id="home" 
+      ref={sectionRef}
       className="min-h-screen flex flex-col justify-center pt-0 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
-      style={{ minHeight: '100vh' }}
+      style={{ 
+        minHeight: '100vh',
+        visibility: 'visible' // Ensure visible from the start
+      }}
     >
       {/* Background pattern - using pointer-events-none to allow clicking through */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
