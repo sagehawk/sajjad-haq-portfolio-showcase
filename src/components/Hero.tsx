@@ -35,11 +35,8 @@ const Hero = () => {
     <section 
       id="home" 
       ref={sectionRef}
-      className="min-h-screen flex flex-col justify-center pt-0 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
-      style={{ 
-        minHeight: '100vh',
-        visibility: 'visible' // Ensure visible from the start
-      }}
+      className="min-h-screen flex flex-col justify-center pt-16 md:pt-20 bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
+      style={{ visibility: 'visible' }}
     >
       {/* Background pattern - using pointer-events-none to allow clicking through */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
