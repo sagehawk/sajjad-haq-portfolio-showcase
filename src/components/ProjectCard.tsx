@@ -1,8 +1,9 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Play } from "lucide-react";
+import { ExternalLink, Github, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -49,6 +50,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+  const [clientResultIndex, setClientResultIndex] = useState(0);
+  
   // Special case for Articulate and Refine projects
   const getProjectLink = (project: ProjectProps) => {
     if (project.title.includes("Articulate") || project.title.includes("Refine")) {
@@ -58,6 +61,80 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   };
 
   const projectLink = getProjectLink(project);
+
+  // Function to render client results as a gallery
+  const renderClientResultsGallery = () => {
+    if (!project.clientResults || project.clientResults.length === 0) return null;
+    
+    return (
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold mb-3">Client Results</h3>
+        
+        <div className="relative rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-800">
+          {/* Main carousel display */}
+          <div className="p-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <img 
+                  src={project.clientResults[clientResultIndex].image} 
+                  alt={project.clientResults[clientResultIndex].name} 
+                  className="w-14 h-14 rounded-full object-cover border-2 border-white dark:border-gray-700"
+                />
+                <div>
+                  <p className="font-medium text-lg">{project.clientResults[clientResultIndex].name}</p>
+                  <p className="text-emerald-600 dark:text-emerald-400 font-medium">
+                    {project.clientResults[clientResultIndex].result}
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex space-x-2">
+                <Button 
+                  variant="outline" 
+                  size="icon"
+                  disabled={clientResultIndex === 0}
+                  onClick={() => setClientResultIndex(prev => Math.max(0, prev - 1))}
+                  className="h-8 w-8"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="icon"
+                  disabled={clientResultIndex === project.clientResults.length - 1}
+                  onClick={() => setClientResultIndex(prev => Math.min(project.clientResults.length - 1, prev + 1))}
+                  className="h-8 w-8"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+          
+          {/* Thumbnails */}
+          <div className="flex justify-center p-3 gap-2 border-t border-gray-200 dark:border-gray-700">
+            {project.clientResults.map((result, idx) => (
+              <div
+                key={idx}
+                onClick={() => setClientResultIndex(idx)}
+                className={`w-10 h-10 rounded-full overflow-hidden cursor-pointer transition-all ${
+                  idx === clientResultIndex 
+                    ? "ring-2 ring-blue-500 scale-110" 
+                    : "opacity-70 hover:opacity-100"
+                }`}
+              >
+                <img 
+                  src={result.image}
+                  alt={result.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <motion.div 
@@ -175,31 +252,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               </div>
             )}
             
-            {/* Client results section */}
-            {project.clientResults && (
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold mb-2">Client Results</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {project.clientResults.map((client, index) => (
-                    <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3">
-                      <div className="flex items-start space-x-2">
-                        <img 
-                          src={client.image} 
-                          alt={client.name} 
-                          className="w-12 h-12 rounded-full object-cover"
-                        />
-                        <div>
-                          <p className="font-medium">{client.name}</p>
-                          <p className="text-sm text-emerald-600 dark:text-emerald-400 font-medium">
-                            {client.result}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+            {/* Client results section - Now as a gallery */}
+            {project.clientResults && renderClientResultsGallery()}
             
             {/* Project details text */}
             <div className="mb-4">
@@ -365,31 +419,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                   </div>
                 )}
                 
-                {/* Client results section */}
-                {project.clientResults && (
-                  <div className="mb-4">
-                    <h3 className="text-lg font-semibold mb-2">Client Results</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                      {project.clientResults.map((client, index) => (
-                        <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3">
-                          <div className="flex items-start space-x-2">
-                            <img 
-                              src={client.image} 
-                              alt={client.name} 
-                              className="w-12 h-12 rounded-full object-cover"
-                            />
-                            <div>
-                              <p className="font-medium">{client.name}</p>
-                              <p className="text-sm text-emerald-600 dark:text-emerald-400 font-medium">
-                                {client.result}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                {/* Client results section - Now as a gallery */}
+                {project.clientResults && renderClientResultsGallery()}
                 
                 {/* Project details text */}
                 <div className="mb-4">

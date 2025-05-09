@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import ProjectCard, { ProjectProps } from "./ProjectCard";
 import { Badge } from "@/components/ui/badge";
@@ -21,18 +20,8 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 
-// Define projects data
+// Define projects data - reordered to prioritize front-end development skills
 const projects: ProjectProps[] = [
-  {
-    title: "Mystic Empowerment",
-    summary: "A meditative web application for daily reflection and mindfulness with an elegant, flowing user journey.",
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Shadcn UI", "Context API", "Custom Animations"],
-    details: "Created a calming digital sanctuary with Portal Entry (captivating landing page), Invocation Prompt (thoughtful prompts based on time/mood), Reflection Space (serene journaling area), and Parting Mantra (inspirational quotes). Implemented custom animation sequences, centralized context for journey state management, ethereal visual aesthetics with fluid gradients, and responsive design across all devices.",
-    image: "https://i.imgur.com/zLMA1fY.png",
-    link: "https://mystic.sajjadhaq.com",
-    featured: true,
-    category: "React",
-  },
   {
     title: "Essay Editor (Articulate & Refine)",
     summary: "AI-powered essay tool built from scratch for writing, rewriting, and restructuring content using Google Gemini.",
@@ -44,31 +33,20 @@ const projects: ProjectProps[] = [
     featured: true,
   },
   {
-    title: "MA Food Group",
-    summary: "Developed a full commercial website with dynamic job application forms and smooth UI animations.",
-    tech: ["HTML5", "CSS3", "Bootstrap 4", "jQuery", "Owl Carousel", "AJAX", "Waypoints", "Form validation"],
-    details: "Implemented dynamic job forms (add/remove entries, validation), scroll animations, counters, and lightboxes. Designed for performance and clarity across devices. Wrote clean, componentized code using vanilla JS and Bootstrap grid.",
-    link: "https://mafoodgroup.com",
-    image: "https://lh3.googleusercontent.com/pw/AP1GczO9laSc9jf_SPq6IWwrlzL7mEXKqQi1chtxyX44eHdlsbzuqEMr-8L5W3wiNi0GZg3-1bCVKclNdSGOqyOukXfgkr4iyBu93g3ll-gZhVbk64z2GnaPI6zxUcRLL2aThUEIORG_puU8jMaHw9li3OsM3Q=w1560-h890-s-no-gm",
-    mobileImage: "https://lh3.googleusercontent.com/pw/AP1GczP-MdNLev23jYMcfj_FUwbNXShUQazQrbWV2HflwRqIcaV3NunvjpJrEuMHBfbS0n5wCHniR8dkXbE_iyFj0MCL8VcfxQu4Xv2s7v3QKOSqjy5Z5uHkgXS_V3TpxfCCuek1zyWzS3cf5d1M3sq2Vo1vXA=w318-h697-s-no-gm",
-    mobileImage2: "https://lh3.googleusercontent.com/pw/AP1GczPmby1vJGXUFsjO-rHMdRpFL-56jj01X_egrALCY3xc27gWEKKNgBF_-24-qkUO-E6vygGMBmL1HhA2ajpKHyYs7DMfjgBCAX7wQOEtFM2yXkbJC6_OCbShS7fmGyyoLtLxe6oVmeWQt7MCu9VOTGc2dw=w316-h695-s-no-gm", 
-    category: "CMS",
-  },
-  {
-    title: "NDM Capital LLC",
-    summary: "Rebuilt a private equity firm's website — from salesy landing page to authoritative, content-focused design.",
-    tech: ["Squarespace (Fluid Engine)", "HTML/CSS", "CMS configuration", "Custom layout blocks", "Video backgrounds"],
-    details: "Led both versions of the project. Started with a Bootstrap theme, then migrated to Squarespace for structure, performance, and credibility. Managed content architecture, responsive design, SEO meta config, and form integrations.",
-    link: "https://ndmcapitalllc.com",
-    image: "https://lh3.googleusercontent.com/pw/AP1GczNyFoJNl0dp4ccOFbdiKZfUweJsfBtcoS8fq0raX99qTeSwkhhV-j1HLhs3-MdalHTz0l2pxr8LVlTQ3AlIEffIDIfX7oZGeENQSdN87jF5JIfOzZuVCCNCpeQn4JZahW_Ko_V-0DhX7dVTRyHQzonPkQ=w1560-h890-s-no-gm",
-    beforeImage: "https://lh3.googleusercontent.com/pw/AP1GczMUR2_RpiSK6oF6e8hwvP5mO5NbEH0xZUpCLsgjy_PybJLn7zrGcNADjH_uRsJY5TFXHZcgpc1xzjuwT1yfLKxEANQ3wBaS7qQSs-a7n6R4VIq8bPcvO1pUxF4qxkYFb4YF3Lb8cNFpfLS99j8htcaYkA=w1559-h890-s-no-gm",
-    category: "CMS",
+    title: "Mystic Empowerment",
+    summary: "A meditative web application for daily reflection and mindfulness with an elegant, flowing user journey.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Shadcn UI", "Context API", "Custom Animations"],
+    details: "Created a calming digital sanctuary with Portal Entry (captivating landing page), Invocation Prompt (thoughtful prompts based on time/mood), Reflection Space (serene journaling area), and Parting Mantra (inspirational quotes). Implemented custom animation sequences, centralized context for journey state management, ethereal visual aesthetics with fluid gradients, and responsive design across all devices.",
+    image: "https://i.imgur.com/zLMA1fY.png",
+    link: "https://mystic.sajjadhaq.com",
+    featured: true,
+    category: "React",
   },
   {
     title: "Contract Clarity MVP",
     summary: "Collaborative tool for uploading and managing AI-extracted metadata from contracts (PDF/DOCX).",
     tech: ["React", "TypeScript", "TailwindCSS", "Shadcn UI", "Supabase (Storage + DB)", "React Router", "Toast notifications"],
-    details: "Built a responsive dashboard with sidebar navigation, contract upload form, file validation, and preview. Connected to Supabase for file and metadata storage. UI supports manual overrides and real-time status toasts. Built with cousins using Lovable.dev + ChatGPT for architectural planning.",
+    details: "Built a responsive dashboard with sidebar navigation, contract upload form, file validation, and preview. Connected to Supabase for file and metadata storage. UI supports manual overrides and real-time status toasts. A project focused on improving contract management workflow.",
     image: "https://i.imgur.com/wEo5YRv.png",
     additionalImages: [
       {
@@ -81,16 +59,6 @@ const projects: ProjectProps[] = [
       }
     ],
     category: "React",
-  },
-  {
-    title: "Discord Gas Bot",
-    summary: "Custom Discord bot to log family car usage, expenses, and split balances fairly.",
-    tech: ["Python", "discord.py", "UI components (Views, Selects)", "Ephemeral messaging"],
-    details: "Designed slash commands like /filled, /balance, and /settle. Created dropdown-based UI for multi-step interactions. Used ephemeral messages for private feedback and formatted summaries for public logs. Streamlined how multiple drivers track and split fuel costs.",
-    repo: "https://github.com/sagehawk/gas_bot",
-    image: "https://i.imgur.com/bsNL5c6.gif",
-    caption: "Live slash-command flow: dropdown → confirmation.",
-    category: "Python",
   },
   {
     title: "Ceramic Catalysts",
@@ -117,6 +85,37 @@ const projects: ProjectProps[] = [
       }
     ],
     category: "CMS",
+  },
+  {
+    title: "MA Food Group",
+    summary: "Developed a full commercial website with dynamic job application forms and smooth UI animations.",
+    tech: ["HTML5", "CSS3", "Bootstrap 4", "jQuery", "Owl Carousel", "AJAX", "Waypoints", "Form validation"],
+    details: "Implemented dynamic job forms (add/remove entries, validation), scroll animations, counters, and lightboxes. Designed for performance and clarity across devices. Wrote clean, componentized code using vanilla JS and Bootstrap grid.",
+    link: "https://mafoodgroup.com",
+    image: "https://lh3.googleusercontent.com/pw/AP1GczO9laSc9jf_SPq6IWwrlzL7mEXKqQi1chtxyX44eHdlsbzuqEMr-8L5W3wiNi0GZg3-1bCVKclNdSGOqyOukXfgkr4iyBu93g3ll-gZhVbk64z2GnaPI6zxUcRLL2aThUEIORG_puU8jMaHw9li3OsM3Q=w1560-h890-s-no-gm",
+    mobileImage: "https://lh3.googleusercontent.com/pw/AP1GczP-MdNLev23jYMcfj_FUwbNXShUQazQrbWV2HflwRqIcaV3NunvjpJrEuMHBfbS0n5wCHniR8dkXbE_iyFj0MCL8VcfxQu4Xv2s7v3QKOSqjy5Z5uHkgXS_V3TpxfCCuek1zyWzS3cf5d1M3sq2Vo1vXA=w318-h697-s-no-gm",
+    mobileImage2: "https://lh3.googleusercontent.com/pw/AP1GczPmby1vJGXUFsjO-rHMdRpFL-56jj01X_egrALCY3xc27gWEKKNgBF_-24-qkUO-E6vygGMBmL1HhA2ajpKHyYs7DMfjgBCAX7wQOEtFM2yXkbJC6_OCbShS7fmGyyoLtLxe6oVmeWQt7MCu9VOTGc2dw=w316-h695-s-no-gm", 
+    category: "CMS",
+  },
+  {
+    title: "NDM Capital LLC",
+    summary: "Rebuilt a private equity firm's website — from salesy landing page to authoritative, content-focused design.",
+    tech: ["Squarespace (Fluid Engine)", "HTML/CSS", "CMS configuration", "Custom layout blocks", "Video backgrounds"],
+    details: "Led both versions of the project. Started with a Bootstrap theme, then migrated to Squarespace for structure, performance, and credibility. Managed content architecture, responsive design, SEO meta config, and form integrations.",
+    link: "https://ndmcapitalllc.com",
+    image: "https://lh3.googleusercontent.com/pw/AP1GczNyFoJNl0dp4ccOFbdiKZfUweJsfBtcoS8fq0raX99qTeSwkhhV-j1HLhs3-MdalHTz0l2pxr8LVlTQ3AlIEffIDIfX7oZGeENQSdN87jF5JIfOzZuVCCNCpeQn4JZahW_Ko_V-0DhX7dVTRyHQzonPkQ=w1560-h890-s-no-gm",
+    beforeImage: "https://lh3.googleusercontent.com/pw/AP1GczMUR2_RpiSK6oF6e8hwvP5mO5NbEH0xZUpCLsgjy_PybJLn7zrGcNADjH_uRsJY5TFXHZcgpc1xzjuwT1yfLKxEANQ3wBaS7qQSs-a7n6R4VIq8bPcvO1pUxF4qxkYFb4YF3Lb8cNFpfLS99j8htcaYkA=w1559-h890-s-no-gm",
+    category: "CMS",
+  },
+  {
+    title: "Discord Gas Bot",
+    summary: "Custom Discord bot to log family car usage, expenses, and split balances fairly.",
+    tech: ["Python", "discord.py", "UI components (Views, Selects)", "Ephemeral messaging"],
+    details: "Designed slash commands like /filled, /balance, and /settle. Created dropdown-based UI for multi-step interactions. Used ephemeral messages for private feedback and formatted summaries for public logs. Streamlined how multiple drivers track and split fuel costs.",
+    repo: "https://github.com/sagehawk/gas_bot",
+    image: "https://i.imgur.com/bsNL5c6.gif",
+    caption: "Live slash-command flow: dropdown → confirmation.",
+    category: "Python",
   },
 ];
 
