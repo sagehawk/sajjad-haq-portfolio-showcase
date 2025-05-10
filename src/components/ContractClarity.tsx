@@ -20,10 +20,19 @@ const ContractClarity = () => {
     { src: "https://i.imgur.com/1NJvKwY.png", alt: "Contracts Section" }
   ];
 
+  // Handler to properly set the active slide index
+  const handleThumbnailClick = (index: number) => {
+    document.querySelector(`#contract-clarity [data-carousel-index="${index}"]`)?.scrollIntoView();
+    setContractsActiveSlide(index);
+  };
+
   return (
-    <section id="contract-clarity" className="py-16 bg-gray-50 dark:bg-gray-800">
+    <section id="contract-clarity" className="py-16 bg-gradient-to-b from-white to-blue-50 dark:from-gray-800 dark:to-gray-900">
       <div className="section-container">
-        <h2 className="section-title text-center mx-auto mb-16">Contract Clarity</h2>
+        <h2 className="section-title text-center mx-auto mb-6">Making Your Document Management Effortless</h2>
+        <p className="text-center text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-16">
+          You deserve tools that simplify your workflow, not complicate it. Here's how we've designed Contract Clarity with your productivity in mind.
+        </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contracts Section */}
@@ -35,7 +44,7 @@ const ContractClarity = () => {
           >
             <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-t-emerald">
               <CardHeader className="pb-2">
-                <CardTitle className="text-2xl font-bold text-emerald">Contracts Section</CardTitle>
+                <CardTitle className="text-2xl font-bold text-emerald">Never Miss a Deadline Again</CardTitle>
               </CardHeader>
               <CardContent>
                 <Carousel 
@@ -67,10 +76,7 @@ const ContractClarity = () => {
                           ? "border-blue-500 opacity-100 scale-105" 
                           : "border-gray-200 dark:border-gray-700 opacity-70 hover:opacity-100"
                       )}
-                      onClick={() => {
-                        document.querySelector(`#contract-clarity [data-carousel-index="${index}"]`)?.scrollIntoView();
-                        setContractsActiveSlide(index);
-                      }}
+                      onClick={() => handleThumbnailClick(index)}
                     >
                       <img 
                         src={image.src} 
@@ -82,7 +88,7 @@ const ContractClarity = () => {
                 </div>
                 
                 <p className="text-gray-700 dark:text-gray-300">
-                  Clear visualization of contract statuses, prioritized by importance and deadline. Users can quickly access, sort, and take action on time-sensitive items.
+                  We've created a clear visualization of your contract statuses, prioritized by importance and deadline, so you can quickly take action on time-sensitive items and stay ahead of your commitments.
                 </p>
               </CardContent>
             </Card>
@@ -97,7 +103,7 @@ const ContractClarity = () => {
           >
             <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-t-royal">
               <CardHeader className="pb-2">
-                <CardTitle className="text-2xl font-bold text-royal">Alerts Section</CardTitle>
+                <CardTitle className="text-2xl font-bold text-royal">Stay Informed, Not Overwhelmed</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="mb-4">
@@ -108,7 +114,7 @@ const ContractClarity = () => {
                   />
                 </div>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Real-time notification system that prioritizes critical events, allowing users to stay informed about important changes without overwhelming them with unnecessary information.
+                  Our real-time notification system prioritizes what matters to you, ensuring you're always informed about important changes without being bombarded with unnecessary information.
                 </p>
               </CardContent>
             </Card>
