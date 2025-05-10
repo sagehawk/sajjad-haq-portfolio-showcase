@@ -26,6 +26,11 @@ const ContractClarity = () => {
     setContractsActiveSlide(index);
   };
 
+  // Properly typed onSelect handler for the Carousel
+  const handleCarouselSelect = (index: number) => {
+    setContractsActiveSlide(index);
+  };
+
   return (
     <section id="contract-clarity" className="py-16 bg-gradient-to-b from-white to-blue-50 dark:from-gray-800 dark:to-gray-900">
       <div className="section-container">
@@ -49,7 +54,7 @@ const ContractClarity = () => {
               <CardContent>
                 <Carousel 
                   className="w-full mb-4"
-                  onSelect={(index) => setContractsActiveSlide(index)}
+                  onSelect={handleCarouselSelect}
                 >
                   <CarouselContent>
                     {contractsImages.map((image, index) => (
