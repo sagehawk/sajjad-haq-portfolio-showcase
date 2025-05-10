@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import { GalleryHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ContractClarity = () => {
   const [contractsActiveSlide, setContractsActiveSlide] = useState(0);
@@ -26,10 +26,30 @@ const ContractClarity = () => {
     setContractsActiveSlide(index);
   };
 
-  // Properly typed onSelect handler for the Carousel
-  const handleCarouselSelect = (index: number) => {
-    setContractsActiveSlide(index);
-  };
+  // Remove the incompatible handleCarouselSelect function
+  // Instead, we'll set up an effect to sync with the Carousel's API
+
+  // Reference to the carousel API
+  const [api, setApi] = useState<any>(null);
+
+  // Subscribe to carousel's select event to update active slide
+  useEffect(() => {
+    if (!api) return;
+    
+    const onSelect = () => {
+      // Get the selected index from the carousel API
+      const selectedIndex = api.selectedScrollSnap();
+      setContractsActiveSlide(selectedIndex);
+    };
+
+    // Subscribe to the select event
+    api.on("select", onSelect);
+    
+    // Cleanup
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
 
   return (
     <section id="contract-clarity" className="py-16 bg-gradient-to-b from-white to-blue-50 dark:from-gray-800 dark:to-gray-900">
@@ -54,11 +74,11 @@ const ContractClarity = () => {
               <CardContent>
                 <Carousel 
                   className="w-full mb-4"
-                  onSelect={handleCarouselSelect}
+                  setApi={setApi}
                 >
                   <CarouselContent>
                     {contractsImages.map((image, index) => (
-                      <CarouselItem key={index}>
+                      <CarouselItem key={index} data-carousel-index={index}>
                         <img 
                           src={image.src} 
                           alt={image.alt} 
