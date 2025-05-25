@@ -50,8 +50,13 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-charcoal dark:text-white mb-4 leading-tight text-center md:text-left">
             Hey there! 👋 I'm Sajjad
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-center md:text-left font-normal">
-            I build <span className="text-[#2563EB] dark:text-[#3B82F6] font-medium">fast, beautiful web experiences</span> that help your business grow. Looking for a front-end developer who can turn your vision into reality? Let's work together!
+          <div className="mb-2">
+            <p className="text-xl md:text-2xl font-medium text-[#2563EB] dark:text-[#3B82F6] text-center md:text-left">
+              Front-End Developer
+            </p>
+          </div>
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-center md:text-left">
+            I craft <span className="text-[#2563EB] dark:text-[#3B82F6] font-medium">high-performance, user-centric web experiences</span> with React, TypeScript, and Tailwind CSS. I've helped 42+ clients scale to an additional $50K+ in revenue through technically optimized solutions.
           </p>
           
           <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">

@@ -1,23 +1,24 @@
+
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
-// Define the tech stacks with appropriate categories
+// Define the tech stacks with appropriate categories based on resume
 const techStacks = [
   {
-    category: "Core",
-    techs: ["HTML5", "CSS3", "JavaScript", "TypeScript"],
+    category: "Core Technologies",
+    techs: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "Python"],
   },
   {
     category: "Frameworks & Libraries",
-    techs: ["React", "Vite", "Tailwind", "Shadcn UI", "Bootstrap", "jQuery"],
+    techs: ["React", "Vite", "Tailwind CSS", "Shadcn UI", "Bootstrap", "jQuery"],
   },
   {
-    category: "Platforms",
-    techs: ["Supabase", "Squarespace", "Vercel", "Git"],
+    category: "Tools & Platforms",
+    techs: ["Git", "GitHub", "VS Code", "Vercel", "Supabase", "Squarespace"],
   },
   {
-    category: "API & Integration",
-    techs: ["REST API", "Discord UI", "Google Gemini", "Claude/Bedrock"],
+    category: "Specializations",
+    techs: ["Performance Optimization", "Component Architecture", "API Integration", "UI/UX Principles"],
   },
 ];
 
@@ -25,7 +26,7 @@ const About = () => {
   return (
     <section id="about" className="bg-white dark:bg-gray-900 py-16 md:py-24">
       <div className="section-container">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-charcoal dark:text-white relative pb-4 inline-block font-playfair">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-charcoal dark:text-white relative pb-4 inline-block">
           About Me
           <span className="absolute bottom-0 left-0 w-1/2 h-1 bg-[#2563EB] rounded-full"></span>
         </h2>
@@ -38,20 +39,35 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-inter">
-              I'm Sajjad Haq. I take complex product requirements and turn them into blazingly fast, user-obsessed front-end apps using React, TypeScript, TailwindCSS, and Squarespace.
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              I'm Sajjad Haq, a front-end developer and founder of Ceramic Catalysts. I specialize in building high-performance, user-centric web applications that drive real business results.
             </p>
+            
             <div className="space-y-4">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-inter">
-                In my projects, I've:
-              </p>
-              <ul className="space-y-2 list-disc pl-5 text-gray-700 dark:text-gray-300 font-inter">
-                <li>Cut client bounce rates by 40% with responsive, accessible designs.</li>
-                <li>Delivered AI-powered dashboards in under two weeks.</li>
-                <li>Launched marketing sites that generated 18+ job applications in 20 days.</li>
-              </ul>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-inter">
-                My obsession is speed, clarity, and ROI—so every line of code converts browsers into customers.
+              <h3 className="text-lg font-semibold text-charcoal dark:text-white">Proven Track Record:</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">40%</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Reduction in bounce rates</div>
+                </div>
+                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">18%</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Boost in conversion rates</div>
+                </div>
+                <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">42+</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Clients scaled</div>
+                </div>
+                <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+                  <div className="text-2xl font-bold text-amber-600 dark:text-amber-400">&lt;700ms</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Load times achieved</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                My approach combines technical excellence with business acumen. I don't just write code—I create solutions that solve real problems and drive measurable growth.
               </p>
             </div>
 
@@ -82,7 +98,7 @@ const About = () => {
             </div>
           
             <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-xl font-bold text-charcoal dark:text-white mb-4 font-playfair">Tech Stack</h3>
+              <h3 className="text-xl font-bold text-charcoal dark:text-white mb-4">Tech Stack</h3>
               <div className="space-y-4">
                 {techStacks.map((stack, index) => (
                   <div key={index} className="space-y-2">

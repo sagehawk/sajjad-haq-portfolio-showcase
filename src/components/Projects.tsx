@@ -20,51 +20,32 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 
-// Define projects data - reordered to prioritize front-end development skills
+// Define projects data - reordered to prioritize business impact
 const projects: ProjectProps[] = [
+  {
+    title: "GamerGrave - Game Discovery Platform",
+    summary: "Full-stack game discovery platform with infinite scrolling, intelligent search/filtering, and user authentication.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Shadcn UI", "Supabase", "REST API"],
+    details: "Architected and developed a comprehensive game discovery platform from the ground up. Features include infinite scrolling for seamless browsing, advanced search and filtering capabilities, user authentication system, and responsive design. Built with performance optimization in mind, achieving fast load times and smooth user interactions. Utilized Supabase for backend services including database management and user authentication.",
+    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop&q=80",
+    category: "React",
+    featured: true,
+  },
   {
     title: "Essay Editor (Articulate & Refine)",
     summary: "AI-powered essay tool built from scratch for writing, rewriting, and restructuring content using Google Gemini.",
-    tech: ["React", "Vite", "TypeScript", "TailwindCSS", "Shadcn UI", "React Hook Form", "Radix UI", "Supabase (planned)", "React Query", "Google Gemini API", "LocalStorage"],
-    details: "Created a multi-step editor where users can generate rewrites with AI, reorder paragraphs via drag-and-drop, and save progress in localStorage. Integrated toast feedback, modular components, and light/dark mode. Deployed with Vercel serverless functions for API calls. Built for a university independent study.",
+    tech: ["React", "Vite", "TypeScript", "TailwindCSS", "Shadcn UI", "React Hook Form", "Radix UI", "React Query", "Google Gemini API", "LocalStorage"],
+    details: "Engineered an AI-powered essay editing tool from scratch, integrating Google Gemini API for advanced text generation and editing capabilities. Created a multi-step editor where users can generate rewrites with AI, reorder paragraphs via drag-and-drop, and save progress in localStorage. Integrated toast feedback, modular components, and light/dark mode. Deployed with Vercel serverless functions for API calls. Built for a university independent study, focusing on clean UI design for efficient content editing.",
     image: "https://lh3.googleusercontent.com/pw/AP1GczMafTZme3W3UGNAMml7H8VARJUTZq_hUNbyghShBrvbihJkDT4LZLs4XipXStISgFBwERvLHeTtN34EkoL5JrN9ZHY289ZbxgH19m93LBsDb2yMarNLU9x-Pu8EAGVBi_TnMJ2Zm9maj9KeAIlVdNqbAA=w1560-h890-s-no-gm",
     loomEmbed: "https://www.loom.com/embed/a23a4e6eb5c84918bcc719bf974cee29",
     category: "React",
     featured: true,
   },
   {
-    title: "Mystic Empowerment",
-    summary: "A meditative web application for daily reflection and mindfulness with an elegant, flowing user journey.",
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Shadcn UI", "Context API", "Custom Animations"],
-    details: "Created a calming digital sanctuary with Portal Entry (captivating landing page), Invocation Prompt (thoughtful prompts based on time/mood), Reflection Space (serene journaling area), and Parting Mantra (inspirational quotes). Implemented custom animation sequences, centralized context for journey state management, ethereal visual aesthetics with fluid gradients, and responsive design across all devices.",
-    image: "https://i.imgur.com/zLMA1fY.png",
-    link: "https://mystic.sajjadhaq.com",
-    featured: true,
-    category: "React",
-  },
-  {
-    title: "Contract Clarity MVP",
-    summary: "Collaborative tool for uploading and managing AI-extracted metadata from contracts (PDF/DOCX).",
-    tech: ["React", "TypeScript", "TailwindCSS", "Shadcn UI", "Supabase (Storage + DB)", "React Router", "Toast notifications"],
-    details: "Built a responsive dashboard with sidebar navigation, contract upload form, file validation, and preview. Connected to Supabase for file and metadata storage. UI supports manual overrides and real-time status toasts. A project focused on improving contract management workflow.",
-    image: "https://i.imgur.com/wEo5YRv.png",
-    additionalImages: [
-      {
-        src: "https://i.imgur.com/1NJvKwY.png",
-        alt: "Contracts Section"
-      },
-      {
-        src: "https://i.imgur.com/JPu2Utp.png",
-        alt: "Alerts Section"
-      }
-    ],
-    category: "React",
-  },
-  {
-    title: "Ceramic Catalysts",
-    summary: "Long-running marketing agency project featuring landing pages with custom JavaScript enhancements.",
-    tech: ["HTML5", "CSS3 (with variables/media queries)", "JavaScript", "jQuery", "intl-tel-input", "3rd-party APIs"],
-    details: "Built comparison sliders, dynamic forms, and geo-targeted content using APIs. Integrated validation tools and UI plugins. Experience working inside custom web builders with code injection and layout overrides. Focused on clean, performant, mobile-first design.",
+    title: "Ceramic Catalysts Marketing Platform",
+    summary: "High-performance marketing platform with sub-700ms load times, boosting client conversion rates by 18%.",
+    tech: ["HTML5", "CSS3 (with variables/media queries)", "JavaScript", "jQuery", "intl-tel-input", "3rd-party APIs", "Performance Optimization"],
+    details: "Engineered high-performance client portals and marketing websites with sub-700ms load times, directly contributing to an 18% boost in conversion rates. Built comparison sliders, dynamic forms, and geo-targeted content using APIs. Integrated validation tools and UI plugins. Experience working inside custom web builders with code injection and layout overrides. Focused on clean, performant, mobile-first design. This platform has been instrumental in scaling 42+ clients to an additional $50K+ in revenue through technically optimized solutions.",
     link: "https://ceramiccatalysts.com",
     image: "https://lh3.googleusercontent.com/pw/AP1GczP9LCQkxGKQpPH6Efcrm-xL0tTmtjRW7W3O194FuwJ0QDN2ZOab85fnNGVGUg6P6Tq1yRrVehpJ04NkscHoJ45WN7a9f_aWOPTNLGe84j1cQ9OaPf1UnbZfRWC0anQ33zpdjdJ2Tyiu9WNGX_lTMOOfIQ=w1560-h890-s-no-gm",
     clientResults: [
@@ -84,7 +65,35 @@ const projects: ProjectProps[] = [
         image: "https://lh3.googleusercontent.com/pw/AP1GczMs73ibCitu__0-SfnJMgL37sa7IQrQBJsJ-pWclqqaHVJ4gP25kRx8hpJ2q7rhrKnd_GecDA27dO8BBiLe7j5KuCsLEWl43DyLkYDUE2L10kIwrybSUiqoQYPMJ7zA0Crbu9__mFoFzvOFmwGA7zeRnw=w877-h884-s-no-gm"
       }
     ],
-    category: "CMS",
+    category: "Performance",
+    featured: true,
+  },
+  {
+    title: "Mystic Empowerment",
+    summary: "A meditative web application for daily reflection and mindfulness with an elegant, flowing user journey.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Shadcn UI", "Context API", "Custom Animations"],
+    details: "Created a calming digital sanctuary with Portal Entry (captivating landing page), Invocation Prompt (thoughtful prompts based on time/mood), Reflection Space (serene journaling area), and Parting Mantra (inspirational quotes). Implemented custom animation sequences, centralized context for journey state management, ethereal visual aesthetics with fluid gradients, and responsive design across all devices.",
+    image: "https://i.imgur.com/zLMA1fY.png",
+    link: "https://mystic.sajjadhaq.com",
+    category: "React",
+  },
+  {
+    title: "Contract Clarity MVP",
+    summary: "Collaborative tool for uploading and managing AI-extracted metadata from contracts (PDF/DOCX).",
+    tech: ["React", "TypeScript", "TailwindCSS", "Shadcn UI", "Supabase (Storage + DB)", "React Router", "Toast notifications"],
+    details: "Built a responsive dashboard with sidebar navigation, contract upload form, file validation, and preview. Connected to Supabase for file and metadata storage. UI supports manual overrides and real-time status toasts. A project focused on improving contract management workflow.",
+    image: "https://i.imgur.com/wEo5YRv.png",
+    additionalImages: [
+      {
+        src: "https://i.imgur.com/1NJvKwY.png",
+        alt: "Contracts Section"
+      },
+      {
+        src: "https://i.imgur.com/JPu2Utp.png",
+        alt: "Alerts Section"
+      }
+    ],
+    category: "React",
   },
   {
     title: "MA Food Group",
@@ -120,7 +129,7 @@ const projects: ProjectProps[] = [
 ];
 
 // Define filter categories
-const categories = ["All", "React", "CMS", "Python"];
+const categories = ["All", "React", "Performance", "CMS", "Python"];
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -297,7 +306,7 @@ const Projects = () => {
   return (
     <section id="projects" className="bg-gray-50 dark:bg-gray-800 py-16 md:py-24">
       <div className="section-container">
-        <h2 className="section-title font-extrabold font-inter text-charcoal dark:text-white">Projects</h2>
+        <h2 className="section-title font-extrabold text-charcoal dark:text-white">Projects</h2>
         
         {/* Featured Projects Section */}
         <div className="mb-16">
