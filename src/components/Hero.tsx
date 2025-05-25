@@ -47,16 +47,16 @@ const Hero = () => {
             )}
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-charcoal dark:text-white mb-4 font-inter leading-tight text-center md:text-left">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal dark:text-white mb-4 font-playfair leading-tight text-center md:text-left">
             Hey there! 👋 I'm Sajjad
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-center md:text-left">
-            I build <span className="text-[#2563EB] dark:text-[#3B82F6]">fast, beautiful web experiences</span> that help your business grow. Looking for a front-end developer who can turn your vision into reality? Let's work together!
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-center md:text-left font-inter">
+            I build <span className="text-[#2563EB] dark:text-[#3B82F6] font-medium">fast, beautiful web experiences</span> that help your business grow. Looking for a front-end developer who can turn your vision into reality? Let's work together!
           </p>
           
           <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
             <Button 
-              className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-2 cursor-pointer relative z-20"
+              className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-2 cursor-pointer relative z-20 font-inter font-medium"
               onClick={scrollToProjects}
             >
               See My Work

@@ -90,6 +90,7 @@ export default {
 			},
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
+				'playfair': ['Playfair Display', 'serif'],
 			},
 			boxShadow: {
 				'card': '0 8px 24px rgba(0, 0, 0, 0.12)',

@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
@@ -26,7 +25,10 @@ const About = () => {
   return (
     <section id="about" className="bg-white dark:bg-gray-900 py-16 md:py-24">
       <div className="section-container">
-        <h2 className="section-title font-extrabold font-inter text-charcoal dark:text-white">About Me</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-charcoal dark:text-white relative pb-4 inline-block font-playfair">
+          About Me
+          <span className="absolute bottom-0 left-0 w-1/2 h-1 bg-[#2563EB] rounded-full"></span>
+        </h2>
         
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <motion.div 
@@ -36,19 +38,19 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-inter">
               I'm Sajjad Haq. I take complex product requirements and turn them into blazingly fast, user-obsessed front-end apps using React, TypeScript, TailwindCSS, and Squarespace.
             </p>
             <div className="space-y-4">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-inter">
                 In my projects, I've:
               </p>
-              <ul className="space-y-2 list-disc pl-5 text-gray-700 dark:text-gray-300">
+              <ul className="space-y-2 list-disc pl-5 text-gray-700 dark:text-gray-300 font-inter">
                 <li>Cut client bounce rates by 40% with responsive, accessible designs.</li>
                 <li>Delivered AI-powered dashboards in under two weeks.</li>
                 <li>Launched marketing sites that generated 18+ job applications in 20 days.</li>
               </ul>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed font-inter">
                 My obsession is speed, clarity, and ROI—so every line of code converts browsers into customers.
               </p>
             </div>
@@ -80,7 +82,7 @@ const About = () => {
             </div>
           
             <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-xl font-extrabold text-charcoal dark:text-white mb-4 font-inter">Tech Stack</h3>
+              <h3 className="text-xl font-bold text-charcoal dark:text-white mb-4 font-playfair">Tech Stack</h3>
               <div className="space-y-4">
                 {techStacks.map((stack, index) => (
                   <div key={index} className="space-y-2">
