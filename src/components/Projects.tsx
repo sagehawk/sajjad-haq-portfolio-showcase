@@ -27,7 +27,7 @@ const projects: ProjectProps[] = [
     summary: "Full-stack game discovery platform with infinite scrolling, intelligent search/filtering, and user authentication.",
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Shadcn UI", "Supabase", "REST API"],
     details: "Architected and developed a comprehensive game discovery platform from the ground up. Features include infinite scrolling for seamless browsing, advanced search and filtering capabilities, user authentication system, and responsive design. Built with performance optimization in mind, achieving fast load times and smooth user interactions. Utilized Supabase for backend services including database management and user authentication.",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop&q=80",
+    image: "https://i.imgur.com/VwH4G7t.png",
     category: "React",
     featured: true,
   },
