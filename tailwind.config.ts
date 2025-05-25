@@ -89,8 +89,8 @@ export default {
 				'scale-in': 'scale-in 0.3s ease-out'
 			},
 			fontFamily: {
-				'inter': ['Inter', 'sans-serif'],
-				'playfair': ['Playfair Display', 'serif'],
+				'sans': ['Inter', 'system-ui', 'sans-serif'],
+				'mono': ['JetBrains Mono', 'Fira Code', 'monospace'],
 			},
 			boxShadow: {
 				'card': '0 8px 24px rgba(0, 0, 0, 0.12)',

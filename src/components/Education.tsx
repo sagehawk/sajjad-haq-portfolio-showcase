@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 
@@ -17,7 +16,7 @@ const Education = () => {
       
       <div className="section-container relative z-10">
         <div className="flex items-center gap-3 mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white relative pb-4 inline-block font-playfair">
+          <h2 className="text-3xl md:text-4xl font-semibold text-white relative pb-4 inline-block">
             Education
             <span className="absolute bottom-0 left-0 w-1/2 h-1 bg-[#2563EB] rounded-full"></span>
           </h2>
@@ -40,11 +39,11 @@ const Education = () => {
         >
           <div className="space-y-6">
             <div>
-              <h3 className="flex items-center text-xl font-bold text-white font-playfair">
+              <h3 className="flex items-center text-xl font-semibold text-white">
                 <GraduationCap className="mr-2 h-5 w-5" />
                 Bachelor of Science in Computer Science
               </h3>
-              <p className="text-lg font-medium text-gray-300 font-inter">Northern Illinois University — June 2025</p>
+              <p className="text-lg font-medium text-gray-300">Northern Illinois University — June 2025</p>
             </div>
           </div>
           
@@ -55,8 +54,8 @@ const Education = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-xl font-bold text-charcoal dark:text-white mb-4 font-playfair">Relevant Coursework</h3>
-              <ul className="space-y-2 text-gray-700 dark:text-gray-300 font-inter">
+              <h3 className="text-xl font-semibold text-charcoal dark:text-white mb-4">Relevant Coursework</h3>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li>• Data Structures & Algorithm Analysis (CSCI 340)</li>
                 <li>• UNIX & Network Programming (CSCI 330)</li>
                 <li>• Databases (CSCI 466)</li>
