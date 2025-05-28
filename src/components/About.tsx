@@ -1,129 +1,171 @@
 
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-
-// Define the tech stacks with appropriate categories based on resume
-const techStacks = [
-  {
-    category: "Core Technologies",
-    techs: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "Python"],
-  },
-  {
-    category: "Frameworks & Libraries",
-    techs: ["React", "Vite", "Tailwind CSS", "Shadcn UI", "Bootstrap", "jQuery"],
-  },
-  {
-    category: "Tools & Platforms",
-    techs: ["Git", "GitHub", "VS Code", "Vercel", "Supabase", "Squarespace"],
-  },
-  {
-    category: "Specializations",
-    techs: ["Performance Optimization", "Component Architecture", "API Integration", "UI/UX Principles"],
-  },
-];
+import { motion } from 'framer-motion';
+import { Code2, Rocket, Users, TrendingUp, Award, Target } from 'lucide-react';
 
 const About = () => {
+  const achievements = [
+    {
+      icon: <Code2 className="w-8 h-8" />,
+      title: "High-Performance Applications",
+      description: "Built 50+ responsive web apps with sub-700ms load times"
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "Business Impact",
+      description: "Increased client conversion rates by 18% through optimized UX"
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: "Client Success",
+      description: "Scaled 42+ businesses to $50K+ additional revenue"
+    },
+    {
+      icon: <Rocket className="w-8 h-8" />,
+      title: "Rapid Development",
+      description: "Delivered production-ready projects in under 2 weeks"
+    }
+  ];
+
+  const skills = [
+    { name: "React & TypeScript", level: 95 },
+    { name: "Tailwind CSS", level: 90 },
+    { name: "Performance Optimization", level: 88 },
+    { name: "UI/UX Design", level: 85 },
+    { name: "API Integration", level: 92 },
+    { name: "Component Architecture", level: 90 }
+  ];
+
   return (
-    <section id="about" className="bg-white dark:bg-gray-900 py-16 md:py-24">
-      <div className="section-container">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-charcoal dark:text-white relative pb-4 inline-block">
-          About Me
-          <span className="absolute bottom-0 left-0 w-1/2 h-1 bg-[#2563EB] rounded-full"></span>
-        </h2>
-        
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+    <section id="about" className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 right-20 w-72 h-72 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-60"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-100 dark:bg-purple-900/20 rounded-full blur-3xl opacity-40"></div>
+      </div>
+
+      <div className="section-container relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
           <motion.div 
-            className="space-y-6"
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
           >
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              I'm Sajjad Haq, a front-end developer and founder of Ceramic Catalysts. I specialize in building high-performance, user-centric web applications that drive real business results.
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Me</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              I'm a passionate front-end developer who transforms ideas into exceptional digital experiences. 
+              With a focus on performance, accessibility, and user satisfaction, I create solutions that drive real business results.
             </p>
-            
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-charcoal dark:text-white">Proven Track Record:</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">40%</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Reduction in bounce rates</div>
-                </div>
-                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">18%</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Boost in conversion rates</div>
-                </div>
-                <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">42+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Clients scaled</div>
-                </div>
-                <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-amber-600 dark:text-amber-400">&lt;700ms</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Load times achieved</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                My approach combines technical excellence with business acumen. I don't just write code—I create solutions that solve real problems and drive measurable growth.
-              </p>
-            </div>
-
-            <div className="mt-8 md:hidden">
-              <img 
-                src="https://lh3.googleusercontent.com/pw/AP1GczNraD68unEHd3tnsUdDhMbPAhqRFlLaABuiagqM5yL9ZN_Hctl1V_IWZiDAQR9PPrJINXPrS0TKCpCJIFLDhijpmdX5M6u6O_D0RFyRB5Jki60Z2fhIZyCoYkVbyXngQXNjFaMLIg7DuPQ8Qag7U1JaGw=w1187-h890-s-no-gm" 
-                alt="Sajjad working on laptop" 
-                className="w-full h-auto rounded-lg shadow-md object-cover aspect-video"
-                loading="lazy"
-              />
-            </div>
           </motion.div>
-          
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="hidden md:block mb-6">
-              <img 
-                src="https://lh3.googleusercontent.com/pw/AP1GczNraD68unEHd3tnsUdDhMbPAhqRFlLaABuiagqM5yL9ZN_Hctl1V_IWZiDAQR9PPrJINXPrS0TKCpCJIFLDhijpmdX5M6u6O_D0RFyRB5Jki60Z2fhIZyCoYkVbyXngQXNjFaMLIg7DuPQ8Qag7U1JaGw=w1187-h890-s-no-gm" 
-                alt="Sajjad working on laptop" 
-                className="w-full h-auto rounded-lg shadow-md object-cover aspect-video"
-                loading="lazy"
-              />
-            </div>
-          
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-xl font-bold text-charcoal dark:text-white mb-4">Tech Stack</h3>
-              <div className="space-y-4">
-                {techStacks.map((stack, index) => (
-                  <div key={index} className="space-y-2">
-                    <h4 className="text-sm uppercase text-gray-500 dark:text-gray-400 font-medium">{stack.category}</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {stack.techs.map((tech, techIndex) => (
-                        <span 
-                          key={techIndex}
-                          className={cn(
-                            "px-3 py-1 rounded-full text-sm font-medium",
-                            index === 0 ? "bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300" :
-                            index === 1 ? "bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300" :
-                            index === 2 ? "bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300" :
-                            "bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300"
-                          )}
-                        >
-                          {tech}
-                        </span>
-                      ))}
+
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left Column - Story & Achievements */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-8"
+            >
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                  <Target className="w-6 h-6 text-blue-600" />
+                  My Mission
+                </h3>
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  I believe great software should be invisible to the user but transformative for the business. 
+                  Every line of code I write is focused on creating seamless experiences that convert visitors into customers.
+                </p>
+              </div>
+
+              {/* Achievements Grid */}
+              <div className="grid sm:grid-cols-2 gap-6">
+                {achievements.map((achievement, index) => (
+                  <motion.div
+                    key={achievement.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                  >
+                    <div className="text-blue-600 dark:text-blue-400 mb-4">
+                      {achievement.icon}
                     </div>
-                  </div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                      {achievement.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      {achievement.description}
+                    </p>
+                  </motion.div>
                 ))}
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Right Column - Skills */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-8"
+            >
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
+                  <Award className="w-6 h-6 text-purple-600" />
+                  Core Expertise
+                </h3>
+                
+                <div className="space-y-6">
+                  {skills.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="space-y-2"
+                    >
+                      <div className="flex justify-between items-center">
+                        <span className="font-medium text-gray-900 dark:text-white">
+                          {skill.name}
+                        </span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400">
+                          {skill.level}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <motion.div
+                          className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-xl text-center">
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">3+</div>
+                  <div className="text-sm text-blue-700 dark:text-blue-300">Years Experience</div>
+                </div>
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-6 rounded-xl text-center">
+                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">50+</div>
+                  <div className="text-sm text-purple-700 dark:text-purple-300">Projects Delivered</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
