@@ -92,7 +92,7 @@ const Hero = () => {
                     <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg mb-2 mx-auto">
                       <Users className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white">18%</div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">85%</div>
                     <div className="text-sm text-gray-600 dark:text-gray-400">Conversion Boost</div>
                   </div>
                 </div>

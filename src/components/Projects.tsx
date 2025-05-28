@@ -19,7 +19,7 @@ const Projects = () => {
       title: "Essay Editor",
       summary: "An AI-powered writing assistant that helps users create, edit, and improve their essays. Integrates Google Gemini API for advanced text generation and editing suggestions with a clean, intuitive interface.",
       details: "Essay Editor leverages cutting-edge AI technology to provide intelligent writing assistance. The application integrates with Google's Gemini API to offer real-time suggestions, grammar corrections, and content improvements. Features include a distraction-free writing environment, AI-powered content generation, and seamless export options.",
-      image: "https://i.imgur.com/zLMA1fY.png",
+      image: "https://lh3.googleusercontent.com/pw/AP1GczMafTZme3W3UGNAMml7H8VARJUTZq_hUNbyghShBrvbihJkDT4LZLs4XipXStISgFBwERvLHeTtN34EkoL5JrN9ZHY289ZbxgH19m93LBsDb2yMarNLU9x-Pu8EAGVBi_TnMJ2Zm9maj9KeAIlVdNqbAA=w1560-h890-s-no-gm",
       tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Google Gemini API"],
       link: "https://essay.sajjadhaq.com",
       repo: "https://github.com/sagehawk/essay-editor",
@@ -27,10 +27,19 @@ const Projects = () => {
       featured: true
     },
     {
+      title: "Ceramic Catalysts",
+      summary: "Advanced AI-powered lead management system for ceramic coating shops. Features automated AI voice assistants that instantly call leads, book appointments, and connect shop owners seamlessly for higher conversion rates.",
+      details: "Ceramic Catalysts revolutionizes lead management for ceramic coating businesses with cutting-edge AI automation. The system features an intelligent voice assistant that immediately calls incoming leads, books appointments through natural conversation, and automatically connects shop owners at the scheduled time. This seamless automation has dramatically increased conversion rates and reduced missed opportunities for our clients.",
+      image: "https://lh3.googleusercontent.com/pw/AP1GczP9LCQkxGKQpPH6Efcrm-xL0tTmtjRW7W3O194FuwJ0QDN2ZOab85fnNGVGUg6P6Tq1yRrVehpJ04NkscHoJ45WN7a9f_aWOPTNLGe84j1cQ9OaPf1UnbZfRWC0anQ33zpdjdJ2Tyiu9WNGX_lTMOOfIQ=w1560-h890-s-no-gm",
+      tech: ["React", "TypeScript", "Node.js", "AI Voice API", "Automation", "CRM Integration"],
+      category: "AI Automation",
+      featured: true
+    },
+    {
       title: "Mystic Empowerment",
       summary: "A mystical wellness platform focused on personal empowerment and spiritual growth. Features intuitive navigation, engaging content presentation, and responsive design for optimal user experience.",
       details: "Mystic Empowerment is a wellness platform designed to guide users on their spiritual journey. The site features engaging animations, intuitive navigation, and a mobile-first design approach. Built with modern web technologies to ensure fast loading times and smooth user interactions.",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=800&q=80",
+      image: "https://i.imgur.com/zLMA1fY.png",
       tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
       link: "https://mystic.sajjadhaq.com",
       repo: "https://github.com/sagehawk/mystic-empowerment",
@@ -40,16 +49,24 @@ const Projects = () => {
       title: "MA Food Group",
       summary: "Corporate website for a food distribution company featuring modern design, comprehensive service information, and optimized performance for business conversion and client engagement.",
       details: "MA Food Group's corporate website showcases professional branding and optimized user experience for lead generation. The site features comprehensive service information, client testimonials, and performance optimization for fast loading times and high conversion rates.",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80",
+      image: "https://lh3.googleusercontent.com/pw/AP1GczO9laSc9jf_SPq6IWwrlzL7mEXKqQi1chtxyX44eHdlsbzuqEMr-8L5W3wiNi0GZg3-1bCVKclNdSGOqyOukXfgkr4iyBu93g3ll-gZhVbk64z2GnaPI6zxUcRLL2aThUEIORG_puU8jMaHw9li3OsM3Q=w1560-h890-s-no-gm",
       tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
       link: "https://mafoodgroup.com",
       category: "Corporate Website"
     },
     {
+      title: "Contract Clarity",
+      summary: "Professional contract management platform with intuitive dashboard design, deadline tracking, and notification systems for streamlined document workflow and enhanced productivity.",
+      details: "Contract Clarity provides businesses with a comprehensive solution for managing contracts and documents. The platform features an intuitive dashboard, automated deadline tracking, smart notifications, and seamless workflow management to ensure no important dates are missed.",
+      image: "https://i.imgur.com/wEo5YRv.png",
+      tech: ["React", "TypeScript", "Tailwind CSS", "Dashboard Design"],
+      category: "Business Platform"
+    },
+    {
       title: "NDM Capital",
       summary: "Professional financial services website with sophisticated design, clear service presentation, and optimized user journey for client acquisition and business growth.",
       details: "NDM Capital's website represents professional financial services with sophisticated design and clear service presentation. The site is optimized for client acquisition with strategic user journey design and performance optimization.",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80",
+      image: "https://lh3.googleusercontent.com/pw/AP1GczNyFoJNl0dp4ccOFbdiKZfUweJsfBtcoS8fq0raX99qTeSwkhhV-j1HLhs3-MdalHTz0l2pxr8LVlTQ3AlIEffIDIfX7oZGeENQSdN87jF5JIfOzZuVCCNCpeQn4JZahW_Ko_V-0DhX7dVTRyHQzonPkQ=w1560-h890-s-no-gm",
       tech: ["React", "TypeScript", "Tailwind CSS", "Performance Optimization"],
       link: "https://ndmcapitalllc.com/",
       category: "Financial Services"
@@ -58,7 +75,7 @@ const Projects = () => {
       title: "Discord Gas Bot",
       summary: "An automated Discord bot for tracking gas prices and providing real-time updates to server members. Built with Python and Discord API integration for seamless server management.",
       details: "Discord Gas Bot is an automated solution for tracking and reporting gas prices in Discord servers. Built with Python and integrated with Discord's API, it provides real-time updates and automated notifications to help server members stay informed about fuel costs.",
-      image: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=800&q=80",
+      image: "https://i.imgur.com/bsNL5c6.gif",
       tech: ["Python", "Discord API", "Automation", "Real-time Data"],
       repo: "https://github.com/sagehawk/gas_bot",
       category: "Bot Development"
@@ -88,7 +105,7 @@ const Projects = () => {
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
               A showcase of my latest work, demonstrating expertise in modern web technologies, 
-              user experience design, and performance optimization.
+              AI automation, and performance optimization.
             </p>
             
             {/* Stats */}
@@ -102,7 +119,7 @@ const Projects = () => {
                 <div className="text-sm text-gray-600 dark:text-gray-400">Clients Served</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">18%</div>
+                <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">85%</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Avg. Conversion Boost</div>
               </div>
             </div>
