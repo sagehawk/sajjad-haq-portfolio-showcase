@@ -52,12 +52,12 @@ interface ProjectCardProps {
 const ProjectCard = ({ project }: ProjectCardProps) => {
   const [clientResultIndex, setClientResultIndex] = useState(0);
   
-  // Special case for Articulate and Refine projects
+  // Get the correct project link
   const getProjectLink = (project: ProjectProps) => {
-    if (project.title.includes("Articulate") || project.title.includes("Refine")) {
-      return "https://essay.sajjadhaq.com";
+    if (project.link) {
+      return project.link;
     }
-    return project.link;
+    return undefined;
   };
 
   const projectLink = getProjectLink(project);

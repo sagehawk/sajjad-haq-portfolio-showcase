@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, MapPin, Code, Zap, Users } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
@@ -13,89 +13,164 @@ const Hero = () => {
     }
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section 
       id="home" 
-      className="flex flex-col justify-center bg-gradient-to-br from-white to-[#EFF6FF] dark:from-[#1F2937] dark:to-[#111827] relative overflow-hidden transition-colors duration-300"
-      style={{ 
-        paddingTop: isMobile ? '80px' : '120px', 
-        minHeight: isMobile ? 'auto' : '100vh',
-        paddingBottom: '40px'
-      }}
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
     >
-      {/* Background pattern - using pointer-events-none to allow clicking through */}
-      <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="pointer-events-none">
-          <pattern id="pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M0 20 L40 20 M20 0 L20 40" strokeWidth="1" stroke="currentColor" fill="none"/>
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#pattern)" />
-        </svg>
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-70 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-100 dark:bg-purple-900/20 rounded-full blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-50 dark:bg-cyan-900/10 rounded-full blur-3xl opacity-50"></div>
+      </div>
+
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}></div>
       </div>
       
-      <div className="section-container flex flex-col md:flex-row items-center md:justify-between relative z-10 mt-0">
-        <div className="max-w-2xl">
-          <div className="flex flex-col items-center md:items-start gap-4 mb-4">
-            {isMobile && (
-              <div className="mb-2">
-                <img 
-                  src="https://lh3.googleusercontent.com/pw/AP1GczMBcBd4sSTy91VtLs7oEe8jK24lYRmNT3Eh6ueBoZ_w5zCNx7rYiBPUIR9m1fs29rkiZCi0AAj8LjJmiudPoAR70Ao9Pp3_mArBkdMk1W3k32Tu9UEtk071zvUOBM-Knwto-MOoTUGXsgvJgm00u8s6lw=w890-h890-s-no-gm" 
-                  alt="Sajjad Haq" 
-                  className="w-24 h-24 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
-                />
+      <div className="section-container relative z-10 py-20">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              {/* Status Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium border border-emerald-200 dark:border-emerald-800">
+                <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                Available for hire
               </div>
-            )}
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-charcoal dark:text-white mb-4 leading-tight text-center md:text-left">
-            Hey there! 👋 I'm Sajjad
-          </h1>
-          <div className="mb-2">
-            <p className="text-xl md:text-2xl font-medium text-[#2563EB] dark:text-[#3B82F6] text-center md:text-left">
-              Front-End Developer
-            </p>
-          </div>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-center md:text-left">
-            I craft <span className="text-[#2563EB] dark:text-[#3B82F6] font-medium">high-performance, user-centric web experiences</span> with React, TypeScript, and Tailwind CSS. I've helped 42+ clients scale to an additional $50K+ in revenue through technically optimized solutions.
-          </p>
-          
-          <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
-            <Button 
-              className="bg-[#2563EB] hover:bg-white hover:text-[#2563EB] border border-[#2563EB] text-white px-6 py-6 text-lg transition-colors duration-200 dark:hover:bg-transparent dark:hover:text-white mt-2 cursor-pointer relative z-20 font-medium"
-              onClick={scrollToProjects}
-            >
-              See My Work
-            </Button>
-            
-            <div className="flex gap-3 mt-2">
-              <a 
-                href="https://github.com/sagehawk" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-[#2563EB] hover:text-white dark:hover:bg-[#3B82F6] transition-colors duration-200"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a 
-                href="https://linkedin.com/in/sajjadhaq" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-[#2563EB] hover:text-white dark:hover:bg-[#3B82F6] transition-colors duration-200"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
+
+              {/* Main Heading */}
+              <div className="space-y-4">
+                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+                  <span className="text-gray-900 dark:text-white">Front-End</span>
+                  <br />
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
+                    Developer
+                  </span>
+                </h1>
+                
+                <div className="flex items-center gap-2 text-lg text-gray-600 dark:text-gray-300">
+                  <MapPin className="w-5 h-5" />
+                  <span>South Barrington, IL</span>
+                </div>
+              </div>
+
+              {/* Value Proposition */}
+              <div className="space-y-4">
+                <p className="text-xl lg:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                  I craft <span className="font-semibold text-blue-600 dark:text-blue-400">high-performance web experiences</span> that drive real business results. From concept to deployment, I deliver pixel-perfect, scalable solutions.
+                </p>
+
+                {/* Key Stats */}
+                <div className="grid grid-cols-3 gap-6 py-6">
+                  <div className="text-center">
+                    <div className="flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg mb-2 mx-auto">
+                      <Code className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">42+</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Clients Scaled</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="flex items-center justify-center w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg mb-2 mx-auto">
+                      <Zap className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">&lt;700ms</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Load Times</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg mb-2 mx-auto">
+                      <Users className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">18%</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Conversion Boost</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  onClick={scrollToProjects}
+                >
+                  View My Work
+                </Button>
+                
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-gray-300 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300"
+                  onClick={scrollToContact}
+                >
+                  Let's Talk
+                </Button>
+              </div>
+
+              {/* Social Links */}
+              <div className="flex items-center gap-4 pt-4">
+                <span className="text-sm text-gray-600 dark:text-gray-400">Connect with me:</span>
+                <div className="flex gap-3">
+                  <a 
+                    href="https://github.com/sagehawk" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-all duration-300 transform hover:scale-110"
+                    aria-label="GitHub"
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+                  <a 
+                    href="https://linkedin.com/in/sajjadhaq" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content - Profile Image */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                {/* Decorative elements */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-lg opacity-30 animate-pulse"></div>
+                <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-md opacity-40"></div>
+                
+                {/* Profile image */}
+                <div className="relative w-64 h-64 lg:w-80 lg:h-80">
+                  <img 
+                    src="https://lh3.googleusercontent.com/pw/AP1GczMBcBd4sSTy91VtLs7oEe8jK24lYRmNT3Eh6ueBoZ_w5zCNx7rYiBPUIR9m1fs29rkiZCi0AAj8LjJmiudPoAR70Ao9Pp3_mArBkdMk1W3k32Tu9UEtk071zvUOBM-Knwto-MOoTUGXsgvJgm00u8s6lw=w890-h890-s-no-gm" 
+                    alt="Sajjad Haq - Front-End Developer" 
+                    className="w-full h-full rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-2xl relative z-10"
+                  />
+                </div>
+
+                {/* Floating badges */}
+                <div className="absolute -top-6 -right-6 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 shadow-lg border border-gray-200 dark:border-gray-700 animate-bounce" style={{ animationDelay: '1s' }}>
+                  <div className="text-xs font-medium text-gray-700 dark:text-gray-300">React Expert</div>
+                </div>
+                
+                <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 shadow-lg border border-gray-200 dark:border-gray-700 animate-bounce" style={{ animationDelay: '2s' }}>
+                  <div className="text-xs font-medium text-gray-700 dark:text-gray-300">TypeScript Pro</div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <div className="hidden md:block">
-          <img 
-            src="https://lh3.googleusercontent.com/pw/AP1GczMBcBd4sSTy91VtLs7oEe8jK24lYRmNT3Eh6ueBoZ_w5zCNx7rYiBPUIR9m1fs29rkiZCi0AAj8LjJmiudPoAR70Ao9Pp3_mArBkdMk1W3k32Tu9UEtk071zvUOBM-Knwto-MOoTUGXsgvJgm00u8s6lw=w890-h890-s-no-gm" 
-            alt="Sajjad Haq" 
-            className="w-28 h-28 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
-          />
         </div>
       </div>
     </section>
