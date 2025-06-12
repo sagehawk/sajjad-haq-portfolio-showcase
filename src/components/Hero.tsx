@@ -69,31 +69,31 @@ const Hero = () => {
               {/* Value Proposition */}
               <div className="space-y-4">
                 <p className="text-xl lg:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                  I craft <span className="font-semibold text-blue-600 dark:text-blue-400">high-performance web experiences</span> that drive real business results. From concept to deployment, I deliver pixel-perfect, scalable solutions.
+                  Crafting <span className="font-semibold text-blue-600 dark:text-blue-400">High-Performance, User-Centric Web Experiences</span> with React, TypeScript, and Tailwind CSS.
                 </p>
 
-                {/* Key Stats */}
+                {/* Key Stats - Updated to match resume */}
                 <div className="grid grid-cols-3 gap-6 py-6">
                   <div className="text-center">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg mb-2 mx-auto">
                       <Code className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white">42+</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Clients Scaled</div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">50+</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">SMBs Served</div>
                   </div>
                   <div className="text-center">
                     <div className="flex items-center justify-center w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg mb-2 mx-auto">
                       <Zap className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white">&lt;700ms</div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">&lt;1s</div>
                     <div className="text-sm text-gray-600 dark:text-gray-400">Load Times</div>
                   </div>
                   <div className="text-center">
                     <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg mb-2 mx-auto">
                       <Users className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white">85%</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Conversion Boost</div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">50%</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">More Booked Calls</div>
                   </div>
                 </div>
               </div>

@@ -77,7 +77,7 @@ const Education = () => {
                   
                   <div className="flex items-center gap-3 text-gray-300">
                     <Calendar className="w-5 h-5 text-blue-400" />
-                    <span>Graduated: May 2024</span>
+                    <span>Expected Graduation: May 2025</span>
                   </div>
                 </div>
               </div>
@@ -134,8 +134,8 @@ const Education = () => {
                   <div className="text-sm text-blue-300">Major Focus</div>
                 </div>
                 <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 backdrop-blur-sm p-6 rounded-xl text-center border border-purple-400/20">
-                  <div className="text-3xl font-bold text-purple-400 mb-2">2024</div>
-                  <div className="text-sm text-purple-300">Graduated</div>
+                  <div className="text-3xl font-bold text-purple-400 mb-2">2025</div>
+                  <div className="text-sm text-purple-300">Graduating</div>
                 </div>
               </div>
             </motion.div>
