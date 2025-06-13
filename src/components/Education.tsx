@@ -39,7 +39,7 @@ const Education = () => {
               Academic <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Foundation</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Building expertise through comprehensive computer science education and hands-on learning.
+              Built expertise through comprehensive computer science education and hands-on learning.
             </p>
           </motion.div>
 
@@ -77,7 +77,7 @@ const Education = () => {
                   
                   <div className="flex items-center gap-3 text-gray-300">
                     <Calendar className="w-5 h-5 text-blue-400" />
-                    <span>Expected Graduation: May 2025</span>
+                    <span>Graduated: May 2025</span>
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ const Education = () => {
                 </div>
                 <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 backdrop-blur-sm p-6 rounded-xl text-center border border-purple-400/20">
                   <div className="text-3xl font-bold text-purple-400 mb-2">2025</div>
-                  <div className="text-sm text-purple-300">Graduating</div>
+                  <div className="text-sm text-purple-300">Graduate</div>
                 </div>
               </div>
             </motion.div>
