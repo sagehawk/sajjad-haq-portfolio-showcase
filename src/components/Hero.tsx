@@ -27,8 +27,8 @@ const Hero = () => {
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-70 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-100 dark:bg-purple-900/20 rounded-full blur-3xl opacity-70 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-70"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-100 dark:bg-purple-900/20 rounded-full blur-3xl opacity-70"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-50 dark:bg-cyan-900/10 rounded-full blur-3xl opacity-50"></div>
       </div>
 
@@ -39,19 +39,19 @@ const Hero = () => {
         }}></div>
       </div>
       
-      <div className="section-container relative z-10 py-20">
+      <div className="section-container relative z-10 py-16">
         <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               {/* Status Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium border border-emerald-200 dark:border-emerald-800">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
                 Available for hire
               </div>
 
               {/* Main Heading */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                   <span className="text-gray-900 dark:text-white">Front-End</span>
                   <br />
@@ -67,13 +67,13 @@ const Hero = () => {
               </div>
 
               {/* Value Proposition */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <p className="text-xl lg:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">
                   Crafting <span className="font-semibold text-blue-600 dark:text-blue-400">High-Performance, User-Centric Web Experiences</span> with React, TypeScript, and Tailwind CSS.
                 </p>
 
                 {/* Key Stats - Updated to match resume */}
-                <div className="grid grid-cols-3 gap-6 py-6">
+                <div className="grid grid-cols-3 gap-4 py-4">
                   <div className="text-center">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg mb-2 mx-auto">
                       <Code className="w-6 h-6 text-blue-600 dark:text-blue-400" />
@@ -99,7 +99,7 @@ const Hero = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button 
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
@@ -119,7 +119,7 @@ const Hero = () => {
               </div>
 
               {/* Social Links */}
-              <div className="flex items-center gap-4 pt-4">
+              <div className="flex items-center gap-4 pt-3">
                 <span className="text-sm text-gray-600 dark:text-gray-400">Connect with me:</span>
                 <div className="flex gap-3">
                   <a 
@@ -148,7 +148,7 @@ const Hero = () => {
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
                 {/* Decorative elements */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-lg opacity-30 animate-pulse"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-lg opacity-30"></div>
                 <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-md opacity-40"></div>
                 
                 {/* Profile image */}
@@ -161,11 +161,11 @@ const Hero = () => {
                 </div>
 
                 {/* Floating badges */}
-                <div className="absolute -top-6 -right-6 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 shadow-lg border border-gray-200 dark:border-gray-700 animate-bounce" style={{ animationDelay: '1s' }}>
+                <div className="absolute -top-6 -right-6 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 shadow-lg border border-gray-200 dark:border-gray-700">
                   <div className="text-xs font-medium text-gray-700 dark:text-gray-300">React Expert</div>
                 </div>
                 
-                <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 shadow-lg border border-gray-200 dark:border-gray-700 animate-bounce" style={{ animationDelay: '2s' }}>
+                <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 shadow-lg border border-gray-200 dark:border-gray-700">
                   <div className="text-xs font-medium text-gray-700 dark:text-gray-300">TypeScript Pro</div>
                 </div>
               </div>

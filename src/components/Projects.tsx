@@ -5,6 +5,26 @@ import ProjectCard from './ProjectCard';
 const Projects = () => {
   const projects = [
     {
+      title: "Nomad-Score",
+      summary: "A full-stack discovery platform I architected to help digital nomads find hotels with verified Wi-Fi speeds. This was a deep dive into database design, API integration, and complex, multi-layered filtering.",
+      details: "Nomad-Score is a comprehensive platform designed specifically for digital nomads who need reliable internet connectivity while traveling. I architected this full-stack solution from the ground up, focusing on database design for handling complex hotel data, API integrations with multiple travel services, and implementing sophisticated filtering systems. The platform features verified Wi-Fi speed data, location-based search, and multi-criteria filtering to help nomads make informed accommodation decisions.",
+      image: "https://i.imgur.com/k6Mmnje.png",
+      tech: ["React", "TypeScript", "Node.js", "Database Design", "API Integration", "Multi-layered Filtering"],
+      link: "https://nomad-score.com",
+      category: "Full-Stack Platform",
+      featured: true
+    },
+    {
+      title: "Simple Phonics",
+      summary: "An interactive learning app that taught me a ton about solving tricky UI challenges, like native-like mobile gestures and supporting right-to-left (RTL) languages.",
+      details: "Simple Phonics is an interactive educational application designed to teach phonetic sounds to young learners. This project challenged me to solve complex UI problems including implementing native-like mobile gestures for touch interactions and supporting right-to-left (RTL) languages for inclusive learning. The app focuses on creating an engaging, accessible learning experience with smooth animations and intuitive navigation that works seamlessly across different devices and languages.",
+      image: "https://i.imgur.com/wtokzwx.png",
+      tech: ["React", "TypeScript", "Mobile Gestures", "RTL Support", "Interactive UI", "Educational Design"],
+      link: "https://phonics.sajjadhaq.com",
+      category: "Educational App",
+      featured: true
+    },
+    {
       title: "GamerGrave",
       summary: "Architected and developed a full-stack game discovery platform with infinite scrolling, intelligent search/filtering, and user authentication. Built custom, accessible UI components with pixel-perfect responsive design.",
       details: "GamerGrave is a comprehensive full-stack gaming platform that revolutionizes how users discover and explore games. Architected with modern React architecture featuring advanced filtering systems, real-time data integration with gaming APIs, and a responsive design that works seamlessly across all devices. The platform includes user authentication, personalized recommendations, infinite scrolling, and an intuitive interface that makes game discovery effortless. Built with custom, accessible UI components focusing on optimal user experience and performance.",
@@ -83,7 +103,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="relative py-24 bg-gradient-to-br from-white via-gray-50 to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
+    <section id="projects" className="relative py-12 bg-gradient-to-br from-white via-gray-50 to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-50"></div>
@@ -94,13 +114,13 @@ const Projects = () => {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <motion.div 
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Featured <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Projects</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -109,9 +129,9 @@ const Projects = () => {
             </p>
             
             {/* Stats - Updated to match resume */}
-            <div className="flex justify-center gap-8 mt-12">
+            <div className="flex justify-center gap-8 mt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">40%</div>
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">41%</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Higher Form Fills</div>
               </div>
               <div className="text-center">
@@ -126,14 +146,14 @@ const Projects = () => {
           </motion.div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 <ProjectCard project={project} />
               </motion.div>
@@ -142,11 +162,11 @@ const Projects = () => {
 
           {/* Call to Action */}
           <motion.div 
-            className="text-center mt-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
           >
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Ready to Boost Your Business Performance?</h3>

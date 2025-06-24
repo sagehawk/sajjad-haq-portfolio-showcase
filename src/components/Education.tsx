@@ -13,7 +13,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="relative py-24 overflow-hidden">
+    <section id="education" className="relative py-16 overflow-hidden">
       {/* Enhanced background with campus image */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-blue-900/90 to-purple-900/95"></div>
@@ -29,13 +29,13 @@ const Education = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
               Academic <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Foundation</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -43,26 +43,26 @@ const Education = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Left Column - University Info */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -15 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-8"
+              transition={{ duration: 0.3 }}
+              className="space-y-6"
             >
               {/* University Logo and Info */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <div className="mb-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="mb-4">
                   <img 
                     src="https://assets.concept3d.com/assets/249/NIU_xhorz_3Clr-rev-web.png" 
                     alt="NIU Logo" 
-                    className="h-16 mb-6"
+                    className="h-16 mb-4"
                   />
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <div className="flex items-start gap-4">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-500/20 rounded-lg">
                       <GraduationCap className="w-6 h-6 text-blue-400" />
@@ -83,7 +83,7 @@ const Education = () => {
               </div>
 
               {/* Academic Highlights */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <h4 className="text-lg font-semibold text-white flex items-center gap-3">
                   <Award className="w-5 h-5 text-yellow-400" />
                   Academic Focus
@@ -98,27 +98,27 @@ const Education = () => {
             
             {/* Right Column - Coursework */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 15 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-8"
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="space-y-6"
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
                   <Book className="w-6 h-6 text-purple-400" />
                   Relevant Coursework
                 </h3>
                 
-                <div className="grid gap-4">
+                <div className="grid gap-3">
                   {coursework.map((course, index) => (
                     <motion.div
                       key={course}
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 5 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="flex items-center gap-3 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300"
+                      transition={{ duration: 0.2, delay: index * 0.05 }}
+                      className="flex items-center gap-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300"
                     >
                       <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
                       <span className="text-gray-200 font-medium">{course}</span>
@@ -128,12 +128,12 @@ const Education = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/20 backdrop-blur-sm p-6 rounded-xl text-center border border-blue-400/20">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/20 backdrop-blur-sm p-4 rounded-xl text-center border border-blue-400/20">
                   <div className="text-3xl font-bold text-blue-400 mb-2">CS</div>
                   <div className="text-sm text-blue-300">Major Focus</div>
                 </div>
-                <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 backdrop-blur-sm p-6 rounded-xl text-center border border-purple-400/20">
+                <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 backdrop-blur-sm p-4 rounded-xl text-center border border-purple-400/20">
                   <div className="text-3xl font-bold text-purple-400 mb-2">2025</div>
                   <div className="text-sm text-purple-300">Graduate</div>
                 </div>
