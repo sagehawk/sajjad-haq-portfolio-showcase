@@ -26,17 +26,19 @@ const About = () => {
     }
   ];
 
-  const skills = [
-    { name: "React & TypeScript", level: 95 },
-    { name: "Tailwind CSS", level: 90 },
-    { name: "Performance Optimization", level: 88 },
-    { name: "UI/UX Design", level: 85 },
-    { name: "API Integration", level: 92 },
-    { name: "Component Architecture", level: 90 }
+  const technologies = [
+    "React & TypeScript",
+    "Next.js",
+    "Tailwind CSS", 
+    "JavaScript (ES6+)",
+    "HTML5 & CSS3",
+    "Supabase & Firebase",
+    "Node.js & Express",
+    "Git & GitHub"
   ];
 
   return (
-    <section id="about" className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
+    <section id="about" className="relative py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-20 w-72 h-72 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-60"></div>
@@ -47,7 +49,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -82,6 +84,22 @@ const About = () => {
                 </p>
               </div>
 
+              {/* Business Impact Stats */}
+              <div className="grid grid-cols-3 gap-4">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-xl text-center">
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">41%</div>
+                  <div className="text-sm text-blue-700 dark:text-blue-300">Higher Form Fills</div>
+                </div>
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-6 rounded-xl text-center">
+                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">50%</div>
+                  <div className="text-sm text-purple-700 dark:text-purple-300">More Booked Calls</div>
+                </div>
+                <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 p-6 rounded-xl text-center">
+                  <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">25%</div>
+                  <div className="text-sm text-emerald-700 dark:text-emerald-300">Fewer No-Shows</div>
+                </div>
+              </div>
+
               {/* Achievements Grid */}
               <div className="grid sm:grid-cols-2 gap-6">
                 {achievements.map((achievement, index) => (
@@ -107,7 +125,7 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Right Column - Skills */}
+            {/* Right Column - Technologies */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -118,50 +136,25 @@ const About = () => {
               <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
                   <Award className="w-6 h-6 text-purple-600" />
-                  Core Expertise
+                  Core Technologies
                 </h3>
                 
-                <div className="space-y-6">
-                  {skills.map((skill, index) => (
+                <div className="grid grid-cols-2 gap-4">
+                  {technologies.map((tech, index) => (
                     <motion.div
-                      key={skill.name}
+                      key={tech}
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="space-y-2"
+                      className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg"
                     >
-                      <div className="flex justify-between items-center">
-                        <span className="font-medium text-gray-900 dark:text-white">
-                          {skill.name}
-                        </span>
-                        <span className="text-sm text-gray-600 dark:text-gray-400">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <motion.div
-                          className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, delay: index * 0.1 }}
-                        />
-                      </div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
+                      <span className="font-medium text-gray-900 dark:text-white text-sm">
+                        {tech}
+                      </span>
                     </motion.div>
                   ))}
-                </div>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-xl text-center">
-                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">3+</div>
-                  <div className="text-sm text-blue-700 dark:text-blue-300">Years Experience</div>
-                </div>
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-6 rounded-xl text-center">
-                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">50+</div>
-                  <div className="text-sm text-purple-700 dark:text-purple-300">Projects Delivered</div>
                 </div>
               </div>
             </motion.div>

@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, MessageCircle, Send, Zap } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, Send, Code, Users, Lightbulb, Zap } from 'lucide-react';
 import ContactInfo from './ContactInfo';
 import ContactForm from './ContactForm';
 
@@ -26,6 +26,29 @@ const Contact = () => {
       value: "South Barrington, IL",
       description: "Available for local meetings",
       action: "#"
+    }
+  ];
+
+  const workingWithMe = [
+    {
+      icon: <Lightbulb className="w-5 h-5 text-yellow-400" />,
+      title: "Problem Solver",
+      description: "Passionate about tackling complex UI challenges and architectural decisions."
+    },
+    {
+      icon: <Users className="w-5 h-5 text-blue-400" />,
+      title: "Team Player", 
+      description: "Experienced in agile environments and collaborative code reviews to raise product quality."
+    },
+    {
+      icon: <Code className="w-5 h-5 text-green-400" />,
+      title: "Business-Minded",
+      description: "Focused on writing code that directly contributes to business goals and user satisfaction."
+    },
+    {
+      icon: <Zap className="w-5 h-5 text-purple-400" />,
+      title: "Fast Learner",
+      description: "Adept at quickly mastering new technologies and development best practices."
     }
   ];
 
@@ -56,11 +79,11 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Let's Create Something <span className="bg-gradient-to-r from-cyan-300 to-yellow-300 bg-clip-text text-transparent">Amazing</span>
+              Let's Build Something <span className="bg-gradient-to-r from-cyan-300 to-yellow-300 bg-clip-text text-transparent">Together</span>
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Ready to transform your ideas into powerful digital experiences? 
-              Let's discuss how we can bring your vision to life.
+              Ready to add a passionate front-end developer to your team? 
+              Let's discuss how I can contribute to your next big project.
             </p>
           </motion.div>
 
@@ -73,29 +96,24 @@ const Contact = () => {
               transition={{ duration: 0.6 }}
               className="space-y-8"
             >
-              {/* Value Proposition */}
+              {/* Why Work With Me */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                  <Zap className="w-6 h-6 text-yellow-400" />
+                  <Users className="w-6 h-6 text-cyan-400" />
                   Why Work With Me?
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2"></div>
-                    <p className="text-blue-100">Fast turnaround - Projects delivered in under 2 weeks</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2"></div>
-                    <p className="text-blue-100">Performance focused - Sub-700ms load times guaranteed</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
-                    <p className="text-blue-100">Results driven - 18% average conversion rate increase</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
-                    <p className="text-blue-100">Full support - From concept to deployment and beyond</p>
-                  </div>
+                  {workingWithMe.map((item, index) => (
+                    <div key={item.title} className="flex items-start gap-3">
+                      <div className="flex items-center justify-center w-8 h-8 bg-white/20 rounded-lg mt-1">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-white mb-1">{item.title}</h4>
+                        <p className="text-blue-100 text-sm">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 

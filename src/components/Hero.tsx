@@ -6,13 +6,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const Hero = () => {
   const isMobile = useIsMobile();
   
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -69,10 +62,10 @@ const Hero = () => {
               {/* Value Proposition */}
               <div className="space-y-3">
                 <p className="text-xl lg:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Crafting <span className="font-semibold text-blue-600 dark:text-blue-400">High-Performance, User-Centric Web Experiences</span> with React, TypeScript, and Tailwind CSS.
+                  A <span className="font-semibold text-blue-600 dark:text-blue-400">product-minded front-end developer</span> focused on building scalable, user-centric applications.
                 </p>
 
-                {/* Key Stats - Updated to match resume */}
+                {/* Key Stats */}
                 <div className="grid grid-cols-3 gap-4 py-4">
                   <div className="text-center">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg mb-2 mx-auto">
@@ -92,8 +85,8 @@ const Hero = () => {
                     <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg mb-2 mx-auto">
                       <Users className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white">50%</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">More Booked Calls</div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">3+</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
                   </div>
                 </div>
               </div>
@@ -103,9 +96,9 @@ const Hero = () => {
                 <Button 
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                  onClick={scrollToProjects}
+                  onClick={() => window.open('https://resume.sajjadhaq.com', '_blank')}
                 >
-                  View My Work
+                  View Resume
                 </Button>
                 
                 <Button 
@@ -114,7 +107,7 @@ const Hero = () => {
                   className="border-2 border-gray-300 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300"
                   onClick={scrollToContact}
                 >
-                  Let's Talk
+                  Get In Touch
                 </Button>
               </div>
 
@@ -158,15 +151,6 @@ const Hero = () => {
                     alt="Sajjad Haq - Front-End Developer" 
                     className="w-full h-full rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-2xl relative z-10"
                   />
-                </div>
-
-                {/* Floating badges */}
-                <div className="absolute -top-6 -right-6 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 shadow-lg border border-gray-200 dark:border-gray-700">
-                  <div className="text-xs font-medium text-gray-700 dark:text-gray-300">React Expert</div>
-                </div>
-                
-                <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 shadow-lg border border-gray-200 dark:border-gray-700">
-                  <div className="text-xs font-medium text-gray-700 dark:text-gray-300">TypeScript Pro</div>
                 </div>
               </div>
             </div>

@@ -62,25 +62,8 @@ const Footer = () => {
                 </h3>
                 <p className="text-gray-300 text-lg mb-4">Front-End Developer</p>
                 <p className="text-gray-400 leading-relaxed max-w-md">
-                  Crafting high-performance, user-centric web experiences that drive real business results. 
-                  Specialized in React, TypeScript, and modern web technologies.
+                  A Chicago-based front-end developer with a passion for building exceptional digital products. Let's connect.
                 </p>
-              </div>
-
-              {/* Achievement Stats */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-blue-400">50+</div>
-                  <div className="text-xs text-gray-400">Projects</div>
-                </div>
-                <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-purple-400">42+</div>
-                  <div className="text-xs text-gray-400">Clients</div>
-                </div>
-                <div className="text-center p-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-emerald-400">18%</div>
-                  <div className="text-xs text-gray-400">Conversion↑</div>
-                </div>
               </div>
             </motion.div>
 
