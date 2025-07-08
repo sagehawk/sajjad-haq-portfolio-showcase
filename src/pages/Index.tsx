@@ -2,6 +2,7 @@
 import { useLayoutEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import FeaturedProject from '@/components/FeaturedProject';
 import About from '@/components/About';
 import Education from '@/components/Education';
 import Projects from '@/components/Projects';
@@ -29,14 +30,18 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Navbar />
-      <Hero />
-      <About />
-      <Education />
-      <Projects />
-      <Contact />
-      <Footer />
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      {/* Paper-like container with margins */}
+      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-xl">
+        <Navbar />
+        <Hero />
+        <FeaturedProject />
+        <About />
+        <Education />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 };
