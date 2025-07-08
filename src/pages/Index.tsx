@@ -30,9 +30,9 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Paper-like container with margins */}
-      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-xl">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+      {/* Paper-like container with enhanced margins and subtle shadow */}
+      <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 shadow-2xl border-l border-r border-gray-200 dark:border-gray-700">
         <Navbar />
         <Hero />
         <FeaturedProject />
