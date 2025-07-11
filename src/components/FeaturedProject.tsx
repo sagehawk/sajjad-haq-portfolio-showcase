@@ -6,20 +6,22 @@ import { Button } from "@/components/ui/button";
 const FeaturedProject = () => {
   const caseStudies = [
     {
-      title: "Ceramic Catalysts",
-      impact: "Driving 40% lead growth for 50+ businesses through performance and AI",
-      description: "Built and scaled a tech agency focused on the automotive detailing industry. Delivered performance-focused solutions that cut page load times to under 1s and used AI to dramatically improve lead conversion rates.",
-      tech: ["React", "Next.js", "AI/Automation", "Performance Optimization"],
-      link: "#",
-      metrics: "40% increase in leads, <1s load times, 50+ businesses served"
+      title: "GamerGrave",
+      impact: "Community-driven platform for classic arcade games, optimized for performance",
+      description: "Built a full-stack game discovery platform featuring infinite scrolling, intelligent search/filtering, user authentication, and real-time data integration. Solved critical performance bottlenecks with image optimization, reducing LCP from 4s to under 1s.",
+      tech: ["React", "TypeScript", "Supabase", "Tailwind CSS", "Vite"],
+      link: "https://gg.sajjadhaq.com",
+      metrics: "75% reduction in LCP time, Full-stack architecture, Community submissions",
+      caseStudyLink: "/case-study/gamergrave"
     },
     {
-      title: "Nomad-Score",
-      impact: "Full-stack discovery platform with advanced filtering architecture",
-      description: "Architected a comprehensive platform for digital nomads to find hotels with verified Wi-Fi speeds. Built with Supabase backend featuring complex, multi-layered filtering systems and location-based search.",
-      tech: ["React", "TypeScript", "Supabase", "Database Design"],
-      link: "https://nomad-score.com",
-      metrics: "Full-stack architecture, Complex filtering, Location-based search"
+      title: "Essay Editor",
+      impact: "AI-powered writing assistant with intelligent coaching and topic analysis",
+      description: "Developed a comprehensive essay writing platform featuring AI-powered feedback, topic question generation, and intelligent writing assistance. Built with a focus on user experience and educational effectiveness.",
+      tech: ["React", "TypeScript", "AI Integration", "Modern UI/UX"],
+      link: "#",
+      metrics: "AI-powered coaching, Topic analysis, User-centric design",
+      caseStudyLink: "#"
     },
     {
       title: "Simple Phonics",
@@ -27,13 +29,14 @@ const FeaturedProject = () => {
       description: "Engineered an interactive educational application with native-like mobile gestures and right-to-left (RTL) language support. Focused on creating an engaging, accessible learning experience across different devices and languages.",
       tech: ["React", "TypeScript", "Mobile UX", "RTL Support"],
       link: "https://phonics.sajjadhaq.com",
-      metrics: "Native-like gestures, RTL language support, Cross-device compatibility"
+      metrics: "Native-like gestures, RTL language support, Cross-device compatibility",
+      caseStudyLink: "#"
     }
   ];
 
   return (
-    <section id="featured-work" className="py-16 px-6 lg:px-12 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto">
+    <section id="featured-work" className="py-16 px-8 lg:px-16 bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-5xl mx-auto">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +44,7 @@ const FeaturedProject = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
             Featured Work
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -69,7 +72,7 @@ const FeaturedProject = () => {
                   </p>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
                   {project.description}
                 </p>
 
@@ -78,37 +81,42 @@ const FeaturedProject = () => {
                     {project.tech.map((tech) => (
                       <span 
                         key={tech}
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full"
+                        className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 pt-3">
+                  <div className="text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 pt-3">
                     <strong>Key Metrics:</strong> {project.metrics}
                   </div>
                 </div>
 
-                <div className="flex gap-3 pt-2">
+                <div className="flex gap-2 pt-2">
                   {project.link !== "#" && (
                     <Button
                       size="sm"
                       variant="outline"
-                      className="flex-1"
+                      className="flex-1 text-xs"
                       onClick={() => window.open(project.link, '_blank')}
                     >
-                      <ExternalLink className="h-4 w-4 mr-2" />
+                      <ExternalLink className="h-3 w-3 mr-2" />
                       Live Site
                     </Button>
                   )}
                   <Button
                     size="sm"
                     variant="ghost"
-                    className="flex-1 text-blue-600 hover:text-blue-700"
+                    className="flex-1 text-blue-600 hover:text-blue-700 text-xs"
+                    onClick={() => {
+                      if (project.caseStudyLink !== "#") {
+                        window.location.href = project.caseStudyLink;
+                      }
+                    }}
                   >
                     Case Study
-                    <ArrowRight className="h-4 w-4 ml-2" />
+                    <ArrowRight className="h-3 w-3 ml-2" />
                   </Button>
                 </div>
               </div>
