@@ -47,7 +47,7 @@ const CaseStudyArticulateRefine = () => {
               size="lg"
               variant="outline"
               className="border-2 border-gray-300 dark:border-gray-600 px-8 py-3"
-              onClick={() => window.open('#', '_blank')}
+              onClick={() => window.open('https://github.com/sagehawk/articulate-refine-write', '_blank')}
             >
               <Github className="mr-2 h-4 w-4" />
               View on GitHub
@@ -266,7 +266,7 @@ async function getEssayAnalysis(essayText: string) {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <img 
-                src="https://i.imgur.com/osymybk.png" 
+                src="https://i.imgur.com/vFPDpt0.png" 
                 alt="Essay Management Header"
                 className="w-full rounded-lg shadow-md border border-gray-200 dark:border-gray-700 mb-4"
               />
