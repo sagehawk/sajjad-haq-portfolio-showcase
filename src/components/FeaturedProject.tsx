@@ -15,13 +15,13 @@ const FeaturedProject = () => {
       caseStudyLink: "/case-study/gamergrave"
     },
     {
-      title: "Essay Editor",
-      impact: "AI-powered writing assistant with intelligent coaching and topic analysis",
-      description: "Developed a comprehensive essay writing platform featuring AI-powered feedback, topic question generation, and intelligent writing assistance. Built with a focus on user experience and educational effectiveness.",
-      tech: ["React", "TypeScript", "AI Integration", "Modern UI/UX"],
-      link: "#",
-      metrics: "AI-powered coaching, Topic analysis, User-centric design",
-      caseStudyLink: "#"
+      title: "Articulate & Refine",
+      impact: "AI-powered writing critic that analyzes essays for clarity, consistency, and logical soundness",
+      description: "Developed a comprehensive essay analysis platform featuring AI-powered feedback using Google Gemini API, structured scoring systems, and interactive text highlighting. Built with a focus on transforming complex AI data into actionable user insights.",
+      tech: ["React", "TypeScript", "Google Gemini API", "Tailwind CSS", "shadcn/ui"],
+      link: "https://essay.sajjadhaq.com",
+      metrics: "AI-powered analysis, Structured feedback system, Interactive UI/UX",
+      caseStudyLink: "/case-study/articulate-refine"
     },
     {
       title: "Simple Phonics",

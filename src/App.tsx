@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CaseStudyGamerGrave from "./pages/CaseStudyGamerGrave";
+import CaseStudyArticulateRefine from "./pages/CaseStudyArticulateRefine";
 import { ThemeProvider } from "./components/ThemeProvider";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/case-study/gamergrave" element={<CaseStudyGamerGrave />} />
+            <Route path="/case-study/articulate-refine" element={<CaseStudyArticulateRefine />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
