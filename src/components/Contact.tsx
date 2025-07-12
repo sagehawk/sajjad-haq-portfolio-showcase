@@ -60,11 +60,11 @@ const Contact = () => {
             <div className="mt-10">
               <p className="text-xl font-bold mb-6">Prefer to reach out directly?</p>
               <div className="flex justify-center space-x-8">
-                <a href="mailto:sajjad.haq@example.com" className="flex items-center text-2xl text-gray-300 hover:text-green-400 transition-colors">
+                <a href="mailto:haq.sajjad220@gmail.com" className="flex items-center text-2xl text-gray-300 hover:text-green-400 transition-colors">
                   <FaEnvelope className="mr-3" />
                   Email
                 </a>
-                <a href="https://www.linkedin.com/in/sajjad-haq/" target="_blank" rel="noopener noreferrer" className="flex items-center text-2xl text-gray-300 hover:text-green-400 transition-colors">
+                <a href="https://www.linkedin.com/in/sajjadhaq/" target="_blank" rel="noopener noreferrer" className="flex items-center text-2xl text-gray-300 hover:text-green-400 transition-colors">
                   <FaLinkedin className="mr-3" />
                   LinkedIn
                 </a>
