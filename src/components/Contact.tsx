@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, MessageSquare } from 'lucide-react';
+import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import ContactForm from './ContactForm';
 
 const Contact = () => {
