@@ -30,7 +30,7 @@ const FeaturedProject = () => {
       tech: ["React", "TypeScript", "Mobile UX", "RTL Support"],
       link: "https://phonics.sajjadhaq.com",
       metrics: "Native-like gestures, RTL language support, Cross-device compatibility",
-      caseStudyLink: "#"
+      caseStudyLink: "/case-study/simple-phonics"
     }
   ];
 

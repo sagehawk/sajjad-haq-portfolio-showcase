@@ -1,8 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, MessageSquare } from 'lucide-react';
 import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
-import ContactForm from './ContactForm';
 
 const Contact = () => {
   const whyWorkWithMe = [
@@ -21,7 +19,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 px-6 lg:px-12 bg-white dark:bg-gray-800">
+    <section id="contact" className="py-16 px-6 lg:px-12 bg-background">
       <div className="max-w-4xl mx-auto">
         <motion.div 
           className="text-center mb-12"
@@ -30,10 +28,10 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Let's Connect
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             I'm actively seeking Front-End Developer roles in the Chicago area and am always 
             open to connecting with other builders, designers, and tech leaders.
           </p>
@@ -41,30 +39,30 @@ const Contact = () => {
 
         <div className="max-w-4xl mx-auto">
           {/* Why Work With Me? Section */}
-          <div className="bg-gray-800 p-8 rounded-lg text-center">
-            <h3 className="text-3xl font-bold mb-6">Why Work With Me?</h3>
+          <div className="bg-card border border-border p-8 rounded-lg text-center">
+            <h3 className="text-3xl font-bold mb-6 text-foreground">Why Work With Me?</h3>
             <ul className="space-y-4 text-lg inline-block text-left">
               <li className="flex items-start">
-                <span className="text-green-400 mr-3 mt-1">&#10003;</span>
-                <span>I'm a proactive and fast-learning developer passionate about creating intuitive and performant user experiences.</span>
+                <span className="text-green-500 mr-3 mt-1">&#10003;</span>
+                <span className="text-foreground">I'm a proactive and fast-learning developer passionate about creating intuitive and performant user experiences.</span>
               </li>
               <li className="flex items-start">
-                <span className="text-green-400 mr-3 mt-1">&#10003;</span>
-                <span>My background in UX design and psychology informs my user-centric approach to development.</span>
+                <span className="text-green-500 mr-3 mt-1">&#10003;</span>
+                <span className="text-foreground">My background in UX design and psychology informs my user-centric approach to development.</span>
               </li>
               <li className="flex items-start">
-                <span className="text-green-400 mr-3 mt-1">&#10003;</span>
-                <span>I'm a strong communicator and collaborator, dedicated to team success.</span>
+                <span className="text-green-500 mr-3 mt-1">&#10003;</span>
+                <span className="text-foreground">I'm a strong communicator and collaborator, dedicated to team success.</span>
               </li>
             </ul>
             <div className="mt-10">
-              <p className="text-xl font-bold mb-6">Prefer to reach out directly?</p>
+              <p className="text-xl font-bold mb-6 text-foreground">Prefer to reach out directly?</p>
               <div className="flex justify-center space-x-8">
-                <a href="mailto:haq.sajjad220@gmail.com" className="flex items-center text-2xl text-gray-300 hover:text-green-400 transition-colors">
+                <a href="mailto:haq.sajjad220@gmail.com" className="flex items-center text-2xl text-muted-foreground hover:text-green-500 transition-colors">
                   <FaEnvelope className="mr-3" />
                   Email
                 </a>
-                <a href="https://www.linkedin.com/in/sajjadhaq/" target="_blank" rel="noopener noreferrer" className="flex items-center text-2xl text-gray-300 hover:text-green-400 transition-colors">
+                <a href="https://www.linkedin.com/in/sajjadhaq/" target="_blank" rel="noopener noreferrer" className="flex items-center text-2xl text-muted-foreground hover:text-green-500 transition-colors">
                   <FaLinkedin className="mr-3" />
                   LinkedIn
                 </a>

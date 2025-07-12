@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CaseStudyGamerGrave from "./pages/CaseStudyGamerGrave";
 import CaseStudyArticulateRefine from "./pages/CaseStudyArticulateRefine";
+import CaseStudySimplePhonics from "./pages/CaseStudySimplePhonics";
 import { ThemeProvider } from "./components/ThemeProvider";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/case-study/gamergrave" element={<CaseStudyGamerGrave />} />
             <Route path="/case-study/articulate-refine" element={<CaseStudyArticulateRefine />} />
+            <Route path="/case-study/simple-phonics" element={<CaseStudySimplePhonics />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
