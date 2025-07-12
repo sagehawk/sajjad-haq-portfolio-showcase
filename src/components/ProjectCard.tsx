@@ -138,7 +138,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
   return (
     <motion.div 
-      className="flex flex-col bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-800"
+      className="flex flex-col bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500"
       whileHover={{ y: -5 }}
       transition={{ duration: 0.2 }}
     >
