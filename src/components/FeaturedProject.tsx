@@ -20,7 +20,7 @@ const FeaturedProject = () => {
       description: "Developed a comprehensive essay analysis platform featuring AI-powered feedback using Google Gemini API, structured scoring systems, and interactive text highlighting. Built with a focus on transforming complex AI data into actionable user insights.",
       tech: ["React", "TypeScript", "Google Gemini API", "Tailwind CSS", "shadcn/ui"],
       link: "https://essay.sajjadhaq.com",
-      metrics: "AI-powered analysis, Structured feedback system, Interactive UI/UX",
+      metrics: "AI-powered analysis, Structured feedback system, Intuitive User Interface",
       caseStudyLink: "/case-study/articulate-refine"
     },
     {
