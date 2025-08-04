@@ -1,14 +1,11 @@
 
 
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
-  const scrollToFeaturedProject = () => {
-    const projectSection = document.getElementById('featured-project');
-    if (projectSection) {
-      projectSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const navigateToSocialDojoCaseStudy = () => {
+    window.location.href = '/case-study/social-dojo';
   };
 
   const scrollToContact = () => {
@@ -47,10 +44,9 @@ const Hero = () => {
             <Button 
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 font-medium"
-              onClick={scrollToFeaturedProject}
+              onClick={navigateToSocialDojoCaseStudy}
             >
               View My Featured Project
-              <ArrowDown className="ml-2 h-4 w-4" />
             </Button>
             
             <Button 

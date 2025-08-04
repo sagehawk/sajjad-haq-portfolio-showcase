@@ -11,6 +11,7 @@ import CaseStudyArticulateRefine from "./pages/CaseStudyArticulateRefine";
 import CaseStudySimplePhonics from "./pages/CaseStudySimplePhonics";
 import CaseStudySocialDojo from "./pages/CaseStudySocialDojo";
 import { ThemeProvider } from "./components/ThemeProvider";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/case-study/gamergrave" element={<CaseStudyGamerGrave />} />

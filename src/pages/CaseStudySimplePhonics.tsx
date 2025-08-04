@@ -1,9 +1,16 @@
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowLeft } from "lucide-react";
+import { ExternalLink, Github, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation, Link } from "react-router-dom";
+
+import { allCaseStudies } from '@/data/caseStudies';
 
 const CaseStudySimplePhonics = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const otherCaseStudies = allCaseStudies.filter(study => study.link !== currentPath).slice(0, 3);
   const techStack = [
     "React",
     "TypeScript", 
@@ -227,17 +234,28 @@ export const useImageAPI = (query: string) => {
         </div>
       </section>
 
-      {/* Navigation */}
-      <section className="py-12 px-6 lg:px-12 bg-background">
-        <div className="max-w-4xl mx-auto text-center">
-          <Button 
-            variant="ghost" 
-            onClick={() => window.location.href = '/'}
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to All Projects
-          </Button>
+      <section className="px-4 md:px-6 py-12 md:py-20 bg-muted/50">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Read More Case Studies</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {otherCaseStudies.map((study) => (
+              <Link to={study.link} key={study.title} className="block group">
+                <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card border border-border">
+                  <img src={study.image} alt={`${study.title} screenshot`} className="w-full h-48 object-cover"/>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 text-card-foreground">{study.title}</h3>
+                    <p className="text-muted-foreground text-sm">{study.description}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button variant="outline" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+              <ArrowUp className="mr-2 h-4 w-4" />
+              Back to Top
+            </Button>
+          </div>
         </div>
       </section>
     </div>

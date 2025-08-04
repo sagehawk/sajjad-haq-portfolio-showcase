@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FeaturedProject = () => {
@@ -8,7 +8,7 @@ const FeaturedProject = () => {
     {
       title: "GamerGrave",
       impact: "Community-driven platform for classic arcade games, optimized for performance",
-      description: "Built a full-stack game discovery platform featuring infinite scrolling, intelligent search/filtering, user authentication, and real-time data integration. Solved critical performance bottlenecks with image optimization, reducing LCP from 4s to under 1s.",
+      description: "A functional prototype of a community-driven platform for classic arcade games. It features infinite scrolling, intelligent search/filtering, and a user interface optimized for performance. While the database uses placeholder data, the front-end provides a solid demonstration of the intended user experience.",
       tech: ["React", "TypeScript", "Supabase", "Tailwind CSS", "Vite"],
       link: "https://gg.sajjadhaq.com",
       metrics: "75% reduction in LCP time, Full-stack architecture, Community submissions",
@@ -17,7 +17,7 @@ const FeaturedProject = () => {
     {
       title: "Articulate & Refine",
       impact: "AI-powered writing critic that analyzes essays for clarity, consistency, and logical soundness",
-      description: "Developed a comprehensive essay analysis platform featuring AI-powered feedback using Google Gemini API, structured scoring systems, and interactive text highlighting. Built with a focus on transforming complex AI data into actionable user insights.",
+      description: "A design concept and case study for an AI-powered writing critic. This project demonstrates my ability to design complex user interfaces and integrate AI functionalities, focusing on transforming intricate AI data into actionable user insights. The live site is a proof-of-concept and not fully functional.",
       tech: ["React", "TypeScript", "Google Gemini API", "Tailwind CSS", "shadcn/ui"],
       link: "https://essay.sajjadhaq.com",
       metrics: "AI-powered analysis, Structured feedback system, Intuitive User Interface",
@@ -45,11 +45,11 @@ const FeaturedProject = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
-            Shipped Projects
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            A collection of live applications I've built and deployed.
-          </p>
+              Featured Projects
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              A selection of key projects, showcasing my development and problem-solving skills.
+            </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -116,7 +116,6 @@ const FeaturedProject = () => {
                     }}
                   >
                     Case Study
-                    <ArrowRight className="h-3 w-3 ml-2" />
                   </Button>
                 </div>
               </div>

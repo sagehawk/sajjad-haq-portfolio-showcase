@@ -3,10 +3,12 @@ import { useLayoutEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { allCaseStudies } from '@/data/caseStudies';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowUp, ExternalLink } from 'lucide-react';
 import FigmaEmbed from '@/components/FigmaEmbed';
 import { motion } from "framer-motion";
+
 
 const CaseStudySocialDojo = () => {
   useLayoutEffect(() => {
@@ -14,26 +16,10 @@ const CaseStudySocialDojo = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const otherCaseStudies = [
-    {
-      title: "Articulate & Refine",
-      description: "An AI-powered writing critic that analyzes essays for clarity, consistency, and logical soundness.",
-      link: "/case-study/articulate-refine",
-      image: "https://i.imgur.com/8SL0btJ.png"
-    },
-    {
-      title: "GamerGrave",
-      description: "A community-driven platform for classic arcade games, optimized for performance.",
-      link: "/case-study/gamergrave",
-      image: "https://i.imgur.com/zZ27lls.png"
-    },
-    {
-      title: "Simple Phonics",
-      description: "An interactive learning app I built for my son, who used it to master his alphabet and phonics by 18 months old.",
-      link: "/case-study/simple-phonics",
-      image: "https://i.imgur.com/XSTHI5o.png"
-    }
-  ];
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const otherCaseStudies = allCaseStudies.filter(study => study.link !== currentPath).slice(0, 3);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -122,7 +108,7 @@ const CaseStudySocialDojo = () => {
               </a>
             </Button>
           </div>
-          <img src="/images/showcase_full_view.jpg" alt="Social Dojo full UI showcase" className="w-full h-auto rounded-lg shadow-lg border border-border" />
+          <img src="https://i.imgur.com/1mGqBcZ.png" alt="Social Dojo full UI showcase" className="w-full h-auto rounded-lg shadow-lg border border-border" />
         </motion.section>
 
         <motion.section 

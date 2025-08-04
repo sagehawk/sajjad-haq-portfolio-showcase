@@ -1,11 +1,15 @@
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowLeft } from "lucide-react";
+import { ExternalLink, Github, ArrowLeft, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { allCaseStudies } from '@/data/caseStudies';
+import { Link, useLocation } from 'react-router-dom';
 
 const CaseStudyGamerGrave = () => {
-  const navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const otherCaseStudies = allCaseStudies.filter(study => study.link !== currentPath).slice(0, 3);
 
   const techStack = [
     "React", "TypeScript", "Supabase", "Tailwind CSS", "Vite", "Vercel"
@@ -384,19 +388,30 @@ const CaseStudyGamerGrave = () => {
           </div>
         </section>
 
-        {/* Navigation */}
-        <section className="px-8 lg:px-16 py-8 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-          <div className="text-center">
-            <Button
-              variant="ghost"
-              onClick={() => navigate('/')}
-              className="text-blue-600 hover:text-blue-700 font-medium"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to All Projects
+        <section className="px-4 md:px-6 py-12 md:py-20 bg-muted/50">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Read More Case Studies</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {otherCaseStudies.map((study) => (
+              <Link to={study.link} key={study.title} className="block group">
+                <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card border border-border">
+                  <img src={study.image} alt={`${study.title} screenshot`} className="w-full h-48 object-cover"/>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 text-card-foreground">{study.title}</h3>
+                    <p className="text-muted-foreground text-sm">{study.description}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button variant="outline" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+              <ArrowUp className="mr-2 h-4 w-4" />
+              Back to Top
             </Button>
           </div>
-        </section>
+        </div>
+      </section>
       </div>
     </div>
   );
