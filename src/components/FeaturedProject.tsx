@@ -35,7 +35,7 @@ const FeaturedProject = () => {
   ];
 
   return (
-    <section id="featured-work" className="py-16 px-8 lg:px-16 bg-gray-50 dark:bg-gray-900">
+    <section id="featured-project" className="py-16 px-8 lg:px-16 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-5xl mx-auto">
         <motion.div 
           className="text-center mb-12"
@@ -45,10 +45,10 @@ const FeaturedProject = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
-            Featured Work
+            Shipped Projects
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Case studies focused on problem-solving, technical architecture, and measurable business outcomes.
+            A collection of live applications I've built and deployed.
           </p>
         </motion.div>
 

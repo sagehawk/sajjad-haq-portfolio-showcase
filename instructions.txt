@@ -1,0 +1,6 @@
+For the embed for the presentation slides we need to use this url instead https://www.figma.com/deck/XHF26DUgCc2yPkoEHh72zE/Untitled?node-id=3-29&t=clgsp3ycYSSRMQko-1
+becaues the previous one just took us straight to page 10, but we need to start on page 1.
+here's the embed link figma creates not sure if you need this:
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/slides/XHF26DUgCc2yPkoEHh72zE/Untitled?node-id=3-29&embed-host=share" allowfullscreen></iframe>
+
+also at the end where we have that jpg, we're left with nothing at the bottom, I think we should have something there so the user doens't have to scroll all the way back to the top

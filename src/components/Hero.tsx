@@ -1,12 +1,13 @@
 
+
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 
 const Hero = () => {
-  const scrollToWork = () => {
-    const workSection = document.getElementById('featured-work');
-    if (workSection) {
-      workSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToFeaturedProject = () => {
+    const projectSection = document.getElementById('featured-project');
+    if (projectSection) {
+      projectSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -46,9 +47,9 @@ const Hero = () => {
             <Button 
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 font-medium"
-              onClick={scrollToWork}
+              onClick={scrollToFeaturedProject}
             >
-              View My Work
+              View My Featured Project
               <ArrowDown className="ml-2 h-4 w-4" />
             </Button>
             
@@ -97,3 +98,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

@@ -2,6 +2,7 @@
 import { useLayoutEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import FeaturedCaseStudy from '@/components/FeaturedCaseStudy';
 import FeaturedProject from '@/components/FeaturedProject';
 import About from '@/components/About';
 import Education from '@/components/Education';
@@ -28,6 +29,7 @@ const Index = () => {
       <div className="max-w-6xl mx-auto bg-white dark:bg-gray-800 shadow-lg border-l border-r border-gray-200 dark:border-gray-700 min-h-screen">
         <Navbar />
         <Hero />
+        <FeaturedCaseStudy />
         <FeaturedProject />
         <About />
         <Education />

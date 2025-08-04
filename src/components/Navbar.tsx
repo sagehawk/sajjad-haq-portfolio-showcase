@@ -1,7 +1,9 @@
 
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeToggle } from './ThemeToggle';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,18 +25,18 @@ const Navbar = () => {
       <div className="max-w-4xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <a href="#home" className="text-xl font-bold text-gray-900 dark:text-white">
+            <a href="/" className="text-xl font-bold text-gray-900 dark:text-white">
               Sajjad Haq
             </a>
           </div>
           
           {/* Desktop menu */}
           <nav className="hidden md:flex items-center space-x-8">
-            <NavLink href="#home">Home</NavLink>
-            <NavLink href="#featured-work">Work</NavLink>
-            <NavLink href="#about">About</NavLink>
-            <NavLink href="#education">Education</NavLink>
-            <NavLink href="#contact">Contact</NavLink>
+            <NavLink href="/#home">Home</NavLink>
+            <NavLink href="/#featured-work">Work</NavLink>
+            <NavLink href="/#about">About</NavLink>
+            <NavLink href="/#education">Education</NavLink>
+            <NavLink href="/#contact">Contact</NavLink>
             <div className="ml-4">
               <ThemeToggle />
             </div>
@@ -74,11 +76,11 @@ const Navbar = () => {
             transition={{ duration: 0.2 }}
           >
             <div className="px-6 py-4 space-y-3">
-              <MobileNavLink href="#home" onClick={() => setMobileMenuOpen(false)}>Home</MobileNavLink>
-              <MobileNavLink href="#featured-work" onClick={() => setMobileMenuOpen(false)}>Work</MobileNavLink>
-              <MobileNavLink href="#about" onClick={() => setMobileMenuOpen(false)}>About</MobileNavLink>
-              <MobileNavLink href="#education" onClick={() => setMobileMenuOpen(false)}>Education</MobileNavLink>
-              <MobileNavLink href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</MobileNavLink>
+              <MobileNavLink href="/#home" onClick={() => setMobileMenuOpen(false)}>Home</MobileNavLink>
+              <MobileNavLink href="/#featured-work" onClick={() => setMobileMenuOpen(false)}>Work</MobileNavLink>
+              <MobileNavLink href="/#about" onClick={() => setMobileMenuOpen(false)}>About</MobileNavLink>
+              <MobileNavLink href="/#education" onClick={() => setMobileMenuOpen(false)}>Education</MobileNavLink>
+              <MobileNavLink href="/#contact" onClick={() => setMobileMenuOpen(false)}>Contact</MobileNavLink>
             </div>
           </motion.div>
         )}
@@ -87,23 +89,64 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ href, children }: { href: string, children: React.ReactNode }) => (
-  <a 
-    href={href} 
-    className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
-  >
-    {children}
-  </a>
-);
+const NavLink = ({ href, children }: { href: string, children: React.ReactNode }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-const MobileNavLink = ({ href, onClick, children }: { href: string, onClick: () => void, children: React.ReactNode }) => (
-  <a 
-    href={href} 
-    className="block text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
-    onClick={onClick}
-  >
-    {children}
-  </a>
-);
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = href.substring(href.indexOf('#') + 1);
+    
+    if (location.pathname === '/') {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100); // Delay to allow page transition
+    }
+  };
+
+  return (
+    <a 
+      href={href} 
+      onClick={handleClick}
+      className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+    >
+      {children}
+    </a>
+  );
+};
+
+const MobileNavLink = ({ href, onClick, children }: { href: string, onClick: () => void, children: React.ReactNode }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onClick();
+    const targetId = href.substring(href.indexOf('#') + 1);
+
+    if (location.pathname === '/') {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100); // Delay to allow page transition
+    }
+  };
+
+  return (
+    <a 
+      href={href} 
+      onClick={handleClick}
+      className="block text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+    >
+      {children}
+    </a>
+  );
+};
 
 export default Navbar;
+

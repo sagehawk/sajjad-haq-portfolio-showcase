@@ -1,0 +1,84 @@
+*** START OF PORTFOLIO COPY ***
+
+---
+## SECTION 1: NEW FEATURED CASE STUDY (To be placed ABOVE the existing "Shipped Projects")
+---
+
+### Main Header:
+Featured Case Study: From Idea to Architecture
+
+### Sub-Header:
+This is a deep dive into my process for architecting a user-centric application from the ground up, combining product strategy, UX/UI design, and front-end architecture.
+
+---
+### Project Card: The Social Dojo
+---
+
+### Title:
+The Social Dojo
+
+### Tagline:
+AI-powered conversation trainer for building social confidence.
+
+### Description:
+A full-stack "flight simulator" for social skills designed to turn conversational anxiety into a trainable skill. This project showcases my end-to-end product development process, from identifying a user problem to designing a comprehensive UI/UX in Figma and architecting a scalable front-end system.
+
+### Metadata:
+- Role: Product Architect, UX/UI Designer, Front-End Developer
+- Technologies Planned: React, Next.js, TypeScript, Gemini API, Supabase, Tailwind CSS
+- Status: In Development (Design & Architecture Complete)
+
+### Buttons:
+1. [ View the Full Case Study ] (This should link to a new page: /case-study/social-dojo)
+2. [ Explore the Figma Prototype ] (This should link directly to the Figma embed of the "All Screens" showcase, which will also be on the new case study page)
+
+---
+## SECTION 2: RENAME EXISTING SECTION
+---
+
+### Old Header:
+Featured Work
+
+### New Header:
+Shipped Projects
+
+### Sub-Header (Keep as is):
+A collection of live applications I've built and deployed.
+
+---
+## SECTION 3: NEW CASE STUDY PAGE (URL: /case-study/social-dojo)
+---
+
+### Page Title:
+Case Study: The Social Dojo
+
+### Part 1: Introduction
+- **The Problem:** The "awkward silence" is a universal source of social anxiety. For ambitious professionals, it can be a barrier to building crucial relationships. Our target user, "Alex," feels this pain point regularly, struggling to move beyond simple pleasantries in workplace conversations.
+- **The Solution (The Dojo Method):** The Social Dojo tackles this by providing a private gym for social skills. Our 3-step system (The Sparring Room, The Follow-Up Engine, The Instant Replay) empowers users to practice, fail safely, and get actionable feedback, building real conversational muscle memory.
+
+### Part 2: The Strategic Presentation
+- **Section Header:** Product Strategy & User Flow
+- **Action:** Embed the Figma Presentation Slide Deck here using the link provided.
+
+### Part 3: Technical Architecture
+- **Section Header:** From Design to Code: The Technical Blueprint
+- **Bullet Points:**
+    - **Front-End:** Built with Next.js and TypeScript for a robust, type-safe application. The UI will be constructed using a component library based on Tailwind CSS and shadcn/ui, ensuring a clean and maintainable codebase.
+    - **State Management:** Global state, such as user authentication and mission progress, will be managed using Zustand (or React Context) for a lightweight and efficient solution. Local component state will handle UI interactions within the chat and mission views.
+    - **API Integration:** The core chat functionality will interface with a backend service that calls the Google Gemini API. The front-end is designed to handle real-time message streams and update the UI asynchronously.
+    - **Backend & Auth:** User data, authentication, and database management will be handled by Supabase, providing a scalable and secure backend-as-a-service.
+
+### Part 4: The Complete UI/UX Blueprint
+---
+
+### Section Header:
+The Complete UI/UX Blueprint
+
+### Sub-Header / Call-to-Action (Place this directly below the header):
+The full design is displayed below as a high-resolution image for fast loading. For a closer look, you can explore the live, interactive prototype.
+
+[ **Open Interactive Figma Prototype →** ] (This button should open the Figma link in a new browser tab)
+
+### Main Content:
+Display the static image `showcase_full_view.jpg` here. Ensure it is displayed at full width, maintains its aspect ratio, and has a subtle border or drop shadow to frame it nicely on the page.
+*** END OF PORTFOLIO COPY ***

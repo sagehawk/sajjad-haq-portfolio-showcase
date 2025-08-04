@@ -1,0 +1,26 @@
+Sajjad Haq
+South Barrington, IL | (224) 499-4517 | haq.sajjad220@gmail.com | LinkedIn | GitHub | Portfolio
+Front-End Developer with a Founder's Mindset
+A product-minded Front-End Developer with a passion for building complex, user-centric applications from the ground up. Combines a recent Computer Science degree with hands-on experience in the modern JavaScript ecosystem (React, TypeScript, Next.js) and a unique background in entrepreneurial project development. Eager to contribute to a collaborative team focused on building high-quality, scalable software.
+Technical Skills
+Languages: JavaScript (ES6+), TypeScript, HTML5, CSS3, Python, SQL
+Frameworks & Libraries: React, Next.js, Node.js, Express, Tailwind CSS, Shadcn UI
+Tools & Platforms: Git, GitHub, Supabase, Vercel, Figma, CI/CD, Make, Confluence, Claude CLI, MCP
+Portfolio & Projects
+The Social Dojo — Product Design & Architecture of an AI Communications Trainer
+•	Designed a complete user experience in Figma, encompassing a 10+ screen user flow from onboarding to the core training loop and account management.
+•	Architected the full-stack system, defining a React/Next.js front-end, a Supabase backend for auth/data, and a prompt engineering strategy to manage AI state via the Gemini API.
+•	Led the product strategy, identifying the core user problem and designing key features like a gamified "Journey Map" and an "Instant Replay" feedback loop to drive user engagement and skill retention.
+GamerGrave – Game Discovery Platform | gg.sajjadhaq.com | [Source Code]
+•	Architected a full-stack discovery platform with Supabase, engineering a performant UI with features like infinite scrolling and intelligent filtering.
+•	Built a custom, accessible UI component library from scratch, focusing on a clean user experience.
+Simple Phonics – Interactive Learning App | phonics.sajjadhaq.com | [Source Code]
+•	Engineered a mobile-first learning app, solving complex UI challenges including native-like multi-touch gesture handling and full right-to-left (RTL) language support for Arabic.
+Experience
+Solo Freelance Developer (Ceramic Catalysts), South Barrington, IL	Jan 2022 – Jun 2025
+•	Explored entrepreneurial product development by identifying a need in the automotive detailing market.
+•	Leveraged low-code/no-code platforms (GoHighLevel, Make) and AI tools (Vapi) to rapidly prototype and deploy an automated lead follow-up system for a local client.
+•	Gained valuable experience in client communication, project ideation, and translating business requirements into a functional technical solution.
+Education
+Northern Illinois University | DeKalb, IL
+Bachelor of Science in Computer Science, May 2025
