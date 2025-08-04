@@ -21,7 +21,7 @@ const FigmaEmbed = ({ src, className }: FigmaEmbedProps) => {
                 <iframe
                     src={src}
                     onLoad={() => setIsLoading(false)}
-                    allowFullScreen
+                    
                     className={`w-full h-full rounded-lg transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                     style={{ border: 0 }}
                 ></iframe>
