@@ -122,7 +122,7 @@ const CaseStudySocialDojo = () => {
               </a>
             </Button>
           </div>
-          <img src="/images/showcase_full_view.jpg" alt="Social Dojo full UI showcase" className="w-full h-auto rounded-lg shadow-lg border border-border" />
+          <img src="https://www.sajjadhaq.com/images/showcase_full_view.jpg" alt="Social Dojo full UI showcase" className="w-full h-auto rounded-lg shadow-lg border border-border" />
         </motion.section>
 
         <motion.section 
