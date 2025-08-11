@@ -8,25 +8,17 @@ const FeaturedProject = () => {
     {
       title: "GamerGrave",
       impact: "Community-driven platform for classic arcade games, optimized for performance",
-      description: "A functional prototype of a community-driven platform for classic arcade games. It features infinite scrolling, intelligent search/filtering, and a user interface optimized for performance. While the database uses placeholder data, the front-end provides a solid demonstration of the intended user experience.",
+      description: "A project focused on front-end performance and data handling, built to master concepts like infinite scrolling, client-side filtering, and building a custom component library with React and Supabase.",
       tech: ["React", "TypeScript", "Supabase", "Tailwind CSS", "Vite"],
       link: "https://gg.sajjadhaq.com",
       metrics: "75% reduction in LCP time, Full-stack architecture, Community submissions",
       caseStudyLink: "/case-study/gamergrave"
     },
-    {
-      title: "Articulate & Refine",
-      impact: "AI-powered writing critic that analyzes essays for clarity, consistency, and logical soundness",
-      description: "A design concept and case study for an AI-powered writing critic. This project demonstrates my ability to design complex user interfaces and integrate AI functionalities, focusing on transforming intricate AI data into actionable user insights. The live site is a proof-of-concept and not fully functional.",
-      tech: ["React", "TypeScript", "Google Gemini API", "Tailwind CSS", "shadcn/ui"],
-      link: "https://essay.sajjadhaq.com",
-      metrics: "AI-powered analysis, Structured feedback system, Intuitive User Interface",
-      caseStudyLink: "/case-study/articulate-refine"
-    },
+    
     {
       title: "Simple Phonics",
       impact: "Mobile-first learning app solving complex UI challenges",
-      description: "Engineered an interactive educational application with native-like mobile gestures and right-to-left (RTL) language support. Focused on creating an engaging, accessible learning experience across different devices and languages.",
+      description: "A deep dive into complex UI/UX challenges, this project was built to master native-like mobile gestures and the architectural patterns required for full right-to-left (RTL) language support.",
       tech: ["React", "TypeScript", "Mobile UX", "RTL Support"],
       link: "https://phonics.sajjadhaq.com",
       metrics: "Native-like gestures, RTL language support, Cross-device compatibility",
@@ -48,7 +40,7 @@ const FeaturedProject = () => {
               Featured Projects
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              A selection of key projects, showcasing my development and problem-solving skills.
+              A selection of projects where I've explored specific technologies and solved unique challenges.
             </p>
         </motion.div>
 

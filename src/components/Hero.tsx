@@ -29,13 +29,11 @@ const Hero = () => {
             </h1>
             
             <h2 className="text-xl lg:text-2xl text-gray-700 dark:text-gray-300 font-medium">
-              A developer who thinks like a founder.
+              A product-minded developer building for tomorrow.
             </h2>
             
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              I build high-performance web applications with a focus on measurable business outcomes. 
-              Having run my own tech agency, I bridge the gap between sophisticated engineering and 
-              the bottom-line results that drive a business forward.
+              I'm a recent Computer Science graduate with a founder's mindset, passionate about translating complex ideas into clean, user-centric front-end experiences. My focus is on learning, building, and preparing to contribute to a world-class engineering team.
             </p>
           </div>
 
@@ -46,7 +44,7 @@ const Hero = () => {
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 font-medium"
               onClick={navigateToSocialDojoCaseStudy}
             >
-              View My Featured Project
+              View My Process
             </Button>
             
             <Button 

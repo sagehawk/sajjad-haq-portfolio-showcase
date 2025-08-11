@@ -9,7 +9,7 @@ const FeaturedCaseStudy = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-            Featured Case Study: From Idea to Architecture
+            Featured Project: The Social Dojo (Concept to MVP)
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
             This is a deep dive into my process for architecting a user-centric application from the ground up, combining product strategy, UX/UI design, and front-end architecture.
@@ -23,11 +23,11 @@ const FeaturedCaseStudy = () => {
             </CardHeader>
             <CardContent>
               <p className="mb-4">
-                A full-stack "flight simulator" for social skills designed to turn conversational anxiety into a trainable skill. This project showcases my end-to-end product development process, from identifying a user problem to designing a comprehensive UI/UX in Figma and architecting a scalable front-end system.
+                This project is the centerpiece of my current work, showcasing my full product development process. It began as a deep dive into solving a real user problem, evolved into a comprehensive UI/UX design in Figma, and is now in the process of being built as my primary portfolio MVP.
               </p>
               <ul className="mb-6 space-y-2 text-sm text-gray-600 dark:text-gray-400">
                 <li><strong>Role:</strong> Product Architect, UX/UI Designer, Front-End Developer</li>
-                <li><strong>Technologies Planned:</strong> React, Next.js, TypeScript, Gemini API, Supabase, Tailwind CSS</li>
+                <li><strong>Core Tech:</strong> React, TypeScript, Supabase, Gemini API, Tailwind CSS</li>
                 <li><strong>Status:</strong> In Development (Design & Architecture Complete)</li>
               </ul>
               <div className="flex flex-wrap gap-4">

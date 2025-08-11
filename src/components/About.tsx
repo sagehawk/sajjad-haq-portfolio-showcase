@@ -19,7 +19,7 @@ const About = () => {
         >
           <div className="text-center">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              My Journey: From Founder to Craftsman
+              My Background: From Founder to Developer
             </h2>
           </div>
 
@@ -43,7 +43,7 @@ const About = () => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">My Toolkit</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Core Technologies</h3>
             <div className="flex flex-wrap gap-3">
               {technologies.map((tech) => (
                 <span 

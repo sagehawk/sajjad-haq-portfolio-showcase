@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 const Contact = () => {
   const whyWorkWithMe = [
     {
-      title: "Business-Driven Development",
-      description: "My experience as a founder gives me a unique understanding of how to build features that deliver real business outcomes and measurable ROI."
+      title: "A Fast Learner",
+      description: "I have a proven ability to dive into new concepts and apply them to real projects quickly and effectively."
     },
     {
-      title: "High-Fidelity Implementation", 
-      description: "I specialize in translating high-fidelity designs from Figma into clean, performant, and pixel-perfect React applications. My keen eye for detail ensures the final product is a faithful execution of the creative vision."
+      title: "A Proactive Builder", 
+      description: "I don't wait to be told what to do. My founder background has taught me to identify problems and proactively design and build solutions."
     },
     {
-      title: "A Meticulous Collaborator",
-      description: "I thrive on collaborating closely with design and product teams to bring their work to life, catching edge cases and ensuring a robust, polished final product."
+      title: "A Collaborative Mindset",
+      description: "I'm excited to learn from senior engineers, participate in code reviews, and be a productive, positive member of a professional development team."
     }
   ];
 
@@ -28,11 +28,10 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Let's Connect
+            Ready to Contribute
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I'm actively seeking Front-End Developer roles in the Chicago area and am always 
-            open to connecting with product teams, designers, and engineers who are passionate about building exceptional user experiences.
+            I'm actively seeking an internship or 'Early in Careers' role where I can bring my passion for building and learning to a collaborative team. I'm eager to contribute to enterprise-scale products and grow as an engineer at a company like Grainger.
           </p>
         </motion.div>
 

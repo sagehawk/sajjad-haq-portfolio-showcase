@@ -1,6 +1,77 @@
-For the embed for the presentation slides we need to use this url instead https://www.figma.com/deck/XHF26DUgCc2yPkoEHh72zE/Untitled?node-id=3-29&t=clgsp3ycYSSRMQko-1
-becaues the previous one just took us straight to page 10, but we need to start on page 1.
-here's the embed link figma creates not sure if you need this:
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/slides/XHF26DUgCc2yPkoEHh72zE/Untitled?node-id=3-29&embed-host=share" allowfullscreen></iframe>
+**Prompt for Lovable.dev: Portfolio Pivot for an "Early in Careers" Application**
 
-also at the end where we have that jpg, we're left with nothing at the bottom, I think we should have something there so the user doens't have to scroll all the way back to the top
+**Overall Goal:** My portfolio is currently framed for a mid-level developer. I need to pivot the language to align with my immediate goal: securing a top-tier internship or "Early in Careers" role. The new focus is on showcasing my design process, architectural thinking, and my journey as a dedicated learner, rather than claiming fully completed, production-ready projects.
+
+---
+
+### **1. Hero Section (Top of Page)**
+
+*   **Change Main Headline:**
+    *   **From:** "A developer who thinks like a founder."
+    *   **To:** "A product-minded developer building for tomorrow."
+*   **Change Subheading Text:**
+    *   **From:** "I build high-performance web applications with a focus on measurable business outcomes..."
+    *   **To:** "I'm a recent Computer Science graduate with a founder's mindset, passionate about translating complex ideas into clean, user-centric front-end experiences. My focus is on learning, building, and preparing to contribute to a world-class engineering team."
+*   **Change Main Button:**
+    *   **From:** "View My Featured Project"
+    *   **To:** "View My Process" (This better reflects the case study format).
+
+---
+
+### **2. Featured Case Study: The Social Dojo**
+
+*   **Change Section Title:**
+    *   **From:** "Featured Case Study: From Idea to Architecture"
+    *   **To:** "Featured Project: The Social Dojo (Concept to MVP)"
+*   **Change Main Description:**
+    *   **From:** "A full-stack 'flight simulator' for social skills designed to turn conversational anxiety into a trainable skill..."
+    *   **To:** "This project is the centerpiece of my current work, showcasing my full product development process. It began as a deep dive into solving a real user problem, evolved into a comprehensive UI/UX design in Figma, and is now in the process of being built as my primary portfolio MVP."
+*   **Change "Technologies Planned":**
+    *   **From:** "Technologies Planned: React, Next.js, TypeScript, Gemini API, Supabase, Tailwind CSS"
+    *   **To:** "Core Tech: React, TypeScript, Supabase, Gemini API, Tailwind CSS"
+
+---
+
+### **3. Featured Projects Section**
+
+*   **Change Section Subheading:**
+    *   **From:** "A selection of key projects, showcasing my development and problem-solving skills."
+    *   **To:** "A selection of projects where I've explored specific technologies and solved unique challenges."
+*   **Update "GamerGrave" Description:**
+    *   **From:** "A functional prototype of a community-driven platform..."
+    *   **To:** "A project focused on front-end performance and data handling, built to master concepts like infinite scrolling, client-side filtering, and building a custom component library with React and Supabase."
+*   **Update "Articulate & Refine" Project:**
+    *   **Action:** This project is too similar in concept to The Social Dojo. To avoid redundancy and strengthen focus, **remove the "Articulate & Refine" project entirely.** This will elevate the remaining projects.
+*   **Update "Simple Phonics" Description:**
+    *   **From:** "Engineered an interactive educational application..."
+    *   **To:** "A deep dive into complex UI/UX challenges, this project was built to master native-like mobile gestures and the architectural patterns required for full right-to-left (RTL) language support."
+
+---
+
+### **4. "My Journey" & "My Toolkit" Sections**
+
+*   **Change "My Journey" Section Title:**
+    *   **From:** "My Journey: From Founder to Craftsman"
+    *   **To:** "My Background: From Founder to Developer"
+*   **Change "My Toolkit" Section Title:**
+    *   **From:** "My Toolkit"
+    *   **To:** "Core Technologies" (This is more professional and consistent with resume language).
+
+---
+
+### **5. "Let's Connect" Section (The Final Pitch)**
+
+*   **Change Section Title:**
+    *   **From:** "Let's Connect"
+    *   **To:** "Ready to Contribute"
+*   **Change Section Subheading:**
+    *   **From:** "I'm actively seeking Front-End Developer roles in the Chicago area..."
+    *   **To:** "I'm actively seeking an internship or 'Early in Careers' role where I can bring my passion for building and learning to a collaborative team. I'm eager to contribute to enterprise-scale products and grow as an engineer at a company like Grainger."
+*   **Rewrite "Why Work With Me?":** The current points are for hiring a freelancer. They need to be for hiring an intern.
+    *   **Action:** Replace the three bullet points with these new ones:
+        *   **A Fast Learner:** "I have a proven ability to dive into new concepts and apply them to real projects quickly and effectively."
+        *   **A Proactive Builder:** "I don't wait to be told what to do. My founder background has taught me to identify problems and proactively design and build solutions."
+        *   **A Collaborative Mindset:** "I'm excited to learn from senior engineers, participate in code reviews, and be a productive, positive member of a professional development team."
+
+By making these specific changes, my portfolio will be perfectly and honestly aligned with my resume and my immediate goal of landing a top-tier internship.
+
